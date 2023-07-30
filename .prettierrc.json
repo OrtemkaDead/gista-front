@@ -15,11 +15,12 @@
   "endOfLine": "auto",
 
   "importOrder": [
-    "^app/(.*)$",
-    "^components/(.*)$",
-    "^ui-kit/(.*)$",
-    "^assets/(.*)$",
-    "^lib/(.*)$",
+    "@/app/(.*)$",
+    "@/components/(.*)$",
+    "@/ui-kit",
+    "@/lib/(.*)$",
+    "@/assets/(.*)$",
+    "@/fonts",
     "^[./]"
   ],
   "importOrderSeparation": true,

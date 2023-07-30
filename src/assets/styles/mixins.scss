@@ -1,0 +1,95 @@
+@import "./typography.scss";
+
+@mixin width($width) {
+  width: $width;
+  max-width: $width;
+  min-width: $width;
+}
+
+@mixin height($height) {
+  height: $height;
+  max-height: $height;
+  min-height: $height;
+}
+
+@mixin gap($gap) {
+  gap: $gap;
+}
+
+@mixin border($border-style: none, $border-color: transparent, $border-radius: 0, $border-widths: none) {
+  border-style: $border-style;
+  border-color: $border-color;
+  border-radius: $border-radius;
+
+  @if $border-widths != none {
+    border-width: $border-widths;
+  }
+}
+@mixin button($width ,$bg-color) {
+  @include width($width);
+  height: 40px;
+  background-color: $bg-color;
+  @include border($border-radius: 8px);
+}
+@mixin fixedWidth($size, $min-size: $size, $max-size: $size) {
+  width: $size;
+  min-width: $min-size;
+  max-width: $max-size;
+}
+
+@mixin fixedHeight($size, $min-size: $size, $max-size: $size) {
+  height: $size;
+  min-height: $min-size;
+  max-height: $max-size;
+}
+
+@mixin square($size, $radius: 0) {
+  @include fixedWidth($size);
+  @include fixedHeight($size);
+
+  @if $radius != 0 {
+    border-radius: $radius;
+  }
+}
+
+@mixin position($pos, $top: auto, $right: auto, $bottom: auto, $left: auto) {
+  position: $pos;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin invisible {
+  position: absolute;
+  z-index: -1;
+  display: block;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+@mixin border($border-style: none, $border-color: transparent, $border-radius: 0, $border-widths: none) {
+  border-style: $border-style;
+  border-color: $border-color;
+  border-radius: $border-radius;
+
+  @if $border-widths != none {
+    border-width: $border-widths;
+  }
+}
+@mixin gap($gap) {
+  gap: $gap;
+}
+
+@mixin flexible($ai: flex-start, $jc: flex-start, $fd: row, $fw: nowrap, $gap: 0) {
+  display: flex;
+  flex-direction: $fd;
+  flex-wrap: $fw;
+  align-items: $ai;
+  justify-content: $jc;
+
+  @if $gap != 0 {
+    gap: $gap;
+  }
+}

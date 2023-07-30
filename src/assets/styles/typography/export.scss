@@ -1,0 +1,7 @@
+@import "typography";
+
+:export {
+  @each $variant, $styles in $typography {
+    #{$variant}: map-get($styles, "fs"), map-get($styles, "fw"), map-get($styles, "ln");
+  }
+}

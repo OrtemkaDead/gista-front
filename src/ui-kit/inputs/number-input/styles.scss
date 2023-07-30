@@ -1,0 +1,17 @@
+.number-input {
+  @include flexible( $ai: center, $jc: center);
+  width: 40px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #DEDEDE;
+  text-align: center;
+}
+
+input[type='number'] {
+  -moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}

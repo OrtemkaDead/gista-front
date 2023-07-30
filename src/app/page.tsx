@@ -1,14 +1,27 @@
-import styles from './page.module.css'
+import { Logo } from '@/components'
+
+import { Checkbox, Icon, Typography } from '@/ui-kit'
+
+import './styles.scss'
 
 export default function Home(): React.ReactElement {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-      </div>
+    <main>
+      <Typography
+        variant="display"
+        font="ntSomic400"
+      >
+        Это конечно треш
+      </Typography>
+
+      <Icon
+        iconName="book"
+        size={64}
+      />
+
+      <Logo />
+
+      <Checkbox state />
     </main>
   )
 }
