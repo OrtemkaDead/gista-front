@@ -1,5 +1,6 @@
-import Button from '@/ui-kit/button'
-import Typography from '@/ui-kit/typography'
+import { Logo } from '@/components'
+
+import { Checkbox, Icon, Typography } from '@/ui-kit'
 
 import './styles.scss'
 
@@ -8,23 +9,19 @@ export default function Home(): React.ReactElement {
     <main>
       <Typography
         variant="display"
-        font="lato400"
-      >
-        Test Текста LAto
-      </Typography>
-      <Typography
-        className="page__test-text"
-        variant="display"
-        font="gilroy400"
-      >
-        Test Текста gilroy400
-      </Typography>
-      <Typography
-        variant="display"
         font="ntSomic400"
       >
-        Test Текста ntSomic400
+        Это конечно треш
       </Typography>
+
+      <Icon
+        iconName="book"
+        size={64}
+      />
+
+      <Logo />
+
+      <Checkbox state />
     </main>
   )
 }

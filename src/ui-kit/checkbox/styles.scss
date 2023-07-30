@@ -1,0 +1,9 @@
+.checkbox {
+  @include button(24px, #FFFFFF);
+  height: 24px;
+  @include border(solid, #D2D2D2, 7px, 1px);
+
+  &--checked {
+    background-color: #205EFF;
+  }
+}

@@ -5,13 +5,13 @@ import fonts from '@/fonts'
 import './styles.scss'
 import TypographyProps from './typography.types'
 
-function Typography({
+export const Typography: React.FC<TypographyProps> = ({
   variant = 'title-h3',
   font = 'lato400',
 
   className = '',
   children,
-}: TypographyProps): React.ReactElement {
+}) => {
   // ? ClassNames
   const componentClassName = 'typography'
   const TypographyClassName = classnames(
@@ -26,5 +26,3 @@ function Typography({
 
   return <p className={TypographyClassName}>{children}</p>
 }
-
-export default Typography

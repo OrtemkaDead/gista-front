@@ -1,13 +1,11 @@
-'use client'
-
 import classnames from 'classnames'
 
-import Typography from '@/ui-kit/typography'
+import { Typography } from '@/ui-kit'
 
 import ButtonProps from './button.types'
 import './styles.scss'
 
-const Button = ({
+export const Button: React.FC<ButtonProps> = ({
   className = '',
   children = '',
 
@@ -20,8 +18,8 @@ const Button = ({
   rightIcon,
 
   onClick,
-}: ButtonProps): React.ReactElement => {
-  // ? ClassNames
+}) => {
+  //* ClassNames
   const componentClassName = 'button'
   const ButtonClassName = classnames(
     componentClassName,
@@ -39,6 +37,7 @@ const Button = ({
       <Typography
         className={`${componentClassName}__text`}
         variant="title-h3"
+        font="ntSomic400"
       >
         {children}
       </Typography>
@@ -61,5 +60,3 @@ const Button = ({
     </button>
   )
 }
-
-export default Button
