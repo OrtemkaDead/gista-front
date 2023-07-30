@@ -1,0 +1,5 @@
+@function color($name) {
+  @if map-get($colors, $name) {
+    @return var(--#{unquote($name)});
+  }
+}

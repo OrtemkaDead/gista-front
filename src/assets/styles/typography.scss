@@ -1,0 +1,30 @@
+@mixin typography($fs: 16px, $fw: 400, $lh: 24px) {
+  font-weight: $fw;
+  font-size: $fs;
+  line-height: $lh;
+}
+
+@mixin text-display {
+  @include typography(40px, 400, 60px);
+}
+@mixin headline-h1 {
+  @include typography(32px, 400, 48px);
+}
+@mixin headline-h2 {
+  @include typography(24px, 400, 32px);
+}
+@mixin title-h1{
+  @include typography(20px, 400, 30px);
+}
+@mixin title-h2 {
+  @include typography(18px, 400, 27px);
+}
+@mixin title-h3 {
+  @include typography(16px, 400, 24px);
+}
+@mixin text-16 {
+  @include typography(16px, 400, 24px);
+}
+@mixin text-14 {
+  @include typography(14px, 400, 21px);
+}

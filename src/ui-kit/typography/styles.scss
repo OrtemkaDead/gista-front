@@ -1,0 +1,26 @@
+.typography {
+  &--display {
+    @include text-display;
+  }
+  &--headline-h1 {
+    @include headline-h1;
+  }
+  &--headline-h2 {
+    @include headline-h2;
+  }
+  &--title-h1 {
+    @include title-h1;
+  }
+  &--title-h2 {
+    @include title-h2;
+  }
+  &--title-h3 {
+    @include title-h3;
+  }
+  &--text-16{
+    @include text-16;
+  }
+  &--text-14 {
+    @include text-14;
+  }
+}
