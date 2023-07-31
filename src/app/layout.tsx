@@ -1,5 +1,9 @@
 import type { Metadata } from 'next'
 
+import { Header } from '@/components'
+
+import { Button } from '@/ui-kit'
+
 import './globals.scss'
 
 export const metadata: Metadata = {
@@ -14,7 +18,14 @@ export default function RootLayout({
 }): React.ReactElement {
   return (
     <html lang="ru">
-      <body>{children}</body>
+      <body>
+        <Header>
+          <Button>Auth</Button>
+          <Button>Register</Button>
+        </Header>
+
+        {children}
+      </body>
     </html>
   )
 }
