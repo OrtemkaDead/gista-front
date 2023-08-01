@@ -1,4 +1,4 @@
-import { Logo } from '@/components'
+import { GistaCard, Logo } from '@/components'
 
 import { Checkbox, Icon, Typography } from '@/ui-kit'
 
@@ -18,6 +18,9 @@ export default function Home(): React.ReactElement {
         iconName="book"
         size={64}
       />
+
+      <GistaCard />
+      <GistaCard editable />
 
       <Logo />
 

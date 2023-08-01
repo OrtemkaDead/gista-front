@@ -16,7 +16,7 @@
 
   "importOrder": [
     "@/app/(.*)$",
-    "@/components/(.*)$",
+    "@/components",
     "@/ui-kit",
     "@/lib/(.*)$",
     "@/assets/(.*)$",

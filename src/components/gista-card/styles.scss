@@ -1,0 +1,20 @@
+.gista-card {
+  @include flexible($fd: row, $ai: center);
+  width: 564px;
+
+  border: 1px solid $color-border-primary;
+  border-radius: 8px;
+
+  &__title {
+    padding: 16px 0 16px 16px;
+  }
+
+  &__icons {
+    @include flexible($fd: column, $ai: center, $gap: 16px);
+    margin-right: 12px;
+  }
+
+  &__content {
+    @include flexible($fd: row, $ai: center, $gap: 24px);
+  }
+}

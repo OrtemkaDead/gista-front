@@ -1,0 +1,19 @@
+.header {
+  width: 100%;
+  @include flexible(center, space-between);
+  padding: 11.5px 28px;
+
+  background-color: $color-background-primary;
+  border-bottom: 1px solid $color-border-primary;
+
+  &__logo {
+    @include flexible(center, $gap: 12px);
+  }
+  &__title {
+    color: $color-primary;
+  }
+
+  &__buttons {
+    @include flexible(center, $gap: 15px);
+  }
+}

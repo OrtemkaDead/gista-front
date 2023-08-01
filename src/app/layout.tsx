@@ -1,6 +1,11 @@
 import type { Metadata } from 'next'
 
+import { Header, Sidebar } from '@/components'
+
+import { Button } from '@/ui-kit'
+
 import './globals.scss'
+import './styles.scss'
 
 export const metadata: Metadata = {
   title: 'Сдать гисту',
@@ -14,7 +19,18 @@ export default function RootLayout({
 }): React.ReactElement {
   return (
     <html lang="ru">
-      <body>{children}</body>
+      <body className="app-layout">
+        <Header>
+          <Button>Auth</Button>
+          <Button>Register</Button>
+        </Header>
+
+        <div className="app-layout__content">
+          <Sidebar />
+
+          {children}
+        </div>
+      </body>
     </html>
   )
 }
