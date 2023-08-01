@@ -1,4 +1,5 @@
 import { GistaCard, Logo } from '@/components'
+import { Collapse } from '@/components/collapse'
 
 import { Checkbox, Icon, Typography } from '@/ui-kit'
 
@@ -25,6 +26,12 @@ export default function Home(): React.ReactElement {
       <Logo />
 
       <Checkbox state />
+      <Collapse
+        title="Test"
+        type="section"
+      >
+        <GistaCard editable />
+      </Collapse>
     </main>
   )
 }
