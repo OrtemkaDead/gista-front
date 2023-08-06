@@ -1,7 +1,7 @@
 'use client'
 
 import classnames from 'classnames'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 import { Icon, Typography } from '@/ui-kit'
 
@@ -39,7 +39,7 @@ export const Collapse: React.FC<CollapseProps> = ({
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
         >
-          <div className={`${componentClassName}__title__wrapper`}>
+          <div className={`${componentClassName}__container`}>
             {editable && isEditPosition && <Icon iconName="hamburger" />}
             <Typography
               className={

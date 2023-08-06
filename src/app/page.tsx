@@ -1,4 +1,5 @@
 import { Section, SubSection } from '@/store/reducers/sections-reducer/initial-state'
+import React from 'react'
 
 import { GistaCard } from '@/components'
 import { Collapse } from '@/components/collapse'
