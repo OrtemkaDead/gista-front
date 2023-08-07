@@ -23,17 +23,17 @@ const sections: Section[] = [
 
 const subsections: SubSection[] = [
   {
-    id: '1',
+    id: '01',
     parent_id: '1',
     name: 'Подраздел 1',
   },
   {
-    id: '2',
+    id: '02',
     parent_id: '2',
     name: 'Подраздел 3',
   },
   {
-    id: '1',
+    id: '03',
     parent_id: '1',
     name: 'Подраздел 2',
   },
@@ -56,6 +56,7 @@ export default function Home(): React.ReactElement {
                     key={subsection.id}
                     title={subsection.name}
                     type="subsection"
+                    editable
                   >
                     <GistaCard />
                     <GistaCard />

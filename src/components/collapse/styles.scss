@@ -1,17 +1,23 @@
 .collapse {
   @include flexible($fd: column);
   width: 100%;
+  &__edit-icons {
+    display: none;
+  }
+  &:hover {
+    .collapse__edit-icons {
+      @include flexible($fd: row, $ai: center, $gap: 16px);
+    }
+  }
   &__container {
     @include flexible($fd: row, $ai: center, $gap: 16px);
   }
-  &__title {
-    &--bold {
-      font-family: 'NT Somic-Bold', sans-serif;
-    }
-  }
 
   &__icons {
-    @include flexible($fd: row, $gap: 16px, $ai: center);
+    @include flexible($fd: row, $ai: center, $gap: 16px);
+  }
+  &__icon {
+    color: #000;
   }
 
   &__wrapper {

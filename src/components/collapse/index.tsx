@@ -9,8 +9,8 @@ import CollapseProps from './collapse.types'
 import './styles.scss'
 
 export const Collapse: React.FC<CollapseProps> = ({
-  title = 'title',
-  children = 'some...',
+  title = '',
+  children = '',
   className = '',
   type = 'section',
   isEditPosition = false,
@@ -20,7 +20,6 @@ export const Collapse: React.FC<CollapseProps> = ({
   onDeleteClick,
 }) => {
   const [isOpened, setIsOpened] = useState<boolean>(false)
-  const [hover, setHover] = useState<boolean>(false)
 
   //* ClassNames
   const componentClassName = 'collapse'
@@ -36,25 +35,19 @@ export const Collapse: React.FC<CollapseProps> = ({
         <div
           className={`${componentClassName}__wrapper`}
           onClick={() => setIsOpened(!isOpened)}
-          onMouseEnter={() => setHover(true)}
-          onMouseLeave={() => setHover(false)}
         >
           <div className={`${componentClassName}__container`}>
             {editable && isEditPosition && <Icon iconName="hamburger" />}
             <Typography
-              className={
-                type === 'section'
-                  ? `${componentClassName}__title--bold`
-                  : `${componentClassName}__title`
-              }
+              font="ntSomic400"
               variant={type === 'section' ? 'headline-h1' : 'title-h1'}
             >
               {title}
             </Typography>
           </div>
           <div className={`${componentClassName}__icons`}>
-            {hover && editable && (
-              <>
+            {editable && (
+              <div className={`${componentClassName}__edit-icons`}>
                 <Icon
                   onClick={onEditClick}
                   iconName="edit"
@@ -63,18 +56,16 @@ export const Collapse: React.FC<CollapseProps> = ({
                   onClick={onDeleteClick}
                   iconName="trash"
                 />
-              </>
+              </div>
             )}
             <Icon
-              color="#000000"
+              className={`${componentClassName}__icon`}
               iconName={isOpened ? 'arrowUp' : 'arrowDown'}
             />
           </div>
         </div>
       </div>
-      {children && isOpened && (
-        <div className={`${componentClassName}__content`}>{isOpened && children}</div>
-      )}
+      {children && isOpened && <div className={`${componentClassName}__content`}>{children}</div>}
     </>
   )
 }

@@ -11,7 +11,7 @@ export const Modal: React.FC<ModalProps> = ({
   className = '',
   active = false,
   children,
-  title = 'Title',
+  title = '',
   setActive,
   onAddButton,
   onCancelButton,
@@ -26,10 +26,10 @@ export const Modal: React.FC<ModalProps> = ({
   )
 
   return (
-    <div className={active ? `${componentClassName} active` : componentClassName}>
+    <div className={active ? `${componentClassName}--active` : componentClassName}>
       <div
         className={
-          active ? `${componentClassName}__content active` : `${componentClassName}__content`
+          active ? `${componentClassName}__content--active` : `${componentClassName}__content`
         }
         onClick={(e) => e.stopPropagation()}
       >
