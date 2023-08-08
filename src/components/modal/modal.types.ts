@@ -1,9 +1,10 @@
 import { Dispatch, SetStateAction } from 'react'
 
 interface ModalProps {
+  className?: string
   active: boolean
   children: React.ReactNode
-  title: string
+  title?: string
   setActive: Dispatch<SetStateAction<boolean>>
   onAddButton?: () => void
   onCancelButton?: () => void

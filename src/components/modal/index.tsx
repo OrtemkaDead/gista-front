@@ -1,3 +1,5 @@
+'use client'
+
 import classnames from 'classnames'
 
 import { Button, Icon, Typography } from '@/ui-kit'
@@ -5,12 +7,11 @@ import { Button, Icon, Typography } from '@/ui-kit'
 import ModalProps from './modal.types'
 import './styles.scss'
 
-//Todo: Миша, перепиши модалку с нормальным бэмом(!!!!) и всякое такое
-
 export const Modal: React.FC<ModalProps> = ({
-  active,
+  className = '',
+  active = false,
   children,
-  title,
+  title = '',
   setActive,
   onAddButton,
   onCancelButton,
@@ -25,12 +26,14 @@ export const Modal: React.FC<ModalProps> = ({
   )
 
   return (
-    <div className={active ? 'modal active' : 'modal'}>
+    <div className={active ? `${componentClassName}--active` : componentClassName}>
       <div
-        className={active ? 'modal__content active' : 'modal__content'}
+        className={
+          active ? `${componentClassName}__content--active` : `${componentClassName}__content`
+        }
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="modal__close">
+        <div className={`${componentClassName}__close`}>
           <Button
             type="borderless"
             leftIcon={
@@ -39,18 +42,19 @@ export const Modal: React.FC<ModalProps> = ({
                 iconName="close"
               />
             }
-            onClick={() => setActive(!active)}
+            onClick={() => setActive(false)}
           />
         </div>
-        <div className="modal__content__container">
+        <div className={`${componentClassName}__container`}>
           <Typography
-            className="modal__content__title"
+            className={`${componentClassName}__title`}
             variant="headline-h2"
+            font={'ntSomic400'}
           >
             {title}
           </Typography>
           {children}
-          <div className="modal__btns">
+          <div className={`${componentClassName}__btns`}>
             <Button onClick={onAddButton}>{mainButtonTitle}</Button>
             <Button
               onClick={onCancelButton}
