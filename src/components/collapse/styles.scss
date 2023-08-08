@@ -2,11 +2,19 @@
   @include flexible($fd: column);
   width: 100%;
   &__edit-icons {
-    display: none;
+    svg {
+      width: 0;
+      height: 0;
+      color: #fff;
+    }
   }
   &:hover {
     .collapse__edit-icons {
       @include flexible($fd: row, $ai: center, $gap: 16px);
+      svg {
+        transition: color 0.25s;
+        color: #a1a1a1;
+      }
     }
   }
   &__container {
