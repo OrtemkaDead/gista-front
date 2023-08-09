@@ -1,0 +1,6 @@
+.navigation-link {
+  @include flexible($fd: row, $ai: center, $gap: 4px);
+  &__title {
+    color: #007fff;
+  }
+}

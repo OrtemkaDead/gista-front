@@ -1,0 +1,6 @@
+.gista-settings {
+  @include flexible($fd: row, $ai: center, $gap: 24px);
+  &__checkbox {
+    @include flexible($fd: row, $ai: center, $gap: 8px);
+  }
+}
