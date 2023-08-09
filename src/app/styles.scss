@@ -12,3 +12,8 @@
     @include flexible($fd: row);
   }
 }
+
+.home {
+  width: 100%;
+  padding: 32px;
+}

@@ -1,17 +1,31 @@
 .collapse {
   @include flexible($fd: column);
   width: 100%;
-  &__title {
-    &--bold {
-      font-family: 'NT Somic-Bold', sans-serif;
+  &__edit-icons {
+    svg {
+      width: 0;
+      height: 0;
+      color: #fff;
     }
-    &__wrapper {
+  }
+  &:hover {
+    .collapse__edit-icons {
       @include flexible($fd: row, $ai: center, $gap: 16px);
+      svg {
+        transition: color 0.25s;
+        color: #a1a1a1;
+      }
     }
+  }
+  &__container {
+    @include flexible($fd: row, $ai: center, $gap: 16px);
   }
 
   &__icons {
-    @include flexible($fd: row, $gap: 16px, $ai: center);
+    @include flexible($fd: row, $ai: center, $gap: 16px);
+  }
+  &__icon {
+    color: #000;
   }
 
   &__wrapper {
@@ -21,10 +35,8 @@
     cursor: pointer;
   }
   &__content {
-    display: flex;
-    flex-direction: row;
+    @include flexible($fd: row, $gap: 24px);
     flex-wrap: wrap;
-    gap: 24px;
     width: 100%;
   }
 }
