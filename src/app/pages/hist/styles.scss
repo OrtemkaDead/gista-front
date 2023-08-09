@@ -1,1 +1,36 @@
-.hist {}
+.gista-page {
+  @include flexible($fd: column);
+  padding: 16px 32px;
+  width: 100%;
+  img {
+    margin: 32px auto;
+    height: 668px;
+    width: 100%;
+  }
+
+  &__header {
+    @include flexible($fd: row, $jc: space-between, $ai: center);
+    width: 100%;
+    &__title {
+      font-weight: 600;
+    }
+    &__settings {
+      @include flexible($fd: row, $gap: 24px);
+    }
+    &__checkbox {
+      @include flexible($fd: row, $gap: 8px);
+    }
+  }
+
+  &__footer {
+    @include flexible($fd: row, $ai: center, $gap: 16px);
+    &__item {
+      padding: 4px 12px;
+      &--active {
+        padding: 4px 12px;
+        background: #007fff;
+        border-radius: 8px;
+      }
+    }
+  }
+}
