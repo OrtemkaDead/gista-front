@@ -3,6 +3,8 @@ import React from 'react'
 
 import { GistaCard } from '@/components'
 import { Collapse } from '@/components/collapse'
+import { Gista } from '@/components/gista-components/gista'
+import { Zoom } from '@/components/zoom'
 
 import './styles.scss'
 
