@@ -3,13 +3,13 @@
   &__layer {
     padding: 4px 12px;
     border-radius: 8px;
-    color: #000000;
+    color: $color-text-primary;
     cursor: pointer;
     &--active {
       padding: 4px 12px;
       border-radius: 8px;
-      background-color: #007fff;
-      color: #ffffff;
+      background-color: $color-primary;
+      color: $color-text-invert-primary;
       transition: all ease-in-out 0.25s;
     }
   }

@@ -23,8 +23,8 @@ export const NavigationLink: React.FC<NavigationLinkProps> = ({
     <Link href={href}>
       <div className={NavigationLinkClassName}>
         <Icon
+          className={`${NavigationLinkClassName}__icon`}
           iconName="arrowLeft"
-          color="#007FFF"
         />
         <Typography
           className={`${NavigationLinkClassName}__title`}

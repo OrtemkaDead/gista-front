@@ -1,1 +1,12 @@
-.gista {}
+.gista {
+  width: 1152px;
+  height: 668px;
+  position: relative;
+  background-color: $color-border-secondary;
+  &__zoom {
+    position: absolute;
+    top: 160px;
+    right: 20px;
+    z-index: 999;
+  }
+}

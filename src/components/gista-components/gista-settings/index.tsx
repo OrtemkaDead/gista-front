@@ -23,10 +23,11 @@ export const GistaSettings: React.FC<GistaSettingsProps> = ({ className = '' }) 
     <div className={GistaSettingsClassName}>
       <div className={`${GistaSettingsClassName}__checkbox`}>
         <Checkbox
-          onClick={() => setChecked(!checked)}
+          onClick={(): void => setChecked(!checked)}
           state={checked}
         />
         <Typography
+          className={`${GistaSettingsClassName}__title`}
           font="lato400"
           variant="text-16"
         >
@@ -34,9 +35,8 @@ export const GistaSettings: React.FC<GistaSettingsProps> = ({ className = '' }) 
         </Typography>
       </div>
       <Icon
+        className={`${GistaSettingsClassName}__favorite`}
         iconName="star"
-        color="#FDDD18"
-        fill="#FDDD18"
       />
     </div>
   )

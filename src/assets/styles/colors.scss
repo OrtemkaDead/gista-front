@@ -1,64 +1,66 @@
 //* Core
-$color-primary: #007FFF;
-$color-secondary: #FF007F;
-$color-tertiary: #7F007F;
+$color-primary: #007fff;
+$color-secondary: #ff007f;
+$color-tertiary: #7f007f;
 
 //* Text
 $color-text-primary: #000000;
 $color-text-secondary: #787878;
-$color-text-tertiary: #A1A1A1;
-$color-text-success: #1EC025;
-$color-text-warning: #FDDD18;
-$color-text-error: #E32727;
+$color-text-tertiary: #a1a1a1;
+$color-text-success: #1ec025;
+$color-text-warning: #fddd18;
+$color-text-error: #e32727;
 
 //* Text invert
-$color-text-invert-primary: #FFFFFF;
-$color-text-invert-secondary: #F2F2F2;
-$color-text-invert-tertiary: #DEDEDE;
+$color-text-invert-primary: #ffffff;
+$color-text-invert-secondary: #f2f2f2;
+$color-text-invert-tertiary: #dedede;
 
 //* Icon
 $color-icon-primary: #000000;
 $color-icon-secondary: #787878;
-$color-icon-tertiary: #A1A1A1;
-$color-icon-success: #1EC025;
-$color-icon-error: #E32727;
+$color-icon-tertiary: #a1a1a1;
+$color-icon-success: #1ec025;
+$color-icon-error: #e32727;
+$color-icon-warning: #fddd18;
 
 //* Icon invert
-$color-icon-invert-primary: #FFFFFF;
-$color-icon-invert-secondary: #F2F2F2;
-$color-icon-invert-tertiary: #DEDEDE;
+$color-icon-invert-primary: #ffffff;
+$color-icon-invert-secondary: #f2f2f2;
+$color-icon-invert-tertiary: #dedede;
 
 //* Button primary
-$color-button-primary-default: #007FFF;
-$color-button-primary-hover: #006DDB;
+$color-button-primary-default: #007fff;
+$color-button-primary-hover: #006ddb;
 $color-button-primary-focus: #004285;
-$color-button-primary-disable: #EBEBEB;
+$color-button-primary-disable: #ebebeb;
 
 //* Button secondary
-$color-button-secondary-default: #D4E9FF;
-$color-button-secondary-hover: #ABD5FF;
-$color-button-secondary-focus: #007FFF;
-$color-button-secondary-disable: #EBEBEB;
+$color-button-secondary-default: #d4e9ff;
+$color-button-secondary-hover: #abd5ff;
+$color-button-secondary-focus: #007fff;
+$color-button-secondary-disable: #ebebeb;
 
 //* Button invert
-$color-button-invert-default: #FFFFFF;
-$color-button-invert-hover: #F2F2F2;
-$color-button-invert-focus: #DEDEDE;
-$color-button-invert-disable: #ADADAD;
+$color-button-invert-default: #ffffff;
+$color-button-invert-hover: #f2f2f2;
+$color-button-invert-focus: #dedede;
+$color-button-invert-disable: #adadad;
 
 //* Background
-$color-background-primary: #FFFFFF;
-$color-background-secondary: #F2F2F2;
+$color-background-primary: #ffffff;
+$color-background-secondary: #f2f2f2;
 
 //* Border
-$color-border-primary: #DEDEDE;
-$color-border-secondary: #CDCDCD;
-$color-border-success: #1EC025;
-$color-border-warning: #FDDD18;
-$color-border-error: #E32727;
+$color-border-primary: #dedede;
+$color-border-secondary: #cdcdcd;
+$color-border-invert: #cdcdcd;
+$color-border-success: #1ec025;
+$color-border-warning: #fddd18;
+$color-border-error: #e32727;
 
 //* Control
-$color-control-active: #007FFF;
-$color-control-active-disable: #BFD6FF;
-$color-control-default: #BFC1C7;
-$color-control-default-disable: #EAEAEA;
+$color-control-active: #007fff;
+$color-control-active-disable: #bfd6ff;
+$color-control-default: #bfc1c7;
+$color-control-default-disable: #eaeaea;

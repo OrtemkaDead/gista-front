@@ -42,7 +42,7 @@ export const GistaLayers: React.FC<GistaLayersProps> = ({ className = '', layers
     <div className={GistaLayersClassName}>
       {layers.map((layer) => (
         <div
-          onClick={() => setActiveLayer(layer.id)}
+          onClick={(): void => setActiveLayer(layer.id)}
           key={layer.id}
           className={
             layer.id === activeLayer

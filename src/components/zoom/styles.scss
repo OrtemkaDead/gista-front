@@ -8,7 +8,7 @@
 }
 input[type='range'] {
   -webkit-appearance: slider-vertical;
-  accent-color: #007fff;
+  accent-color: $color-primary;
   height: 273px;
   width: 32px;
 }
