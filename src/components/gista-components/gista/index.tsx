@@ -13,18 +13,20 @@ import GistaProps from './gista.types'
 import './styles.scss'
 
 export const Gista: React.FC<GistaProps> = ({ className = '' }) => {
-  const transformComponentRef: React.Ref<ReactZoomPanPinchRef> = useRef(null)
+  const transformComponentRef: React.RefObject<ReactZoomPanPinchRef> = useRef(null)
   const [scale, setScale] = useState<number>(1)
 
   const updateScale = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const targetScale = parseFloat(e.target.value)
     const factor = Math.log(targetScale / scale)
-    const { zoomIn, zoomOut } = transformComponentRef.current
 
-    if (targetScale > scale) {
-      zoomIn(factor, 0)
-    } else {
-      zoomOut(-factor, 0)
+    if (transformComponentRef && transformComponentRef.current) {
+      const { zoomIn, zoomOut } = transformComponentRef.current
+      if (targetScale > scale) {
+        zoomIn(factor, 0)
+      } else {
+        zoomOut(-factor, 0)
+      }
     }
 
     setScale(targetScale)
