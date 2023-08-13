@@ -30,6 +30,7 @@ export default function RootLayout({
 
           {children}
         </div>
+        <div id='modal_root'></div>
       </body>
     </html>
   )
