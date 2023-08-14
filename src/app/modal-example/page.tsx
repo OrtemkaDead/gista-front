@@ -70,7 +70,7 @@ export default function ModalExample() {
 
 
       {openNonClosingModal && (
-        <ModalLayout nonClosing exitIcon>
+        <ModalLayout nonClosing>
           <div>...Загрузка (спиннер)</div>
         </ModalLayout>
       )}
