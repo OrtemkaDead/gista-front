@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, FC, ReactNode, useState, MouseEventHandler } from 'react';
 import { createPortal } from 'react-dom';
-import './styles.scss';
 import { IModalLayout } from './modalLayout.types';
 import { Icon } from '@/ui-kit';
+import './styles.scss';
 
 export const ModalLayout: FC<IModalLayout> = ({
   nonClosing,
@@ -18,14 +18,14 @@ export const ModalLayout: FC<IModalLayout> = ({
   const contentRef = useRef<HTMLDivElement | null>(null);
 
   const [mounted, setMounted] = useState(false);
-  
+
   const componentClassName = 'modal-layout'
 
   const handleExit: MouseEventHandler<HTMLButtonElement> = () => {
     setMounted(false);
+    onClose && onClose();
     actionsOnClose && actionsOnClose();
   }
-
 
   useEffect(() => {
     modalRef.current = document.querySelector<HTMLDivElement>("#modal_root");
@@ -59,7 +59,7 @@ export const ModalLayout: FC<IModalLayout> = ({
           {exitIcon && (
             <button
               className={`${componentClassName}__button`}
-              style={{top: topPosition, right: rightPosition}}
+              style={{ top: topPosition, right: rightPosition }}
               onClick={handleExit}
             >
               <Icon iconName='close' />

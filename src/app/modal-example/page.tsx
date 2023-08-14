@@ -1,6 +1,5 @@
 'use client'
 import { MouseEventHandler, useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
 import { ModalLayout } from '@/components/modalLayout';
 
 const styles = {
@@ -22,8 +21,6 @@ export default function ModalExample() {
   const [openClosingModal, setClosingModal] = useState(false)
   const [openActionModal, setActionModal] = useState(false)
   const [openModalIcon, setModalIcon] = useState(false)
-
-  const router = useRouter();
 
   const handleClick: MouseEventHandler<HTMLButtonElement> = (event) => {
     const btnName = event.currentTarget.name;
@@ -73,8 +70,8 @@ export default function ModalExample() {
 
 
       {openNonClosingModal && (
-        <ModalLayout nonClosing>
-          <div style={contentStyle}>...Загрука (или спиннер)</div>
+        <ModalLayout nonClosing exitIcon>
+          <div>...Загрузка (спиннер)</div>
         </ModalLayout>
       )}
 
@@ -92,7 +89,7 @@ export default function ModalExample() {
           actionsOnClose={() => alert('Выполнить действия по закрытию модального окна')}
         >
           <div style={contentStyle}>
-            Это окно закрывается по клику вне его и выполнится действие при закрытии (alert), 
+            Это окно закрывается по клику вне его и выполнится действие при закрытии (alert),
             можно сделать переадресацию на другую страницу и так далее
           </div>
         </ModalLayout>
@@ -108,7 +105,7 @@ export default function ModalExample() {
       )}
 
       {/* то же самое но с передачей иконки непосредственно в обертку Modal 
-      и можем ей задавать свои стилиб например дополнительную кнопку или иконку*/}
+      и можем ей задавать свои стили -  например если надо  дополнительную кнопку или иконку*/}
       {/* {openModalIcon && (
         <ModalLayout onClose={() => setModalIcon(false)}>
           <div style={contentStyle}>
