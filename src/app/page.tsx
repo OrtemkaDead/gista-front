@@ -1,8 +1,10 @@
 import { Section, SubSection } from '@/store/reducers/sections-reducer/initial-state'
 import React from 'react'
 
-import { Collapse, GistaCard } from '@/components'
+import { Collapse, GistaCard, NavigationLink } from '@/components'
 import { Gista } from '@/components/gista-components/gista'
+
+import { Button, Icon } from '@/ui-kit'
 
 import './styles.scss'
 
@@ -43,6 +45,14 @@ export default function Home(): React.ReactElement {
   return (
     <main className="home">
       <Gista />
+      <Button
+        to="/to"
+        type="borderless"
+        iconSide="left"
+        iconName="arrowLeft"
+      >
+        Link to
+      </Button>
       {sections.map((section) => (
         <Collapse
           key={section.id}

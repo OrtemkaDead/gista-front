@@ -1,3 +1,5 @@
+import { IconNameTypes } from '../icon/icon-paths'
+
 type ButtonTypes = 'primary' | 'secondary' | 'borderless' | 'invert'
 
 type ButtonSize = 'small' | 'medium' | 'large'
@@ -12,8 +14,10 @@ interface ButtonProps {
   fullWidth?: boolean
   disabled?: boolean
 
-  rightIcon?: React.ReactNode
-  leftIcon?: React.ReactNode
+  iconName?: IconNameTypes
+  iconSide?: 'left' | 'right'
+
+  to?: string
 
   onClick?: React.MouseEventHandler
 }

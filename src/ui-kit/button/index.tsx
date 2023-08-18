@@ -1,7 +1,8 @@
 import classnames from 'classnames'
-import { memo } from 'react'
+import Link from 'next/link'
+import { memo, useMemo } from 'react'
 
-import { Typography } from '@/ui-kit'
+import { Icon, Typography } from '@/ui-kit'
 
 import ButtonProps from './button.types'
 import './styles.scss'
@@ -15,8 +16,11 @@ export const Button: React.FC<ButtonProps> = memo(function Button({
 
   disabled = false,
   fullWidth = false,
-  leftIcon,
-  rightIcon,
+
+  iconName,
+  iconSide = 'left',
+
+  to,
 
   onClick,
 }) {
@@ -27,37 +31,60 @@ export const Button: React.FC<ButtonProps> = memo(function Button({
     `${componentClassName}--${type}`,
     `${componentClassName}--${size}`,
     {
-      [`${componentClassName}--disabled`]: disabled,
+      // [`${componentClassName}--disabled`]: disabled,
       [`${componentClassName}-full-width`]: fullWidth,
     },
     className,
   )
 
-  const content =
-    typeof children === 'string' ? (
-      <Typography
-        className={`${componentClassName}__text`}
-        variant="title-h3"
-        font="ntSomic400"
-      >
-        {children}
-      </Typography>
-    ) : (
-      children
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let WrapperComponent: any = 'button'
+
+  if (to && !disabled) {
+    WrapperComponent = Link
+  }
+
+  const content = useMemo(
+    () =>
+      typeof children === 'string' ? (
+        <Typography
+          className={`${componentClassName}__text`}
+          variant="title-h3"
+          font="ntSomic400"
+        >
+          {children}
+        </Typography>
+      ) : (
+        children
+      ),
+    [children],
+  )
+
+  const icon = useMemo(() => {
+    if (!iconName) return null
+
+    return (
+      <Icon
+        className={`${componentClassName}__icon`}
+        iconName={iconName}
+        size={20}
+      />
     )
+  }, [iconName])
 
   return (
-    <button
+    <WrapperComponent
       type="button"
       className={ButtonClassName}
       disabled={disabled}
       onClick={onClick}
+      href={to}
     >
-      {leftIcon}
+      {iconSide === 'left' && icon}
 
       {content}
 
-      {rightIcon}
-    </button>
+      {iconSide === 'right' && icon}
+    </WrapperComponent>
   )
 })

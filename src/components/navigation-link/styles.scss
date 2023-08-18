@@ -1,9 +1,0 @@
-.navigation-link {
-  @include flexible($fd: row, $ai: center, $gap: 4px);
-  &__title {
-    color: $color-primary;
-  }
-  &__icon {
-    color: $color-primary;
-  }
-}
