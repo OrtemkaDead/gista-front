@@ -2,7 +2,7 @@
 
 import { MouseEventHandler, useEffect, useState } from 'react'
 
-import { ModalLayout } from '@/components/modalLayout'
+import { ModalLayout } from '@/components/modal-layout'
 
 const styles = {
   padding: '10px',

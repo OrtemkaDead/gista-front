@@ -4,8 +4,5 @@ export interface IModalLayout {
   actionsOnClose?: () => void;
   children: React.ReactNode;
   exitIcon?: boolean;
-  topPosition?: number;
-  rightPosition?: number;
   zIndex?: number;
-  // iconStyles?: React.CSSProperties;
 }

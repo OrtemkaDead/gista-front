@@ -16,7 +16,7 @@
     text-align: center;
   }
 
-  &__btnWrapper {
+  &__button-wrapper {
     margin-top: 20px;
     @include flexible($ai: center, $gap: 8px);
     align-self: flex-start;
@@ -27,7 +27,7 @@
     }
   }
 
-  &__attentionIcon {
+  &__attention-icon {
     margin-top: 28px;
     margin-bottom: 16px;
   }

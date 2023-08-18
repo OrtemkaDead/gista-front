@@ -3,8 +3,8 @@
 import Image from 'next/image'
 import { MouseEventHandler, useState } from 'react'
 
-import { ModalContent } from '@/components/modalContent'
-import { ModalLayout } from '@/components/modalLayout'
+import { ModalContent } from '@/components/modal-content'
+import { ModalLayout } from '@/components/modal-layout'
 
 import { Form } from './Form'
 
@@ -75,11 +75,12 @@ export default function ModalContentExample() {
             title="Очистить"
             description="Вы уверены, что хотите очистить разметку?"
             attentionIcon
+            reverseButtonDirection
             confirmBtnText="Удалить"
             handleConfirm={() => {
               alert('Разметка удалена'), setOpenModal1(false)
             }}
-            handleCansel={() => setOpenModal1(false)}
+            handleCancel={() => setOpenModal1(false)}
           />
         </ModalLayout>
       )}
@@ -105,7 +106,7 @@ export default function ModalContentExample() {
             handleConfirm={() => {
               alert('Тариф продлен'), setOpenModal2(false)
             }}
-            handleCansel={() => setOpenModal2(false)}
+            handleCancel={() => setOpenModal2(false)}
           />
         </ModalLayout>
       )}
@@ -123,7 +124,7 @@ export default function ModalContentExample() {
             handleConfirm={() => {
               alert('Заявка отправлена'), setOpenModal3(false)
             }}
-            handleCansel={() => setOpenModal3(false)}
+            handleCancel={() => setOpenModal3(false)}
           />
         </ModalLayout>
       )}

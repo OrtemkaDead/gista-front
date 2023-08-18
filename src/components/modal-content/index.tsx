@@ -3,7 +3,7 @@ import { FC } from 'react'
 
 import { Button, Icon, Typography } from '@/ui-kit'
 
-import { IModalContentProps } from './modalContent.types'
+import { IModalContentProps } from './modal-content.types'
 import './styles.scss'
 
 export const ModalContent: FC<IModalContentProps> = ({
@@ -12,29 +12,23 @@ export const ModalContent: FC<IModalContentProps> = ({
   description,
   confirmBtnText,
   handleConfirm,
-  //! cancel...
-  handleCansel,
-  //! не очивидная зависимость кнопок от этого пропса, хуйня крч
-  //! лучше добавить отдельный пропс, типа reverseButtonDirection
+  handleCancel,
   attentionIcon,
+  reverseButtonDirection
 }) => {
   const componentClassName = 'modal-content'
 
-  //! поч с тут PascalCase?
-  //! buttonWrapperClassName
-  const WrapperClassName = classnames(
-    //! от сокращений типа btn отказываемся!
-    //! от camelCase тоже отказываемся
-    `${componentClassName}__btnWrapper`,
+  const ButtonWrapperClassName = classnames(
+    `${componentClassName}__button-wrapper`,
     {
-      [`${componentClassName}__btnWrapper--attention`]: attentionIcon,
+      [`${componentClassName}__button-wrapper--attention`]: attentionIcon,
     },
   )
 
   return (
     <div className={componentClassName}>
       {attentionIcon && (
-        <div className={`${componentClassName}__attentionIcon`}>
+        <div className={`${componentClassName}__attention-icon`}>
           <Icon
             iconName="attention"
             size={64}
@@ -65,21 +59,21 @@ export const ModalContent: FC<IModalContentProps> = ({
       )}
 
       {confirmBtnText && (
-        <div className={WrapperClassName}>
+        <div className={ButtonWrapperClassName}>
           <Button
             size="large"
             type={'primary'}
-            onClick={attentionIcon ? handleCansel : handleConfirm}
+            onClick={reverseButtonDirection ? handleCancel : handleConfirm}
           >
-            {attentionIcon ? 'Отмена' : confirmBtnText}
+            {reverseButtonDirection ? 'Отмена' : confirmBtnText}
           </Button>
 
           <Button
             size="large"
             type={'borderless'}
-            onClick={attentionIcon ? handleConfirm : handleCansel}
+            onClick={reverseButtonDirection ? handleConfirm : handleCancel}
           >
-            {attentionIcon ? confirmBtnText : 'Отмена'}
+            {reverseButtonDirection ? confirmBtnText : 'Отмена'}
           </Button>
         </div>
       )}
