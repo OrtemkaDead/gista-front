@@ -1,5 +1,6 @@
-import { Icon } from '@/ui-kit'
 import classnames from 'classnames'
+
+import { Icon } from '@/ui-kit'
 
 import CheckboxProps from './checkbox.types'
 import './styles.scss'

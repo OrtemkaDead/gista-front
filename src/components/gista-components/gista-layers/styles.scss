@@ -1,0 +1,16 @@
+.gista-layers {
+  @include flexible($fd: row, $ai: center, $gap: 16px);
+  &__layer {
+    padding: 4px 12px;
+    border-radius: 8px;
+    color: $color-text-primary;
+    cursor: pointer;
+    &--active {
+      padding: 4px 12px;
+      border-radius: 8px;
+      background-color: $color-primary;
+      color: $color-text-invert-primary;
+      transition: all ease-in-out 0.25s;
+    }
+  }
+}

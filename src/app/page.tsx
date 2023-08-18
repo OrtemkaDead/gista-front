@@ -3,6 +3,7 @@ import React from 'react'
 
 import { GistaCard } from '@/components'
 import { Collapse } from '@/components/collapse'
+import { Gista } from '@/components/gista-components/gista'
 
 import './styles.scss'
 
@@ -42,6 +43,7 @@ const subsections: SubSection[] = [
 export default function Home(): React.ReactElement {
   return (
     <main className="home">
+      <Gista />
       {sections.map((section) => (
         <Collapse
           key={section.id}

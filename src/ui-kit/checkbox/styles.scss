@@ -1,9 +1,10 @@
 .checkbox {
-  @include button(24px, #FFFFFF);
+  @include button(24px, $color-button-invert-default);
   height: 24px;
-  @include border(solid, #D2D2D2, 7px, 1px);
+  //хз вообще что за цвет здесь
+  @include border(solid, #d2d2d2, 7px, 1px);
 
   &--checked {
-    background-color: #205EFF;
+    background-color: $color-primary;
   }
 }
