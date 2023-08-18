@@ -1,0 +1,14 @@
+.gista-settings {
+  @include flexible($fd: row, $ai: center, $gap: 24px);
+  &__checkbox {
+    @include flexible($fd: row, $ai: center, $gap: 8px);
+    cursor: pointer;
+  }
+  &__title {
+    color: $color-text-primary;
+  }
+  &__favorite {
+    color: $color-icon-warning;
+    fill: $color-icon-warning;
+  }
+}
