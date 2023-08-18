@@ -1,13 +1,14 @@
 'use client'
 
 import classnames from 'classnames'
+import { memo } from 'react'
 
 import { Icon } from '@/ui-kit'
 
 import './styles.scss'
 import ZoomProps from './zoom.types'
 
-export const Zoom: React.FC<ZoomProps> = ({ className = '', value, onChange }) => {
+export const Zoom: React.FC<ZoomProps> = memo(function Zoom({ className = '', value, onChange }) {
   //* ClassNames
   const componentClassName = 'zoom'
   const ZoomClassName = classnames(
@@ -39,4 +40,4 @@ export const Zoom: React.FC<ZoomProps> = ({ className = '', value, onChange }) =
       />
     </div>
   )
-}
+})

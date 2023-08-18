@@ -1,4 +1,5 @@
 import classnames from 'classnames'
+import { memo } from 'react'
 
 import { Typography } from '@/ui-kit'
 
@@ -7,13 +8,13 @@ import { TypographyVariants } from '@/assets/styles/typography/export.scss'
 import './styles.scss'
 import TitleCellProps from './title-cell.types'
 
-export const TitleCell: React.FC<TitleCellProps> = ({
+export const TitleCell: React.FC<TitleCellProps> = memo(function TitleCell({
   className = '',
   before,
   after,
   size = 'medium',
   children = '',
-}) => {
+}) {
   //* ClassNames
   const componentClassName = 'title-cell'
   const TitleCellClassName = classnames(
@@ -51,4 +52,4 @@ export const TitleCell: React.FC<TitleCellProps> = ({
       {after}
     </div>
   )
-}
+})

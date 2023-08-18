@@ -1,11 +1,16 @@
 import classnames from 'classnames'
+import { memo } from 'react'
 
 import { Icon } from '@/ui-kit'
 
 import CheckboxProps from './checkbox.types'
 import './styles.scss'
 
-export const Checkbox: React.FC<CheckboxProps> = ({ className = '', state = false, onClick }) => {
+export const Checkbox: React.FC<CheckboxProps> = memo(function Checkbox({
+  className = '',
+  state = false,
+  onClick,
+}) {
   //* ClassNames
   const componentClassName = 'checkbox'
   const CheckboxClassName = classnames(
@@ -31,4 +36,4 @@ export const Checkbox: React.FC<CheckboxProps> = ({ className = '', state = fals
       )}
     </div>
   )
-}
+})

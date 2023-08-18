@@ -1,13 +1,14 @@
 'use client'
 
 import classnames from 'classnames'
+import { memo } from 'react'
 
 import NumberInputProps from './number-input.types'
 import './styles.scss'
 
 //Todo: Миша, напиши дефолт значения для пропсов
 
-export const NumberInput: React.FC<NumberInputProps> = ({
+export const NumberInput: React.FC<NumberInputProps> = memo(function NumberInput({
   className = '',
   value,
   onChange,
@@ -15,7 +16,7 @@ export const NumberInput: React.FC<NumberInputProps> = ({
   disabled,
   min,
   max,
-}) => {
+}) {
   //* ClassNames
   const componentClassName = 'number-input'
   const NumberInputClassName = classnames(
@@ -36,4 +37,4 @@ export const NumberInput: React.FC<NumberInputProps> = ({
       className={NumberInputClassName}
     />
   )
-}
+})

@@ -1,7 +1,7 @@
 'use client'
 
 import classnames from 'classnames'
-import { useState } from 'react'
+import { memo, useState } from 'react'
 
 import { Typography } from '@/ui-kit'
 
@@ -27,7 +27,10 @@ const MockLayers: Layer[] = [
   },
 ]
 
-export const GistaLayers: React.FC<GistaLayersProps> = ({ className = '', layers }) => {
+export const GistaLayers: React.FC<GistaLayersProps> = memo(function GistaLayers({
+  className = '',
+  layers,
+}) {
   const [activeLayer, setActiveLayer] = useState<string>('1')
 
   //* ClassNames
@@ -55,4 +58,4 @@ export const GistaLayers: React.FC<GistaLayersProps> = ({ className = '', layers
       ))}
     </div>
   )
-}
+})

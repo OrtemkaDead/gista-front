@@ -1,12 +1,12 @@
 import classnames from 'classnames'
-import { useCallback } from 'react'
+import { memo, useCallback } from 'react'
 
 import { Typography } from '@/ui-kit'
 
 import './styles.scss'
 import TextInputProps from './text-input.types'
 
-export const TextInput: React.FC<TextInputProps> = ({
+export const TextInput: React.FC<TextInputProps> = memo(function TextInput({
   className = '',
   value,
   setValue,
@@ -16,7 +16,7 @@ export const TextInput: React.FC<TextInputProps> = ({
   type = 'text',
   register,
   name = '',
-}) => {
+}) {
   //* ClassNames
   const componentClassName = 'text-input'
   const TextInputClassName = classnames(
@@ -63,4 +63,4 @@ export const TextInput: React.FC<TextInputProps> = ({
       )}
     </div>
   )
-}
+})

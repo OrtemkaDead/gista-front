@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
+import { memo } from 'react'
 
-export const Logo: React.FC = () => {
+export const Logo: React.FC = memo(function Logo() {
   return (
     <svg
       width="40"
@@ -19,4 +20,4 @@ export const Logo: React.FC = () => {
       />
     </svg>
   )
-}
+})

@@ -1,7 +1,7 @@
 'use client'
 
 import classnames from 'classnames'
-import { useCallback, useEffect, useState } from 'react'
+import { memo, useCallback, useEffect, useState } from 'react'
 
 import iconsPaths, { IconPathProps } from './icon-paths'
 import IconProps from './icon.types'
@@ -14,7 +14,7 @@ interface CustomSize {
   maxHeight: string
 }
 
-export const Icon: React.FC<IconProps> = ({
+export const Icon: React.FC<IconProps> = memo(function Icon({
   className,
   iconName = 'profileCircle',
   size = 24,
@@ -24,7 +24,7 @@ export const Icon: React.FC<IconProps> = ({
   color = '#787878',
   fill = 'none',
   onClick,
-}) => {
+}) {
   //* Hooks
   const [translatePathY, setTranslatePathY] = useState<number>(0)
   const [translatePathX, setTranslatePathX] = useState<number>(0)
@@ -86,4 +86,4 @@ export const Icon: React.FC<IconProps> = ({
       {iconsPaths[iconName]}
     </svg>
   )
-}
+})

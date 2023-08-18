@@ -1,12 +1,12 @@
 'use client'
 
 import classnames from 'classnames'
-import { useState } from 'react'
+import { memo, useState } from 'react'
 
 import SelectProps from './select.types'
 import './styles.scss'
 
-export const Select: React.FC<SelectProps> = ({ className, name, id, data }) => {
+export const Select: React.FC<SelectProps> = memo(function Select({ className, name, id, data }) {
   //* Hooks
   const [selectValue, setSelectValue] = useState<string>('')
 
@@ -39,4 +39,4 @@ export const Select: React.FC<SelectProps> = ({ className, name, id, data }) => 
       ))}
     </select>
   )
-}
+})

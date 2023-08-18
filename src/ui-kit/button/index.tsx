@@ -1,11 +1,12 @@
 import classnames from 'classnames'
+import { memo } from 'react'
 
 import { Typography } from '@/ui-kit'
 
 import ButtonProps from './button.types'
 import './styles.scss'
 
-export const Button: React.FC<ButtonProps> = ({
+export const Button: React.FC<ButtonProps> = memo(function Button({
   className = '',
   children = '',
 
@@ -18,7 +19,7 @@ export const Button: React.FC<ButtonProps> = ({
   rightIcon,
 
   onClick,
-}) => {
+}) {
   //* ClassNames
   const componentClassName = 'button'
   const ButtonClassName = classnames(
@@ -59,4 +60,4 @@ export const Button: React.FC<ButtonProps> = ({
       {rightIcon}
     </button>
   )
-}
+})

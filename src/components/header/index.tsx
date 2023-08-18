@@ -1,4 +1,5 @@
 import classnames from 'classnames'
+import { memo } from 'react'
 
 import { Logo } from '@/components'
 
@@ -7,7 +8,7 @@ import { Typography } from '@/ui-kit'
 import HeaderProps from './header.types'
 import './styles.scss'
 
-export const Header: React.FC<HeaderProps> = ({ className = '', children }) => {
+export const Header: React.FC<HeaderProps> = memo(function Header({ className = '', children }) {
   //* ClassNames
   const componentClassName = 'header'
   const HeaderClassName = classnames(
@@ -31,4 +32,4 @@ export const Header: React.FC<HeaderProps> = ({ className = '', children }) => {
       <div className={`${componentClassName}__buttons`}>{children}</div>
     </header>
   )
-}
+})

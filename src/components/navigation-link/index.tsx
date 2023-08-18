@@ -1,16 +1,17 @@
 import classnames from 'classnames'
 import Link from 'next/link'
+import { memo } from 'react'
 
 import { Icon, Typography } from '@/ui-kit'
 
 import NavigationLinkProps from './navigation-link.types'
 import './styles.scss'
 
-export const NavigationLink: React.FC<NavigationLinkProps> = ({
+export const NavigationLink: React.FC<NavigationLinkProps> = memo(function NavigationLink({
   className = '',
   children = '',
   href = '',
-}) => {
+}) {
   //* ClassNames
   const componentClassName = 'navigation-link'
   const NavigationLinkClassName = classnames(
@@ -36,4 +37,4 @@ export const NavigationLink: React.FC<NavigationLinkProps> = ({
       </div>
     </Link>
   )
-}
+})

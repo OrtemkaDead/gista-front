@@ -1,14 +1,14 @@
 'use client'
 
 import classnames from 'classnames'
-import React, { useState } from 'react'
+import { memo, useState } from 'react'
 
 import { Icon, Typography } from '@/ui-kit'
 
 import CollapseProps from './collapse.types'
 import './styles.scss'
 
-export const Collapse: React.FC<CollapseProps> = ({
+export const Collapse: React.FC<CollapseProps> = memo(function Collapse({
   title = '',
   children = '',
   className = '',
@@ -18,7 +18,7 @@ export const Collapse: React.FC<CollapseProps> = ({
 
   onEditClick,
   onDeleteClick,
-}) => {
+}) {
   const [isOpened, setIsOpened] = useState<boolean>(false)
 
   //* ClassNames
@@ -68,4 +68,4 @@ export const Collapse: React.FC<CollapseProps> = ({
       {children && isOpened && <div className={`${componentClassName}__content`}>{children}</div>}
     </>
   )
-}
+})

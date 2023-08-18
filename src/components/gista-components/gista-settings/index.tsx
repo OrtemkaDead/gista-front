@@ -1,14 +1,16 @@
 'use client'
 
 import classnames from 'classnames'
-import { useState } from 'react'
+import { memo, useState } from 'react'
 
 import { Checkbox, Icon, Typography } from '@/ui-kit'
 
 import GistaSettingsProps from './gista-settings.types'
 import './styles.scss'
 
-export const GistaSettings: React.FC<GistaSettingsProps> = ({ className = '' }) => {
+export const GistaSettings: React.FC<GistaSettingsProps> = memo(function GistaSettings({
+  className = '',
+}) {
   const [checked, setChecked] = useState<boolean>(false)
 
   //* ClassNames
@@ -40,4 +42,4 @@ export const GistaSettings: React.FC<GistaSettingsProps> = ({ className = '' }) 
       />
     </div>
   )
-}
+})

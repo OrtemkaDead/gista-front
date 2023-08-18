@@ -1,15 +1,16 @@
 import classnames from 'classnames'
+import { memo } from 'react'
 
 import { Typography } from '@/ui-kit'
 
 import CardItemProps from './card-item.types'
 import './styles.scss'
 
-export const CardItem: React.FC<CardItemProps> = ({
+export const CardItem: React.FC<CardItemProps> = memo(function CardItem({
   className = '',
   children = '',
   title = '',
-}) => {
+}) {
   //* ClassNames
   const componentClassName = 'card-item'
   const CardItemClassName = classnames(
@@ -30,4 +31,4 @@ export const CardItem: React.FC<CardItemProps> = ({
       <div className={`${CardItemClassName}__content`}>{children}</div>
     </div>
   )
-}
+})

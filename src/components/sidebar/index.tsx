@@ -1,4 +1,5 @@
 import classnames from 'classnames'
+import { memo } from 'react'
 
 import { Icon, Typography } from '@/ui-kit'
 
@@ -47,7 +48,7 @@ const sidebarManagementLinks: SidebarLinkType[] = [
   },
 ]
 
-export const Sidebar: React.FC<SidebarProps> = ({ className = '' }) => {
+export const Sidebar: React.FC<SidebarProps> = memo(function Sidebar({ className = '' }) {
   //* ClassNames
   const componentClassName = 'sidebar'
   const SidebarClassName = classnames(
@@ -87,4 +88,4 @@ export const Sidebar: React.FC<SidebarProps> = ({ className = '' }) => {
       </div>
     </aside>
   )
-}
+})

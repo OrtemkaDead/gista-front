@@ -1,5 +1,6 @@
 import classnames from 'classnames'
 import Image from 'next/image'
+import { memo } from 'react'
 
 import { Icon, Typography } from '@/ui-kit'
 
@@ -8,7 +9,10 @@ import GistaImage from '@/assets/images/Intersect.png'
 import GistaCardProps from './gista-card.types'
 import './styles.scss'
 
-export const GistaCard: React.FC<GistaCardProps> = ({ className = '', editable = false }) => {
+export const GistaCard: React.FC<GistaCardProps> = memo(function GistaCard({
+  className = '',
+  editable = false,
+}) {
   //* ClassNames
   const componentClassName = 'gista-card'
   const GistaCardClassName = classnames(
@@ -45,4 +49,4 @@ export const GistaCard: React.FC<GistaCardProps> = ({ className = '', editable =
       </div>
     </div>
   )
-}
+})
