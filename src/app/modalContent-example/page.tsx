@@ -1,56 +1,69 @@
 'use client'
-import { MouseEventHandler, useState } from 'react';
-import { ModalLayout } from '@/components/modalLayout';
-import { ModalContent } from '@/components/modalContent';
+
 import Image from 'next/image'
-import { Form } from './Form';
+import { MouseEventHandler, useState } from 'react'
+
+import { ModalContent } from '@/components/modalContent'
+import { ModalLayout } from '@/components/modalLayout'
+
+import { Form } from './Form'
 
 const styles = {
   padding: '10px',
   maxWidth: 300,
   width: '100%',
   fontSize: 16,
-  lineHeight: "25px",
+  lineHeight: '25px',
   color: 'rgb(255, 255, 255)',
   backgroundColor: 'rgb(123, 123, 250)',
   borderRadius: 10,
 }
 
 export default function ModalContentExample() {
-  const [openModal1, setOpenModal1] = useState(false);
-  const [openModal2, setOpenModal2] = useState(false);
-  const [openModal3, setOpenModal3] = useState(false);
+  const [openModal1, setOpenModal1] = useState(false)
+  const [openModal2, setOpenModal2] = useState(false)
+  const [openModal3, setOpenModal3] = useState(false)
 
   const handleClick: MouseEventHandler<HTMLButtonElement> = (event) => {
-    const btnName = event.currentTarget.name;
+    const btnName = event.currentTarget.name
     switch (btnName) {
       case 'type_1':
-        setOpenModal1(true);
-        break;
+        setOpenModal1(true)
+        break
       case 'type_2':
-        setOpenModal2(true);
-        break;
+        setOpenModal2(true)
+        break
       case 'type_3':
-        setOpenModal3(true);
-        break;
+        setOpenModal3(true)
+        break
     }
   }
 
   return (
     <main style={{ maxWidth: 800, display: 'flex', flexDirection: 'row', gap: 20 }}>
-
-      <button style={styles} onClick={handleClick} name='type_1'>
+      <button
+        style={styles}
+        onClick={handleClick}
+        name="type_1"
+      >
         Модальное окно (тип 1): с вопросом и восклицательным знаком
       </button>
 
-      <button style={styles} onClick={handleClick} name='type_2'>
+      <button
+        style={styles}
+        onClick={handleClick}
+        name="type_2"
+      >
         Модальное окно (тип 2): с картинкой в качестве основного контена
       </button>
 
-      <button style={styles} onClick={handleClick} name='type_3'>
+      <button
+        style={styles}
+        onClick={handleClick}
+        name="type_3"
+      >
         Модальное окно (тип 3): с формой в качестве основного контена
       </button>
-
 
       {openModal1 && (
         <ModalLayout
@@ -59,11 +72,13 @@ export default function ModalContentExample() {
           actionsOnClose={() => alert('Выполнить действия при закрытии модального окна')}
         >
           <ModalContent
-            title='Очистить'
-            description='Вы уверены, что хотите очистить разметку?'
+            title="Очистить"
+            description="Вы уверены, что хотите очистить разметку?"
             attentionIcon
-            confirmBtnText='Удалить'
-            handleConfirm={() => { alert('Разметка удалена'), setOpenModal1(false) }}
+            confirmBtnText="Удалить"
+            handleConfirm={() => {
+              alert('Разметка удалена'), setOpenModal1(false)
+            }}
             handleCansel={() => setOpenModal1(false)}
           />
         </ModalLayout>
@@ -76,18 +91,20 @@ export default function ModalContentExample() {
           actionsOnClose={() => alert('Выполнить действия при закрытии модального окна')}
         >
           <ModalContent
-            title='Смена тарифа'
+            title="Смена тарифа"
             content={
               <Image
                 src={'/cat-example.png'}
-                alt='cat'
+                alt="cat"
                 width={217}
                 height={245}
               />
             }
-            description='При смене тарифа текущий будет аннулирован!'
-            confirmBtnText='Продлить'
-            handleConfirm={() => { alert('Тариф продлен'), setOpenModal2(false) }}
+            description="При смене тарифа текущий будет аннулирован!"
+            confirmBtnText="Продлить"
+            handleConfirm={() => {
+              alert('Тариф продлен'), setOpenModal2(false)
+            }}
             handleCansel={() => setOpenModal2(false)}
           />
         </ModalLayout>
@@ -100,15 +117,16 @@ export default function ModalContentExample() {
           exitIcon
         >
           <ModalContent
-            title='Университет'
+            title="Университет"
             content={<Form />}
-            confirmBtnText='Отправить заявку'
-            handleConfirm={() => { alert('Заявка отправлена'), setOpenModal3(false) }}
+            confirmBtnText="Отправить заявку"
+            handleConfirm={() => {
+              alert('Заявка отправлена'), setOpenModal3(false)
+            }}
             handleCansel={() => setOpenModal3(false)}
           />
         </ModalLayout>
       )}
-
     </main>
   )
 }

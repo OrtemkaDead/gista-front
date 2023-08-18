@@ -1,8 +1,10 @@
-import { Button, Icon, Typography } from "@/ui-kit";
-import { FC } from "react";
-import { IModalContentProps } from "./modalContent.types";
-import classnames from "classnames";
-import './styles.scss';
+import classnames from 'classnames'
+import { FC } from 'react'
+
+import { Button, Icon, Typography } from '@/ui-kit'
+
+import { IModalContentProps } from './modalContent.types'
+import './styles.scss'
 
 export const ModalContent: FC<IModalContentProps> = ({
   title,
@@ -10,22 +12,27 @@ export const ModalContent: FC<IModalContentProps> = ({
   description,
   confirmBtnText,
   handleConfirm,
+  //! cancel...
   handleCansel,
-  attentionIcon
+  //! не очивидная зависимость кнопок от этого пропса, хуйня крч
+  //! лучше добавить отдельный пропс, типа reverseButtonDirection
+  attentionIcon,
 }) => {
+  const componentClassName = 'modal-content'
 
-  const componentClassName = 'modal-content';
-
+  //! поч с тут PascalCase?
+  //! buttonWrapperClassName
   const WrapperClassName = classnames(
+    //! от сокращений типа btn отказываемся!
+    //! от camelCase тоже отказываемся
     `${componentClassName}__btnWrapper`,
     {
-      [`${componentClassName}__btnWrapper--attention`]: attentionIcon
-    }
+      [`${componentClassName}__btnWrapper--attention`]: attentionIcon,
+    },
   )
 
   return (
     <div className={componentClassName}>
-
       {attentionIcon && (
         <div className={`${componentClassName}__attentionIcon`}>
           <Icon
@@ -45,11 +52,7 @@ export const ModalContent: FC<IModalContentProps> = ({
         {title}
       </Typography>
 
-      {content && (
-        <div className={`${componentClassName}__content`}>
-          {content}
-        </div>
-      )}
+      {content && <div className={`${componentClassName}__content`}>{content}</div>}
 
       {description && (
         <Typography
@@ -64,7 +67,7 @@ export const ModalContent: FC<IModalContentProps> = ({
       {confirmBtnText && (
         <div className={WrapperClassName}>
           <Button
-            size='large'
+            size="large"
             type={'primary'}
             onClick={attentionIcon ? handleCansel : handleConfirm}
           >
@@ -72,7 +75,7 @@ export const ModalContent: FC<IModalContentProps> = ({
           </Button>
 
           <Button
-            size='large'
+            size="large"
             type={'borderless'}
             onClick={attentionIcon ? handleConfirm : handleCansel}
           >
@@ -80,7 +83,6 @@ export const ModalContent: FC<IModalContentProps> = ({
           </Button>
         </div>
       )}
-
     </div>
   )
 }

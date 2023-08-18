@@ -1,19 +1,25 @@
 'use client'
-import { MouseEventHandler, useEffect, useState } from 'react';
-import { ModalLayout } from '@/components/modalLayout';
+
+import { MouseEventHandler, useEffect, useState } from 'react'
+
+import { ModalLayout } from '@/components/modalLayout'
 
 const styles = {
   padding: '10px',
   maxWidth: 300,
   fontSize: 16,
-  lineHeight: "25px",
+  lineHeight: '25px',
   color: 'rgb(255, 255, 255)',
   backgroundColor: 'rgb(123, 123, 250)',
   borderRadius: 10,
 }
 
 const contentStyle = {
-  width: 200, background: 'white', minHeight: 200, display: 'flex', alignItems: 'center' as const
+  width: 200,
+  background: 'white',
+  minHeight: 200,
+  display: 'flex',
+  alignItems: 'center' as const,
 }
 
 export default function ModalExample() {
@@ -23,51 +29,66 @@ export default function ModalExample() {
   const [openModalIcon, setModalIcon] = useState(false)
 
   const handleClick: MouseEventHandler<HTMLButtonElement> = (event) => {
-    const btnName = event.currentTarget.name;
+    const btnName = event.currentTarget.name
     switch (btnName) {
       case 'type_1':
-        setOpenNonClosingModal(true);
-        break;
+        setOpenNonClosingModal(true)
+        break
       case 'type_2':
-        setClosingModal(true);
-        break;
+        setClosingModal(true)
+        break
       case 'type_3':
-        setActionModal(true);
-        break;
+        setActionModal(true)
+        break
       case 'type_5':
-        setModalIcon(true);
-        break;
+        setModalIcon(true)
+        break
     }
   }
 
   // для незакрывающейся модалки с имитацией получения данных(закрытие через 7 секунд)
   useEffect(() => {
-    openNonClosingModal && setTimeout(() => {
-      setOpenNonClosingModal(false);
-    }, 7000);
-  }, [openNonClosingModal]);
+    openNonClosingModal &&
+      setTimeout(() => {
+        setOpenNonClosingModal(false)
+      }, 7000)
+  }, [openNonClosingModal])
 
   return (
     <main style={{ maxWidth: 600, display: 'flex', flexDirection: 'column', gap: 20 }}>
-      <button style={styles} onClick={handleClick} name='type_1'>
-        Открыть НЕзакрывающееся модальное окно
-        имитацией полученяи данных (закроется автоматически через 7 секунд)
+      <button
+        style={styles}
+        onClick={handleClick}
+        name="type_1"
+      >
+        Открыть НЕзакрывающееся модальное окно имитацией полученяи данных (закроется автоматически
+        через 7 секунд)
       </button>
 
-      <button style={styles} onClick={handleClick} name='type_2'>
+      <button
+        style={styles}
+        onClick={handleClick}
+        name="type_2"
+      >
         Открыть закрывающееся модальное окно c контентом (по клику вне его)
       </button>
 
-      <button style={styles} onClick={handleClick} name='type_3'>
-        Открыть закрывающееся модальное окно c контентом (по клику вне его)
-        и вызвать действия после его закрытия
+      <button
+        style={styles}
+        onClick={handleClick}
+        name="type_3"
+      >
+        Открыть закрывающееся модальное окно c контентом (по клику вне его) и вызвать действия после
+        его закрытия
       </button>
 
-      <button style={styles} onClick={handleClick} name='type_5'>
-        Открыть закрывающееся модальное окно c контентом
-        (по клику вне его и по клику на иконку X)
+      <button
+        style={styles}
+        onClick={handleClick}
+        name="type_5"
+      >
+        Открыть закрывающееся модальное окно c контентом (по клику вне его и по клику на иконку X)
       </button>
-
 
       {openNonClosingModal && (
         <ModalLayout nonClosing>
@@ -77,9 +98,7 @@ export default function ModalExample() {
 
       {openClosingModal && (
         <ModalLayout onClose={() => setClosingModal(false)}>
-          <div style={contentStyle}>
-            Это окно закрывается по клику вне его
-          </div>
+          <div style={contentStyle}>Это окно закрывается по клику вне его</div>
         </ModalLayout>
       )}
 
@@ -89,18 +108,18 @@ export default function ModalExample() {
           actionsOnClose={() => alert('Выполнить действия по закрытию модального окна')}
         >
           <div style={contentStyle}>
-            Это окно закрывается по клику вне его и выполнится действие при закрытии (alert),
-            можно сделать переадресацию на другую страницу и так далее
+            Это окно закрывается по клику вне его и выполнится действие при закрытии (alert), можно
+            сделать переадресацию на другую страницу и так далее
           </div>
         </ModalLayout>
       )}
 
-
       {openModalIcon && (
-        <ModalLayout onClose={() => setModalIcon(false)} exitIcon>
-          <div style={contentStyle}>
-            Это окно закрывается по клику вне его и на иконку X
-          </div>
+        <ModalLayout
+          onClose={() => setModalIcon(false)}
+          exitIcon
+        >
+          <div style={contentStyle}>Это окно закрывается по клику вне его и на иконку X</div>
         </ModalLayout>
       )}
 
@@ -116,7 +135,6 @@ export default function ModalExample() {
           </button>
         </ModalLayout>
       )} */}
-
     </main>
   )
 }
