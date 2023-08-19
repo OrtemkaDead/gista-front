@@ -11,6 +11,12 @@
     transition: color .2s ease-out;
   }
 
+  &--only-icon {
+    padding: 6px;
+
+    @include gap(0);
+  }
+
   // Button Sizes
   &--small {
     height: 29px;

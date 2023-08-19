@@ -14,6 +14,7 @@ export const Button: React.FC<ButtonProps> = memo(function Button({
   type = 'primary',
   size = 'medium',
 
+  isOnlyIcon = false,
   disabled = false,
   fullWidth = false,
 
@@ -31,7 +32,7 @@ export const Button: React.FC<ButtonProps> = memo(function Button({
     `${componentClassName}--${type}`,
     `${componentClassName}--${size}`,
     {
-      // [`${componentClassName}--disabled`]: disabled,
+      [`${componentClassName}--only-icon`]: isOnlyIcon,
       [`${componentClassName}-full-width`]: fullWidth,
     },
     className,

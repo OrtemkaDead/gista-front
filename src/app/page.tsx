@@ -1,7 +1,7 @@
 import { Section, SubSection } from '@/store/reducers/sections-reducer/initial-state'
 import React from 'react'
 
-import { Collapse, GistaCard, NavigationLink } from '@/components'
+import { Collapse, GistaCard, TitleCell } from '@/components'
 import { Gista } from '@/components/gista-components/gista'
 
 import { Button, Icon } from '@/ui-kit'
@@ -53,6 +53,21 @@ export default function Home(): React.ReactElement {
       >
         Link to
       </Button>
+
+      <TitleCell
+        textSize="headline-h1"
+        leftSideIsBackButton
+        rightSideText="ID: 1234567890"
+      >
+        Абрамова Ева Данииловна
+      </TitleCell>
+      <TitleCell
+        textSize="headline-h2"
+        leftSideIconName="profileCircle"
+      >
+        Личная информация
+      </TitleCell>
+
       {sections.map((section) => (
         <Collapse
           key={section.id}

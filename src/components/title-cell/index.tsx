@@ -1,55 +1,78 @@
+'use client'
+
 import classnames from 'classnames'
-import { memo } from 'react'
+import { useRouter } from 'next/navigation'
+import { memo, useMemo } from 'react'
 
-import { Typography } from '@/ui-kit'
-
-import { TypographyVariants } from '@/assets/styles/typography/export.scss'
+import { Button, Icon, Typography } from '@/ui-kit'
 
 import './styles.scss'
 import TitleCellProps from './title-cell.types'
 
 export const TitleCell: React.FC<TitleCellProps> = memo(function TitleCell({
   className = '',
-  before,
-  after,
-  size = 'medium',
   children = '',
+
+  textSize = 'headline-h2',
+
+  leftSideIconName,
+  leftSideIsBackButton = false,
+  rightSideText,
 }) {
+  const router = useRouter()
+
   //* ClassNames
   const componentClassName = 'title-cell'
   const TitleCellClassName = classnames(
     componentClassName,
-    `${componentClassName}--${size}`,
 
     className,
   )
 
-  const titleCellSize = (): TypographyVariants => {
-    switch (size) {
-      case 'large':
-        return 'headline-h1'
-
-      case 'medium':
-        return 'headline-h2'
-
-      case 'small':
-        return 'title-h3'
-
-      default:
-        return 'headline-h2'
+  const leftSideContent = useMemo(() => {
+    if (leftSideIconName && !leftSideIsBackButton) {
+      return (
+        <Icon
+          className={`${componentClassName}__left-icon`}
+          iconName={leftSideIconName}
+        />
+      )
     }
-  }
+
+    if (leftSideIsBackButton && !leftSideIconName) {
+      return (
+        <Button
+          isOnlyIcon
+          iconName="arrowLeft"
+          type="borderless"
+          onClick={() => router.back()}
+        />
+      )
+    }
+
+    return null
+  }, [leftSideIconName, leftSideIsBackButton, router])
 
   return (
     <div className={TitleCellClassName}>
-      {before}
+      {leftSideContent}
+
       <Typography
         font="ntSomic400"
-        variant={titleCellSize()}
+        variant={textSize}
       >
         {children}
       </Typography>
-      {after}
+
+      {rightSideText && (
+        <Typography
+          className={`${componentClassName}__right-text`}
+          variant="title-h3"
+          font="lato400"
+        >
+          {rightSideText}
+        </Typography>
+      )}
     </div>
   )
 })

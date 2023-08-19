@@ -1,15 +1,16 @@
-import React from 'react'
+import { IconNameTypes } from '@/ui-kit/icon/icon-paths'
 
-type TitleCellSize = 'small' | 'medium' | 'large'
+import { TypographyVariants } from '@/assets/styles/typography/export.scss'
 
 interface TitleCellProps {
   className?: string
   children?: string
 
-  before?: React.ReactNode
-  after?: React.ReactNode
+  textSize?: TypographyVariants
 
-  size?: TitleCellSize
+  leftSideIconName?: IconNameTypes
+  leftSideIsBackButton?: boolean
+  rightSideText?: string
 }
 
 export default TitleCellProps

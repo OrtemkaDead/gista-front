@@ -11,6 +11,7 @@ interface ButtonProps {
   type?: ButtonTypes
   size?: ButtonSize
 
+  isOnlyIcon?: boolean
   fullWidth?: boolean
   disabled?: boolean
 

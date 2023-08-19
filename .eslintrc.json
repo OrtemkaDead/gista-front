@@ -3,7 +3,7 @@
   "plugins": ["@typescript-eslint", "react"],
   "rules": {
     "@typescript-eslint/no-empty-interface": [2],
-    "@typescript-eslint/explicit-function-return-type": [1],
+    "@typescript-eslint/explicit-function-return-type": [0],
     "@typescript-eslint/explicit-member-accessibility": [2],
     "@typescript-eslint/no-unused-vars": [0],
     "@typescript-eslint/ban-types": [2],
