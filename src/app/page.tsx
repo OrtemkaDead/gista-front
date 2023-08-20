@@ -1,10 +1,7 @@
 import { Section, SubSection } from '@/store/reducers/sections-reducer/initial-state'
 import React from 'react'
 
-import { Collapse, GistaCard, TitleCell } from '@/components'
-import { Gista } from '@/components/gista-components/gista'
-
-import { Button, Icon } from '@/ui-kit'
+import { Collapse } from '@/shared'
 
 import './styles.scss'
 
@@ -41,33 +38,11 @@ const subsections: SubSection[] = [
   },
 ]
 
-export default function Home(): React.ReactElement {
+export default function MainPage(): React.ReactElement {
+  const componentClassName = 'main-page'
+
   return (
-    <main className="home">
-      <Gista />
-      <Button
-        to="/to"
-        type="borderless"
-        iconSide="left"
-        iconName="arrowLeft"
-      >
-        Link to
-      </Button>
-
-      <TitleCell
-        textSize="headline-h1"
-        leftSideIsBackButton
-        rightSideText="ID: 1234567890"
-      >
-        Абрамова Ева Данииловна
-      </TitleCell>
-      <TitleCell
-        textSize="headline-h2"
-        leftSideIconName="profileCircle"
-      >
-        Личная информация
-      </TitleCell>
-
+    <main className={componentClassName}>
       {sections.map((section) => (
         <Collapse
           key={section.id}
@@ -84,9 +59,9 @@ export default function Home(): React.ReactElement {
                     type="subsection"
                     editable
                   >
+                    {/* <GistaCard />
                     <GistaCard />
-                    <GistaCard />
-                    <GistaCard />
+                    <GistaCard /> */}
                   </Collapse>
                 </>
               ),

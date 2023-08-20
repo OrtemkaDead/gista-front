@@ -16,8 +16,10 @@
 
   "importOrder": [
     "@/app/(.*)$",
-    "@/components",
-    "@/ui-kit",
+    "@/widgets",
+    "@/features",
+    "@/entities",
+    "@/shared",
     "@/lib/(.*)$",
     "@/assets/(.*)$",
     "@/fonts",

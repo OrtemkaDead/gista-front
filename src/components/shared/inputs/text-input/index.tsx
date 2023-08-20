@@ -1,7 +1,7 @@
 import classnames from 'classnames'
 import { memo, useCallback } from 'react'
 
-import { Typography } from '@/ui-kit'
+import { Typography } from '@/shared'
 
 import './styles.scss'
 import TextInputProps from './text-input.types'

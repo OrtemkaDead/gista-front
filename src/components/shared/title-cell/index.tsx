@@ -4,7 +4,7 @@ import classnames from 'classnames'
 import { useRouter } from 'next/navigation'
 import { memo, useMemo } from 'react'
 
-import { Button, Icon, Typography } from '@/ui-kit'
+import { Button, Icon, Typography } from '@/shared'
 
 import './styles.scss'
 import TitleCellProps from './title-cell.types'

@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { memo, useRef, useState } from 'react'
 import { ReactZoomPanPinchRef, TransformComponent, TransformWrapper } from 'react-zoom-pan-pinch'
 
-import { Zoom } from '@/components/zoom'
+import { Zoom } from '@/components/features/zoom'
 
 import GistaTestImg from '@/assets/images/gista-test.png'
 

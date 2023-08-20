@@ -3,7 +3,7 @@
 import classnames from 'classnames'
 import { memo, useState } from 'react'
 
-import { Icon, Typography } from '@/ui-kit'
+import { Icon, Typography } from '@/shared'
 
 import CollapseProps from './collapse.types'
 import './styles.scss'

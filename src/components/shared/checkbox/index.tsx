@@ -1,7 +1,7 @@
 import classnames from 'classnames'
 import { memo } from 'react'
 
-import { Icon } from '@/ui-kit'
+import { Icon } from '@/shared'
 
 import CheckboxProps from './checkbox.types'
 import './styles.scss'

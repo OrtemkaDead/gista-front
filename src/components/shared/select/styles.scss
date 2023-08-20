@@ -3,7 +3,7 @@
   @include flexible($fd: row, $jc: space-between, $ai: center);
   width: 100%;
   padding: 6.5px 16px;
-  background-image: url("../../assets/images/arrowdown.svg");
+  // background-image: url("../../assets/images/arrowdown.svg");
   background-repeat: no-repeat;
   background-position-x: calc(100% - 16px);
   background-position-y: 9.5px;

@@ -1,9 +1,7 @@
 import classnames from 'classnames'
 import { memo } from 'react'
 
-import { Logo } from '@/components'
-
-import { Typography } from '@/ui-kit'
+import { Logo, Typography } from '@/shared'
 
 import HeaderProps from './header.types'
 import './styles.scss'

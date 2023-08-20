@@ -1,7 +1,7 @@
 import classnames from 'classnames'
 import { memo } from 'react'
 
-import { Icon, Typography } from '@/ui-kit'
+import { Icon, Typography } from '@/shared'
 
 import SidebarProps, { SidebarLinkType } from './sidebar.types'
 import './styles.scss'

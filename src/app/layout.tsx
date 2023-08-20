@@ -1,8 +1,7 @@
 import type { Metadata } from 'next'
+import { useMemo } from 'react'
 
-import { Header, Sidebar } from '@/components'
-
-import { Button } from '@/ui-kit'
+import { Button, Header, Icon, Sidebar } from '@/shared'
 
 import './globals.scss'
 import './styles.scss'
@@ -14,21 +13,35 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  authorization,
 }: {
   children: React.ReactNode
+  authorization: React.ReactNode
 }): React.ReactElement {
+  const isLogged = false
+
+  const headerContent = useMemo(() => {
+    if (isLogged) {
+      return <Icon iconName="profileCircle" />
+    }
+
+    return (
+      <>
+        <Button>Auth</Button>
+        <Button>Register</Button>
+      </>
+    )
+  }, [isLogged])
+
   return (
     <html lang="ru">
       <body className="app-layout">
-        <Header>
-          <Button>Auth</Button>
-          <Button>Register</Button>
-        </Header>
+        <Header>{headerContent}</Header>
 
         <div className="app-layout__content">
-          <Sidebar />
+          {isLogged ? <Sidebar /> : null}
 
-          {children}
+          {isLogged ? children : authorization}
         </div>
       </body>
     </html>

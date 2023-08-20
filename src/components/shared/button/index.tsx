@@ -2,7 +2,7 @@ import classnames from 'classnames'
 import Link from 'next/link'
 import { memo, useMemo } from 'react'
 
-import { Icon, Typography } from '@/ui-kit'
+import { Icon, Typography } from '@/shared'
 
 import ButtonProps from './button.types'
 import './styles.scss'
