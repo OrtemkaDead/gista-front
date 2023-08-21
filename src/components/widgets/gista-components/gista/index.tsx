@@ -1,18 +1,17 @@
 'use client'
 
+import { Zoom } from '@/components/features/zoom'
 import classnames from 'classnames'
 import Image from 'next/image'
 import { memo, useRef, useState } from 'react'
 import { ReactZoomPanPinchRef, TransformComponent, TransformWrapper } from 'react-zoom-pan-pinch'
-
-import { Zoom } from '@/components/features/zoom'
 
 import GistaTestImg from '@/assets/images/gista-test.png'
 
 import GistaProps from './gista.types'
 import './styles.scss'
 
-export const Gista: React.FC<GistaProps> = memo(function Gista({ className = '' }) {
+export const Gista: React.FC<GistaProps> = ({ className = '' }) => {
   const transformComponentRef: React.RefObject<ReactZoomPanPinchRef> = useRef(null)
   const [scale, setScale] = useState<number>(1)
 
@@ -84,4 +83,6 @@ export const Gista: React.FC<GistaProps> = memo(function Gista({ className = '' 
       </TransformWrapper>
     </div>
   )
-})
+}
+
+export default memo(Gista)

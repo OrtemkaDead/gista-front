@@ -48,7 +48,7 @@ const sidebarManagementLinks: SidebarLinkType[] = [
   },
 ]
 
-export const Sidebar: React.FC<SidebarProps> = memo(function Sidebar({ className = '' }) {
+const Sidebar: React.FC<SidebarProps> = ({ className = '' }) => {
   //* ClassNames
   const componentClassName = 'sidebar'
   const SidebarClassName = classnames(
@@ -88,4 +88,6 @@ export const Sidebar: React.FC<SidebarProps> = memo(function Sidebar({ className
       </div>
     </aside>
   )
-})
+}
+
+export default memo(Sidebar)

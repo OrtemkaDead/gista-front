@@ -8,7 +8,7 @@ import './styles.scss'
 
 //Todo: Миша, напиши дефолт значения для пропсов
 
-export const NumberInput: React.FC<NumberInputProps> = memo(function NumberInput({
+const NumberInput: React.FC<NumberInputProps> = ({
   className = '',
   value,
   onChange,
@@ -16,7 +16,7 @@ export const NumberInput: React.FC<NumberInputProps> = memo(function NumberInput
   disabled,
   min,
   max,
-}) {
+}) => {
   //* ClassNames
   const componentClassName = 'number-input'
   const NumberInputClassName = classnames(
@@ -37,4 +37,6 @@ export const NumberInput: React.FC<NumberInputProps> = memo(function NumberInput
       className={NumberInputClassName}
     />
   )
-})
+}
+
+export default memo(NumberInput)

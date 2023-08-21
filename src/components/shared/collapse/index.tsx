@@ -8,9 +8,9 @@ import { Icon, Typography } from '@/shared'
 import CollapseProps from './collapse.types'
 import './styles.scss'
 
-export const Collapse: React.FC<CollapseProps> = memo(function Collapse({
+const Collapse: React.FC<CollapseProps> = ({
   title = '',
-  children = '',
+  children,
   className = '',
   type = 'section',
   isEditPosition = false,
@@ -18,7 +18,7 @@ export const Collapse: React.FC<CollapseProps> = memo(function Collapse({
 
   onEditClick,
   onDeleteClick,
-}) {
+}) => {
   const [isOpened, setIsOpened] = useState<boolean>(false)
 
   //* ClassNames
@@ -68,4 +68,6 @@ export const Collapse: React.FC<CollapseProps> = memo(function Collapse({
       {children && isOpened && <div className={`${componentClassName}__content`}>{children}</div>}
     </>
   )
-})
+}
+
+export default memo(Collapse)

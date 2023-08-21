@@ -14,7 +14,7 @@ interface CustomSize {
   maxHeight: string
 }
 
-export const Icon: React.FC<IconProps> = memo(function Icon({
+const Icon: React.FC<IconProps> = ({
   className,
   iconName = 'profileCircle',
   size = 24,
@@ -24,7 +24,7 @@ export const Icon: React.FC<IconProps> = memo(function Icon({
   color = '#787878',
   fill = 'none',
   onClick,
-}) {
+}) => {
   //* Hooks
   const [translatePathY, setTranslatePathY] = useState<number>(0)
   const [translatePathX, setTranslatePathX] = useState<number>(0)
@@ -86,4 +86,6 @@ export const Icon: React.FC<IconProps> = memo(function Icon({
       {iconsPaths[iconName]}
     </svg>
   )
-})
+}
+
+export default memo(Icon)

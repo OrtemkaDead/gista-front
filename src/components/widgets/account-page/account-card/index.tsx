@@ -4,10 +4,7 @@ import { memo } from 'react'
 import AccountCardProps from './account-card.types'
 import './styles.scss'
 
-export const AccountCard: React.FC<AccountCardProps> = memo(function AccountCard({
-  className = '',
-  children = '',
-}) {
+export const AccountCard: React.FC<AccountCardProps> = ({ className = '', children = '' }) => {
   //* ClassNames
   const componentClassName = 'account-card'
   const AccountCardClassName = classnames(
@@ -17,4 +14,6 @@ export const AccountCard: React.FC<AccountCardProps> = memo(function AccountCard
   )
 
   return <div className={AccountCardClassName}>{children}</div>
-})
+}
+
+export default memo(AccountCard)

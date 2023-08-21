@@ -7,7 +7,7 @@ import { Icon, Typography } from '@/shared'
 import ButtonProps from './button.types'
 import './styles.scss'
 
-export const Button: React.FC<ButtonProps> = memo(function Button({
+export const Button: React.FC<ButtonProps> = ({
   className = '',
   children = '',
 
@@ -24,7 +24,7 @@ export const Button: React.FC<ButtonProps> = memo(function Button({
   to,
 
   onClick,
-}) {
+}) => {
   //* ClassNames
   const componentClassName = 'button'
   const ButtonClassName = classnames(
@@ -88,4 +88,6 @@ export const Button: React.FC<ButtonProps> = memo(function Button({
       {iconSide === 'right' && icon}
     </WrapperComponent>
   )
-})
+}
+
+export default memo(Button)

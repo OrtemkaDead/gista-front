@@ -143,6 +143,10 @@
     }
   }
 
+  &:disabled {
+    cursor: default;
+  }
+
   &--secondary:disabled {
     background-color: $color-button-primary-disable;
 

@@ -6,7 +6,7 @@ import { memo, useState } from 'react'
 import SelectProps from './select.types'
 import './styles.scss'
 
-export const Select: React.FC<SelectProps> = memo(function Select({ className, name, id, data }) {
+const Select: React.FC<SelectProps> = ({ className, name, id, data }) => {
   //* Hooks
   const [selectValue, setSelectValue] = useState<string>('')
 
@@ -39,4 +39,6 @@ export const Select: React.FC<SelectProps> = memo(function Select({ className, n
       ))}
     </select>
   )
-})
+}
+
+export default memo(Select)

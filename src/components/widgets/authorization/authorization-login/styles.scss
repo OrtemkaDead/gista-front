@@ -1,0 +1,16 @@
+.authorization-login {
+
+  &__content {
+    width: 100%;
+    @include flexible(center, $fd: column, $gap: 16px);
+  }
+
+  &__no-account {
+    width: 100%;
+    @include flexible(center, space-between, $gap: 0);
+
+    &-text {
+      color: $color-text-secondary;
+    }
+  }
+}

@@ -6,7 +6,7 @@ import { Typography } from '@/shared'
 import './styles.scss'
 import TextInputProps from './text-input.types'
 
-export const TextInput: React.FC<TextInputProps> = memo(function TextInput({
+const TextInput: React.FC<TextInputProps> = ({
   className = '',
   value,
   setValue,
@@ -16,7 +16,7 @@ export const TextInput: React.FC<TextInputProps> = memo(function TextInput({
   type = 'text',
   register,
   name = '',
-}) {
+}) => {
   //* ClassNames
   const componentClassName = 'text-input'
   const TextInputClassName = classnames(
@@ -63,4 +63,6 @@ export const TextInput: React.FC<TextInputProps> = memo(function TextInput({
       )}
     </div>
   )
-})
+}
+
+export default memo(TextInput)

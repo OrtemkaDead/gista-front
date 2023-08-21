@@ -3,8 +3,6 @@ import React from 'react'
 
 import { Collapse } from '@/shared'
 
-import './styles.scss'
-
 const sections: Section[] = [
   {
     id: '1',
@@ -59,6 +57,7 @@ export default function MainPage(): React.ReactElement {
                     type="subsection"
                     editable
                   >
+                    dsdsd
                     {/* <GistaCard />
                     <GistaCard />
                     <GistaCard /> */}

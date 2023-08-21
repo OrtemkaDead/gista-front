@@ -3,7 +3,7 @@
 import classnames from 'classnames'
 import { memo, useState } from 'react'
 
-import { Typography } from '@/ui-kit'
+import { Typography } from '@/shared'
 
 import GistaLayersProps, { Layer } from './gista-layers.types'
 import './styles.scss'
@@ -27,10 +27,7 @@ const MockLayers: Layer[] = [
   },
 ]
 
-export const GistaLayers: React.FC<GistaLayersProps> = memo(function GistaLayers({
-  className = '',
-  layers,
-}) {
+export const GistaLayers: React.FC<GistaLayersProps> = ({ className = '', layers }) => {
   const [activeLayer, setActiveLayer] = useState<string>('1')
 
   //* ClassNames
@@ -58,4 +55,6 @@ export const GistaLayers: React.FC<GistaLayersProps> = memo(function GistaLayers
       ))}
     </div>
   )
-})
+}
+
+export default memo(GistaLayers)

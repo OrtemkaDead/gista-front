@@ -9,7 +9,7 @@ import { Button, Icon, Typography } from '@/shared'
 import './styles.scss'
 import TitleCellProps from './title-cell.types'
 
-export const TitleCell: React.FC<TitleCellProps> = memo(function TitleCell({
+export const TitleCell: React.FC<TitleCellProps> = ({
   className = '',
   children = '',
 
@@ -18,7 +18,7 @@ export const TitleCell: React.FC<TitleCellProps> = memo(function TitleCell({
   leftSideIconName,
   leftSideIsBackButton = false,
   rightSideText,
-}) {
+}) => {
   const router = useRouter()
 
   //* ClassNames
@@ -75,4 +75,6 @@ export const TitleCell: React.FC<TitleCellProps> = memo(function TitleCell({
       )}
     </div>
   )
-})
+}
+
+export default memo(TitleCell)

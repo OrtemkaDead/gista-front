@@ -1,7 +1,4 @@
-.page {
-}
-
-.app-layout {
+.default-page-layout {
   @include flexible($fd: column);
   height: 100%;
   width: 100%;
@@ -12,9 +9,4 @@
     width: 100%;
     @include flexible($fd: row);
   }
-}
-
-.main-page {
-  // width: 100%;
-  // padding: 32px;
 }

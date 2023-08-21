@@ -1,1 +1,1 @@
-export * from './zoom'
+export { default as Zoom } from './zoom'
