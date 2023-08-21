@@ -21,6 +21,10 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
+      "@/widgets": ["./src/components/widgets"],
+      "@/features": ["./src/components/features"],
+      "@/entities": ["./src/components/entities"],
+      "@/shared": ["./src/components/shared"],
       "@/fonts": ["./src/assets/fonts"]
     }
   },

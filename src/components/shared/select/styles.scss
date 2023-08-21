@@ -1,0 +1,31 @@
+.select {
+  appearance: none;
+  @include flexible($fd: row, $jc: space-between, $ai: center);
+  width: 100%;
+  padding: 6.5px 16px;
+  // background-image: url("../../assets/images/arrowdown.svg");
+  background-repeat: no-repeat;
+  background-position-x: calc(100% - 16px);
+  background-position-y: 9.5px;
+  border: 1px solid #DEDEDE;
+  border-radius: 8px;
+  font-family: 'Lato', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #A1A1A1;
+
+  &__option * {
+    appearance: none;
+    font-family: 'NT Somic', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+    background: #FFFFFF;
+    border-radius: 8px;
+    border: 1px solid red;
+  }
+}

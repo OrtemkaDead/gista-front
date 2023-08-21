@@ -1,0 +1,22 @@
+.authorization-form-wrapper {
+  width: 40%;
+  height: 100%;
+  margin: 0 auto;
+  @include flexible(center, center);
+
+  &__content {
+    width: 100%;
+    max-width: 420px;
+
+    padding: 32px 40px;
+    @include flexible(center, $fd: column, $gap: 32px);
+  
+    background-color: $color-background-primary;
+    border-radius: 16px;
+  }
+
+  &__button-wrapper {
+    width: 100%;
+    @include flexible(center, $fd: column, $gap: 16px);
+  }
+}
