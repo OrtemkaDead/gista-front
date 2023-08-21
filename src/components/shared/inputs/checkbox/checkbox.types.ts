@@ -1,7 +1,8 @@
 interface CheckboxProps {
   className?: string
-  state?: boolean
-  onClick?: () => void
+  label?: string
+  value: boolean
+  setValue: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 export default CheckboxProps
