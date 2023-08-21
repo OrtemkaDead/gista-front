@@ -1,4 +1,4 @@
-import { IconNameTypes } from '@/ui-kit/icon/icon-paths'
+import { IconNameTypes } from '@/shared/icon/icon-paths'
 
 export type SidebarLinkType = {
   id: number
