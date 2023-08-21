@@ -22,9 +22,13 @@
     "paths": {
       "@/*": ["./src/*"],
       "@/widgets": ["./src/components/widgets"],
+      "@/widgets/*": ["./src/components/widgets/*"],
       "@/features": ["./src/components/features"],
+      "@/features/*": ["./src/components/features/*"],
       "@/entities": ["./src/components/entities"],
+      "@/entities/*": ["./src/components/entities/*"],
       "@/shared": ["./src/components/shared"],
+      "@/shared/*": ["./src/components/shared/*"],
       "@/fonts": ["./src/assets/fonts"]
     }
   },
