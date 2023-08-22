@@ -7,7 +7,7 @@ import { Icon, Typography } from '@/shared'
 import ButtonProps from './button.types'
 import './styles.scss'
 
-export const Button: React.FC<ButtonProps> = ({
+const Button: React.FC<ButtonProps> = ({
   className = '',
   children = '',
 

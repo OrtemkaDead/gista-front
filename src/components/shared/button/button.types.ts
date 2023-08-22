@@ -1,4 +1,4 @@
-import { IconNameTypes } from '../icon/icon-paths'
+import { IconNameTypes } from '@/shared/icon/icon-paths'
 
 type ButtonTypes = 'primary' | 'secondary' | 'borderless' | 'invert'
 
