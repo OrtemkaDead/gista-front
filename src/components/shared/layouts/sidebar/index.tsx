@@ -66,7 +66,7 @@ const Sidebar: React.FC<SidebarProps> = ({ className = '' }) => {
         <Link
           title="Выйти"
           iconName="exit"
-          to="/exit"
+          to="/authorization"
         />
       </div>
     </aside>
