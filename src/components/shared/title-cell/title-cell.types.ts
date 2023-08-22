@@ -1,6 +1,6 @@
-import { TypographyVariants } from '@/assets/styles/typography/export.scss'
+import { IconNameTypes } from '@/shared/icon/icon-paths'
 
-import { IconNameTypes } from '../icon/icon-paths'
+import { TypographyVariants } from '@/assets/styles/typography/export.scss'
 
 interface TitleCellProps {
   className?: string

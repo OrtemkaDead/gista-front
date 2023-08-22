@@ -6,33 +6,29 @@ import { Collapse } from '@/shared'
 const sections: Section[] = [
   {
     id: '1',
-    name: 'Раздел 1',
+    name: 'Общая гистология',
   },
   {
     id: '2',
-    name: 'Раздел 2',
-  },
-  {
-    id: '3',
-    name: 'Раздел 3',
+    name: 'Частная гистология',
   },
 ]
 
 const subsections: SubSection[] = [
   {
-    id: '01',
+    id: '1_1',
     parent_id: '1',
-    name: 'Подраздел 1',
+    name: 'Органы кроветворения и иммуногенеза 1',
   },
   {
-    id: '02',
-    parent_id: '2',
-    name: 'Подраздел 3',
+    id: '1_2',
+    parent_id: '1',
+    name: 'Органы кроветворения и иммуногенеза 2',
   },
   {
-    id: '03',
+    id: '1_3',
     parent_id: '1',
-    name: 'Подраздел 2',
+    name: 'Органы кроветворения и иммуногенеза 3',
   },
 ]
 

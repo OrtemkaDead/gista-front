@@ -1,0 +1,47 @@
+.link {
+  $parent: &;
+
+  position: relative;
+  width: 100%;
+  @include flexible($ai: center, $fd: row, $gap: 12px);
+  padding: 8px 16px;
+
+  &__icon, &__title {
+    transition: color .2s;
+  }
+
+  &__icon {
+    color: $color-icon-secondary;
+  }
+  &__title {
+    width: 100%;
+  
+    color: $color-text-primary;
+  }
+
+  &--active {
+    background: linear-gradient(270deg, rgba(0, 127, 255, 0.04) 0%, rgba(0, 127, 255, 0.00) 100%);
+
+    &::after {
+      content: '';
+      @include position(absolute, 0, -1px, 0);
+      width: 4px;
+  
+      background-color: $color-primary;
+      border-radius: 16px 0px 0px 16px;
+    }
+
+    #{$parent}__icon, #{$parent}__title {
+      color: $color-primary;
+    }
+  }
+
+
+
+  &:hover {
+    background: linear-gradient(270deg, rgba(0, 127, 255, 0.04) 0%, rgba(0, 127, 255, 0.00) 100%);
+    #{$parent}__icon, #{$parent}__title {
+      color: $color-primary;
+    }
+  }
+}

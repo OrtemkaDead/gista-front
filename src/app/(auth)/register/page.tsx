@@ -1,18 +1,12 @@
-import { Typography } from '@/shared'
-
-import './styles.scss'
+import { AboutInfoBlock, Typography } from '@/shared'
 
 export default function RegisterPage(): React.ReactElement {
-  const componentClassName = 'register-page'
-
   return (
-    <div className={componentClassName}>
-      <Typography
-        variant="display"
-        font="ntSomic400"
-      >
-        Страница регистрации в работи...
-      </Typography>
-    </div>
+    <>
+      <AboutInfoBlock />
+      {/* TODO: AuthLogin надо заменить на компонент для регистрации, на подобии этого */}
+      {/* <AuthorizationLogin /> */}
+      <Typography variant="display">Регестраци я</Typography>
+    </>
   )
 }
