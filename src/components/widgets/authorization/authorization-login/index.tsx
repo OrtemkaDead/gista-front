@@ -1,22 +1,13 @@
-'use client'
-
-import { memo, useMemo, useState } from 'react'
+import { memo, useMemo } from 'react'
 
 import { AuthorizationFormWrapper, Button, EmailInput, PasswordInput, Typography } from '@/shared'
 
 import AuthorizationLoginProps from './authorization-login.types'
 import './styles.scss'
 
-export const AuthorizationLogin: React.FC<AuthorizationLoginProps> = ({
-  className = '',
-  children = 'some...',
-}) => {
-  const [emailIsValid, setEmailIsValid] = useState<boolean>(false)
-
+export const AuthorizationLogin: React.FC<AuthorizationLoginProps> = ({}) => {
   //* ClassNames
   const componentClassName = 'authorization-login'
-
-  const authorizationButtonIsDisabled = !emailIsValid
 
   const buttons = useMemo(
     () => (
@@ -24,7 +15,6 @@ export const AuthorizationLogin: React.FC<AuthorizationLoginProps> = ({
         <Button
           size="large"
           fullWidth
-          disabled={authorizationButtonIsDisabled}
           to="/"
         >
           Войти
@@ -47,7 +37,7 @@ export const AuthorizationLogin: React.FC<AuthorizationLoginProps> = ({
         </div>
       </>
     ),
-    [authorizationButtonIsDisabled],
+    [],
   )
 
   return (
@@ -56,7 +46,7 @@ export const AuthorizationLogin: React.FC<AuthorizationLoginProps> = ({
       buttonSide={buttons}
     >
       <div className={`${componentClassName}__content`}>
-        <EmailInput setIsValid={setEmailIsValid} />
+        <EmailInput />
         <PasswordInput />
       </div>
     </AuthorizationFormWrapper>
