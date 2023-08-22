@@ -11,15 +11,4 @@
     width: 100%;
     @include flexible($fd: column, $gap: 16px);
   }
-
-  &__link {
-    @include flexible($fd: row, $gap: 16px, $ai: center);
-    padding: 4px 16px;
-    cursor: pointer;
-    width: 100%;
-
-    &.active {
-      background: linear-gradient(270deg, rgba(0, 127, 255, 0.04) 0%, rgba(0, 127, 255, 0) 100%);
-    }
-  }
 }
