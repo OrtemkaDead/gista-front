@@ -16,7 +16,7 @@
   }
 
   &__content {
-    @include flexible($gap: 24px);
+    @include flexible($gap: 24px, $ai: stretch);
     width: 100%;
 
     &--info {
@@ -26,7 +26,7 @@
 
     &--university-connection {
       width: 100%;
-
+      max-width: 450px;
     }
   }
 }
