@@ -43,7 +43,7 @@ export const Link: React.FC<LinkProps> = memo(function Link({
       <Typography
         className={`${componentClassName}__title`}
         variant="title-h3"
-        font="ntSomic400"
+        font="ntSomic"
       >
         {title}
       </Typography>

@@ -23,7 +23,7 @@ export const CardItem: React.FC<CardItemProps> = ({
     <div className={CardItemClassName}>
       <Typography
         className={`${CardItemClassName}__title`}
-        font="ntSomic400"
+        font="ntSomic"
         variant="text-16"
       >
         {title}

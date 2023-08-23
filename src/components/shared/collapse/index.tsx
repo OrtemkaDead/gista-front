@@ -39,7 +39,7 @@ const Collapse: React.FC<CollapseProps> = ({
           <div className={`${componentClassName}__container`}>
             {editable && isEditPosition && <Icon iconName="hamburger" />}
             <Typography
-              font="ntSomic400"
+              font="ntSomic"
               variant={type === 'section' ? 'headline-h1' : 'title-h1'}
             >
               {title}

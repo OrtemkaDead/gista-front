@@ -6,7 +6,7 @@ export default function UserPage(): React.ReactElement {
 
   return (
     <>
-      <AccountCard>
+     <AccountCard>
         [UserInfoBlock(FORM)]
       </AccountCard>
 
@@ -17,6 +17,7 @@ export default function UserPage(): React.ReactElement {
       {/* <AccountCard type='university-empty-card'>
         [Форма отправки заявки на подключение университета]
       </AccountCard> */}
+      <Typography variant="display">Страница Аккаунта</Typography>
     </>
   )
 }

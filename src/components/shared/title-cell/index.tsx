@@ -58,7 +58,7 @@ export const TitleCell: React.FC<TitleCellProps> = ({
       {leftSideContent}
 
       <Typography
-        font="ntSomic400"
+        font="ntSomic"
         variant={textSize}
       >
         {children}
@@ -68,7 +68,7 @@ export const TitleCell: React.FC<TitleCellProps> = ({
         <Typography
           className={`${componentClassName}__right-text`}
           variant="title-h3"
-          font="lato400"
+          font="lato"
         >
           {rightSideText}
         </Typography>

@@ -19,7 +19,7 @@ const AuthorizationFormWrapper: React.FC<AuthorizationFormWrapperProps> = ({
         <Typography
           className={`${componentClassName}__title`}
           variant="headline-h2"
-          font="ntSomic400"
+          font="ntSomic"
         >
           {titleText}
         </Typography>
