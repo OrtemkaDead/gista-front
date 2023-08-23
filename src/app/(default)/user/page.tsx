@@ -17,7 +17,6 @@ export default function UserPage(): React.ReactElement {
       {/* <AccountCard type='university-empty-card'>
         [Форма отправки заявки на подключение университета]
       </AccountCard> */}
-      <Typography variant="display">Страница Аккаунта</Typography>
     </>
   )
 }
