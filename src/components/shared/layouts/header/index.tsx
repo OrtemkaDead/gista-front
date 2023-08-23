@@ -22,7 +22,7 @@ const Header: React.FC<HeaderProps> = ({ className = '', children }) => {
         <Typography
           className={`${componentClassName}__title`}
           variant="title-h1"
-          font="ntSomic400"
+          font="ntSomic"
         >
           Сдать Гисту
         </Typography>

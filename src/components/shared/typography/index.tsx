@@ -7,8 +7,8 @@ import './styles.scss'
 import TypographyProps from './typography.types'
 
 export const Typography: React.FC<TypographyProps> = ({
-  variant = 'title-h3',
-  font = 'lato400',
+  variant,
+  font,
   tag,
 
   className = '',

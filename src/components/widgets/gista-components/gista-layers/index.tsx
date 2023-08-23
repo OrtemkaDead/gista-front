@@ -50,7 +50,12 @@ export const GistaLayers: React.FC<GistaLayersProps> = ({ className = '', layers
               : `${GistaLayersClassName}__layer`
           }
         >
-          <Typography variant="text-16">{layer.title}</Typography>
+          <Typography
+            font="lato"
+            variant="text-16"
+          >
+            {layer.title}
+          </Typography>
         </div>
       ))}
     </div>

@@ -23,7 +23,7 @@ export const AuthorizationLogin: React.FC<AuthorizationLoginProps> = ({}) => {
           <Typography
             className={`${componentClassName}__no-account-text`}
             variant="title-h3"
-            font="ntSomic400"
+            font="ntSomic"
           >
             Нет аккаунта?
           </Typography>

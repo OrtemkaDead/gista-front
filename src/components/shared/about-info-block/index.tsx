@@ -24,7 +24,7 @@ const AboutInfoBlock: React.FC<AboutInfoBlockProps> = ({ className = '' }) => {
         <Typography
           className={`${componentClassName}__title`}
           variant="display"
-          font="ntSomic400"
+          font="ntSomic"
           tag="h1"
         >
           Препараты в 4К
@@ -33,7 +33,7 @@ const AboutInfoBlock: React.FC<AboutInfoBlockProps> = ({ className = '' }) => {
         <Typography
           className={`${componentClassName}__subtitle`}
           variant="title-h3"
-          font="ntSomic400"
+          font="ntSomic"
           tag="h3"
         >
           Самые качественные препараты для изучения гистологии!
