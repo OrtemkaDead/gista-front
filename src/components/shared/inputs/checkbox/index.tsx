@@ -10,7 +10,8 @@ const Checkbox: React.FC<CheckboxProps> = ({
   className = '',
   value = false,
   setValue,
-  label = '',
+  labelText = '',
+  labelName = '',
 }) => {
   //* ClassNames
   const componentClassName = 'checkbox'
@@ -33,15 +34,13 @@ const Checkbox: React.FC<CheckboxProps> = ({
   )
 
   return (
-    <div
-      className={CheckboxClassName}
-      onClick={() => setValue(!value)}
-    >
+    <label className={CheckboxClassName}>
       <input
         type="checkbox"
         checked={value}
         onChange={onChangeHandler}
         hidden
+        name={labelName}
       />
       <Icon
         iconName="done"
@@ -54,9 +53,9 @@ const Checkbox: React.FC<CheckboxProps> = ({
         variant="text-16"
         tag="span"
       >
-        {label}
+        {labelText}
       </Typography>
-    </div>
+    </label>
   )
 }
 
