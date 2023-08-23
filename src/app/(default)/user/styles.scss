@@ -1,0 +1,32 @@
+.account-page {
+  padding: 32px;
+  @include flexible($fd: column);
+  width: 100%;
+  // можно изменить миксин? чтобы передовать и max-width и min-width
+  // @include width($width: 100%);
+}
+
+.account-page-layout {
+  @include flexible($fd: column);
+  width: 100%;
+
+  &__title {
+    margin-bottom: 32px;
+    width: 100%;
+  }
+
+  &__content {
+    @include flexible($gap: 24px);
+    width: 100%;
+
+    &--info {
+      @include flexible($fd: column, $gap: 24px);
+      width: 100%;
+    }
+
+    &--university-connection {
+      width: 100%;
+
+    }
+  }
+}
