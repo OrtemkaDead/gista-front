@@ -53,4 +53,5 @@ export const AuthorizationLogin: React.FC<AuthorizationLoginProps> = ({}) => {
   )
 }
 
+// test
 export default memo(AuthorizationLogin)
