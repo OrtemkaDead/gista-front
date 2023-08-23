@@ -40,7 +40,7 @@ const TextInput: React.FC<TextInputProps> = ({
         <Typography
           className={`${componentClassName}__label`}
           variant="text-16"
-          font="lato400"
+          font="lato"
         >
           {label}
         </Typography>
@@ -56,7 +56,7 @@ const TextInput: React.FC<TextInputProps> = ({
         <Typography
           className={`${componentClassName}__hint-text`}
           variant="text-14"
-          font="lato400"
+          font="lato"
         >
           {hintText}
         </Typography>

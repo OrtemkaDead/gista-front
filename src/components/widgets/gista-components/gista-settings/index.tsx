@@ -28,7 +28,7 @@ export const GistaSettings: React.FC<GistaSettingsProps> = ({ className = '' }) 
         />
         <Typography
           className={`${GistaSettingsClassName}__title`}
-          font="lato400"
+          font="lato"
           variant="text-16"
         >
           Показывать в 4K

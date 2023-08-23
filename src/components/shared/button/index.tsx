@@ -51,7 +51,7 @@ const Button: React.FC<ButtonProps> = ({
         <Typography
           className={`${componentClassName}__text`}
           variant="title-h3"
-          font="ntSomic400"
+          font="ntSomic"
         >
           {children}
         </Typography>

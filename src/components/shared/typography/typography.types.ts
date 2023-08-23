@@ -6,8 +6,8 @@ interface TypographyProps {
   className?: string
   children?: React.ReactNode
 
-  variant?: TypographyVariants
-  font?: FontsType
+  variant: TypographyVariants
+  font: FontsType
   tag?: TagTypes
 }
 

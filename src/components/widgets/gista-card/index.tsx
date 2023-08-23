@@ -39,6 +39,7 @@ export const GistaCard: React.FC<GistaCardProps> = ({ className = '', editable =
         <Typography
           className={`${componentClassName}__title`}
           variant="headline-h2"
+          font="gilroy"
         >
           Мазок крови человека – окраска: азур II и эозин
         </Typography>
