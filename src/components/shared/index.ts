@@ -21,3 +21,6 @@ export { default as Sidebar } from './layouts/sidebar'
 
 //? Authorization
 export { default as AuthorizationFormWrapper } from './authorization/authorization-form-wrapper'
+
+//? User
+export { default as AccountCard } from './user/account-card'

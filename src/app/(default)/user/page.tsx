@@ -1,16 +1,16 @@
-import AccountCard from '@/components/account-page/account-card'
+import { AccountCard } from '@/shared'
 
 export default function UserPage(): React.ReactElement {
-  
   const universityID = '1234567890'
 
   return (
     <>
-     <AccountCard>
-        [UserInfoBlock(FORM)]
-      </AccountCard>
+      <AccountCard>[UserInfoBlock(FORM)]</AccountCard>
 
-      <AccountCard type='university-card' universityID={universityID}>
+      <AccountCard
+        type="university-card"
+        universityID={universityID}
+      >
         [UniversityInfoBlock]
       </AccountCard>
 
