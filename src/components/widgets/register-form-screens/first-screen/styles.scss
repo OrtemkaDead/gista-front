@@ -1,0 +1,9 @@
+.first-screen {
+  width: 100%;
+
+  @include flexible($fd: column, $gap: 32px);
+  &__inputs {
+    @include flexible($fd: column, $gap: 16px);
+    width: 100%;
+  }
+}

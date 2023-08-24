@@ -1,0 +1,25 @@
+.fourth-step {
+  @include flexible($fd: column, $gap: 32px);
+  &__inputs {
+    @include flexible($fd: column, $gap: 16px);
+  }
+  &__validation {
+    @include flexible($fd: row, $ai: center, $jc: space-between);
+    gap: 26px;
+    &__container {
+      @include flexible($fd: column);
+      gap: 8px;
+    }
+    &__item {
+      @include flexible($fd: row, $ai: center);
+      gap: 8px;
+      color: #a1a1a1;
+      & .active {
+        color: #1ec025;
+        & svg {
+          fill: #1ec025;
+        }
+      }
+    }
+  }
+}
