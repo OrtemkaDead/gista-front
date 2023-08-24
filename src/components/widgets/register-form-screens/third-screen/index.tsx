@@ -18,6 +18,7 @@ export const ThirdScreen: React.FC<ThirdScreenProps> = ({}) => {
         <Typography
           variant="text-16"
           font="lato"
+          tag="p"
         >
           На адрес sense.nessa@gmail.com выслан код подтверждения. Проверьте папку “Спам”
         </Typography>
@@ -31,7 +32,6 @@ export const ThirdScreen: React.FC<ThirdScreenProps> = ({}) => {
         />
       </div>
       <Button
-        as="submit"
         size="large"
         fullWidth
       >

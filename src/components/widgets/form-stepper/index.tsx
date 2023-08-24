@@ -1,10 +1,9 @@
+import Typography from '@/components/shared/typography'
+
 import FormStepperProps from './form-stepper.types'
 import './styles.scss'
 
 export const FormStepper: React.FC<FormStepperProps> = ({ steps, activeStep }) => {
-  //* ClassNames
-  // const componentClassName = 'form-stepper'
-
   // Переписать на classnames
   const getStepClass = (step: number) => {
     let cls = 'step'
@@ -26,7 +25,15 @@ export const FormStepper: React.FC<FormStepperProps> = ({ steps, activeStep }) =
           key={index}
         >
           <div>
-            <div className="circle">{step}</div>
+            <div className="circle">
+              <Typography
+                variant="title-h3"
+                font="ntSomic"
+                tag="span"
+              >
+                {step}
+              </Typography>
+            </div>
           </div>
           {step < steps.length && <div className="line"></div>}
         </div>

@@ -1,1 +1,8 @@
-.authorization-register {}
+.authorization-register {
+  &__content {
+    @include flexible($fd: column, $ai: center, $gap: 24px);
+  }
+  &__no-account {
+    @include flexible($fd: row, $ai: center, $gap: 16px);
+  }
+}

@@ -7,10 +7,7 @@
 }
 
 .step {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  justify-content: space-between;
+  @include flexible($fd: row, $ai: center, $jc: space-between);
   text-align: center;
 }
 
@@ -28,25 +25,25 @@
 }
 
 .step-active .circle {
-  background: #3d84f5;
-  color: #fff;
+  background: $color-primary;
+  color: $color-text-invert-primary;
 }
 
 .step-done .circle {
-  background: #3d84f5;
-  color: #fff;
+  background: $color-primary;
+  color: $color-text-invert-primary;
 }
 
 .step-inactive .circle {
-  background: #f2f2f2;
-  color: #787878;
+  background: $color-background-secondary;
+  color: $color-text-secondary;
 }
 
 .step-done .line {
-  border-color: #007fff;
+  border-color: $color-primary;
 }
 
 .step-inactive .line,
 .step-active .line {
-  border-color: #dedede;
+  border-color: $color-border-primary;
 }

@@ -1,24 +1,30 @@
-.fourth-step {
+.fourth-screen {
   @include flexible($fd: column, $gap: 32px);
   &__inputs {
     @include flexible($fd: column, $gap: 16px);
   }
-  &__validation {
+
+  &__validation-container {
     @include flexible($fd: row, $ai: center, $jc: space-between);
     gap: 26px;
-    &__container {
-      @include flexible($fd: column);
-      gap: 8px;
+  }
+
+  &__validation-conditions {
+    @include flexible($fd: column);
+    gap: 8px;
+  }
+
+  &__validation-condition {
+    @include flexible($fd: row, $ai: center);
+    gap: 8px;
+    color: $color-text-tertiary;
+    svg {
+      fill: $color-icon-tertiary;
     }
-    &__item {
-      @include flexible($fd: row, $ai: center);
-      gap: 8px;
-      color: #a1a1a1;
-      & .active {
-        color: #1ec025;
-        & svg {
-          fill: #1ec025;
-        }
+    & .active {
+      color: $color-text-success;
+      & svg {
+        fill: $color-text-success;
       }
     }
   }

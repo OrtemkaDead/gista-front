@@ -9,12 +9,6 @@ export default function RegisterPage(): React.ReactElement {
       {/* TODO: AuthLogin надо заменить на компонент для регистрации, на подобии этого */}
       {/* <AuthorizationLogin /> */}
       <AuthorizationRegister />
-      {/* <Typography
-        font="ntSomic"
-        variant="display"
-      >
-        Регестраци я
-      </Typography> */}
     </>
   )
 }
