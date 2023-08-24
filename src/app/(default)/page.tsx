@@ -1,7 +1,10 @@
+'use client'
+
 import { Section, SubSection } from '@/store/reducers/sections-reducer/initial-state'
 import React from 'react'
+import { useForm } from 'react-hook-form'
 
-import { Collapse } from '@/shared'
+import { Button, Collapse, TextInput } from '@/shared'
 
 const sections: Section[] = [
   {
@@ -31,12 +34,50 @@ const subsections: SubSection[] = [
     name: 'Органы кроветворения и иммуногенеза 3',
   },
 ]
+// type FormValues = {
+//   lastName?: string
+// }
 
 export default function MainPage(): React.ReactElement {
   const componentClassName = 'main-page'
 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm()
+
+  const onSubmit = handleSubmit((data) => {
+    console.log(data)
+    console.log(errors)
+  })
+
   return (
     <main className={componentClassName}>
+      <form onSubmit={onSubmit}>
+        <TextInput
+          name="lastName"
+          register={register}
+          type="text"
+          placeholder="Фамилия"
+          options={{
+            required: {
+              value: true,
+              message: `Поле "Фамилия" является обязательным`,
+            },
+            minLength: {
+              value: 2,
+              message: 'Должно быть не менее 2 символов',
+            },
+            pattern: {
+              message: 'Фамилия не валидна',
+              value: /^[А-ЯЁ][а-яё]*$/,
+            },
+          }}
+          hintText={errors.lastName?.message}
+        />
+        <Button as="submit">Submit</Button>
+      </form>
       {sections.map((section) => (
         <Collapse
           key={section.id}
