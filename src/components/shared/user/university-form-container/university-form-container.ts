@@ -1,3 +1,5 @@
 import { UniversityFormProps } from '../university-form/university-form.types'
 
-export type UniversityFormContainerProps = Pick<UniversityFormProps, 'formType'>
+export interface UniversityFormContainerProps extends Pick<UniversityFormProps, 'formType'> {
+  universityIsConnected?: boolean
+}

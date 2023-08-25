@@ -35,16 +35,25 @@ export const AccountCardItem: React.FC<AccountCardItemProps> = ({
     [children],
   )
 
+  const heading = useMemo(
+    () =>
+      title && (
+        <Typography
+          className={`${CardItemClassName}__title`}
+          font="lato"
+          variant="text-16"
+          tag={titleTag}
+        >
+          {title}
+        </Typography>
+      ),
+    [CardItemClassName, title, titleTag],
+  )
+
   return (
     <div className={CardItemClassName}>
-      <Typography
-        className={`${CardItemClassName}__title`}
-        font="lato"
-        variant="text-16"
-        tag={titleTag}
-      >
-        {title}
-      </Typography>
+      {heading}
+
       <div className={`${CardItemClassName}__content`}>{content}</div>
     </div>
   )

@@ -1,7 +1,7 @@
 import classnames from 'classnames'
 import { memo, useMemo } from 'react'
 
-import { TitleCell, Typography } from '@/shared'
+import { AccountCardItem, TitleCell, Typography } from '@/shared'
 
 import AccountCardProps from './account-card.types'
 import './styles.scss'
@@ -11,13 +11,17 @@ export const AccountCard: React.FC<AccountCardProps> = ({
   children = '',
   type = 'user-card',
   universityID,
+  universityName,
 }) => {
+  const universityIsConnected = type === 'university-isconnected-card'
+  const universityNonConnected = type === 'university-non-connection-card'
+
   //* ClassNames
   const componentClassName = 'account-card'
   const AccountCardClassName = classnames(
     componentClassName,
     {
-      [`${componentClassName}--connection`]: type === 'university-connection-card',
+      [`${componentClassName}--connection`]: !universityIsConnected || universityIsConnected,
       [`${componentClassName}--non-connection`]: type === 'university-empty-card',
     },
     className,
@@ -50,14 +54,14 @@ export const AccountCard: React.FC<AccountCardProps> = ({
           Оставьте заявку, если хотите, чтобы ваш университет присоединился к нашему сервису!
         </Typography>
       </>
-    ) : type === 'university-connection-card' ? (
+    ) : universityIsConnected || universityNonConnected ? (
       <div className={`${componentClassName}__content`}>
         <TitleCell
           className={`${componentClassName}__title`}
           textSize="headline-h1"
           titleTag="h3"
         >
-          Подключение к университету
+          {universityIsConnected ? 'Подключен к университету' : 'Подключение к университету'}
         </TitleCell>
 
         <Typography
@@ -65,9 +69,13 @@ export const AccountCard: React.FC<AccountCardProps> = ({
           font="lato"
           variant="text-16"
         >
-          Для подключения к организации запросите код у вашего университета, с помощью него вы
-          сможете получить доступ к тарифу университета
+          {universityIsConnected
+            ? 'Вы покдлючены к университету и можете пользователься всеми возможностями платформы!'
+            : `Для подключения к организации запросите код у вашего университета, 
+              с помощью него вы сможете получить доступ к тарифу университета`}
         </Typography>
+
+        {universityIsConnected && <AccountCardItem>{universityName}</AccountCardItem>}
       </div>
     ) : (
       <TitleCell
@@ -78,7 +86,7 @@ export const AccountCard: React.FC<AccountCardProps> = ({
         Личная информация
       </TitleCell>
     )
-  }, [type, universityID])
+  }, [type, universityID, universityIsConnected, universityName, universityNonConnected])
 
   return (
     <article className={AccountCardClassName}>

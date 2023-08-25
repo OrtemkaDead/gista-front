@@ -9,6 +9,10 @@ export const metadata: Metadata = {
   description: 'Информация о пользователе и университете',
 }
 
+// имитация данных с сервера
+const universityIsConnected = true // переключение контента блока "Подключение к университету"
+const universityName = 'ОГУ им. И. С. Тургенева'
+
 export default function AccountPagesLayout({
   children,
 }: {
@@ -28,8 +32,15 @@ export default function AccountPagesLayout({
           <div className="account-page-content__info">{children}</div>
 
           <div className="account-page-content__university-connection">
-            <AccountCard type="university-connection-card">
-              <UniversityFormContainer />
+            <AccountCard
+              universityName={universityName}
+              type={
+                universityIsConnected
+                  ? 'university-isconnected-card'
+                  : 'university-non-connection-card'
+              }
+            >
+              <UniversityFormContainer universityIsConnected={universityIsConnected} />
             </AccountCard>
           </div>
         </div>
