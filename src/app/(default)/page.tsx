@@ -34,9 +34,9 @@ const subsections: SubSection[] = [
     name: 'Органы кроветворения и иммуногенеза 3',
   },
 ]
-// type FormValues = {
-//   lastName?: string
-// }
+type FormValues = {
+  lastName?: string
+}
 
 export default function MainPage(): React.ReactElement {
   const componentClassName = 'main-page'
@@ -45,10 +45,10 @@ export default function MainPage(): React.ReactElement {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm()
+  } = useForm<FormValues>()
 
   const onSubmit = handleSubmit((data) => {
-    console.log(data)
+    console.log(data.lastName)
     console.log(errors)
   })
 
@@ -56,7 +56,7 @@ export default function MainPage(): React.ReactElement {
     <main className={componentClassName}>
       <form onSubmit={onSubmit}>
         <TextInput
-          name="lastName"
+          name="asdasd"
           register={register}
           type="text"
           placeholder="Фамилия"
