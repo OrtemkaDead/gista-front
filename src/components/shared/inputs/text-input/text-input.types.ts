@@ -1,6 +1,6 @@
 import { FieldValues, UseFormRegister } from 'react-hook-form'
 
-interface TextInputProps {
+export interface TextInputProps {
   placeholder?: string
   value: string
   className?: string

@@ -18,6 +18,7 @@ export const AccountCard: React.FC<AccountCardProps> = ({
     componentClassName,
     {
       [`${componentClassName}--connection`]: type === 'university-connection-card',
+      [`${componentClassName}--non-connection`]: type === 'university-empty-card',
     },
     className,
   )
@@ -43,17 +44,18 @@ export const AccountCard: React.FC<AccountCardProps> = ({
         </TitleCell>
 
         <Typography
-          font="ntSomic"
-          variant="headline-h2"
+          font="lato"
+          variant="text-16"
         >
           Оставьте заявку, если хотите, чтобы ваш университет присоединился к нашему сервису!
         </Typography>
       </>
     ) : type === 'university-connection-card' ? (
-      <>
+      <div className={`${componentClassName}__content`}>
         <TitleCell
           className={`${componentClassName}__title`}
           textSize="headline-h1"
+          titleTag="h3"
         >
           Подключение к университету
         </TitleCell>
@@ -66,7 +68,7 @@ export const AccountCard: React.FC<AccountCardProps> = ({
           Для подключения к организации запросите код у вашего университета, с помощью него вы
           сможете получить доступ к тарифу университета
         </Typography>
-      </>
+      </div>
     ) : (
       <TitleCell
         leftSideIconName="profileCircle"
@@ -79,11 +81,11 @@ export const AccountCard: React.FC<AccountCardProps> = ({
   }, [type, universityID])
 
   return (
-    <div className={AccountCardClassName}>
+    <article className={AccountCardClassName}>
       {cardContent}
 
       {children}
-    </div>
+    </article>
   )
 }
 

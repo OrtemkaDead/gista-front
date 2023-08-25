@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 
-import { TitleCell } from '@/shared'
-import { AccountCard } from '@/shared'
+import { AccountCard, TitleCell, UniversityFormContainer } from '@/shared'
 
 import './styles.scss'
 
@@ -30,7 +29,7 @@ export default function AccountPagesLayout({
 
           <div className="account-page-content__university-connection">
             <AccountCard type="university-connection-card">
-              [Форма подключение к университету через код]
+              <UniversityFormContainer />
             </AccountCard>
           </div>
         </div>

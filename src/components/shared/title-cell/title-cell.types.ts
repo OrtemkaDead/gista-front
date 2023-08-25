@@ -4,7 +4,7 @@ import { TypographyVariants } from '@/assets/styles/typography/export.scss'
 
 import { TagTypes } from '../typography/typography.types'
 
-interface TitleCellProps {
+export interface TitleCellProps {
   className?: string
   children?: string
 

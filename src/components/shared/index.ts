@@ -24,3 +24,7 @@ export { default as AuthorizationFormWrapper } from './authorization/authorizati
 
 //? User
 export { default as AccountCard } from './user/account-card'
+export { default as AccountCardItem } from './user/account-card-item'
+export { default as UniversityInfo } from './user/university-info'
+export { default as UniversityForm } from './user/university-form'
+export { default as UniversityFormContainer } from './user/university-form-container'
