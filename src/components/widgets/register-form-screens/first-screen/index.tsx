@@ -6,12 +6,16 @@ import { useState } from 'react'
 import FirstScreenProps from './first-screen.types'
 import './styles.scss'
 
-export const FirstScreen: React.FC<FirstScreenProps> = ({}) => {
+export const FirstScreen: React.FC<FirstScreenProps> = ({ setActiveScreen }) => {
   const [surname, setSurname] = useState<string>('')
   const [name, setName] = useState<string>('')
   const [lastName, setLastName] = useState<string>('')
 
   const componentClassName = 'first-screen'
+
+  const handleClick = () => {
+    setActiveScreen(2)
+  }
 
   return (
     <form className={componentClassName}>
@@ -36,6 +40,7 @@ export const FirstScreen: React.FC<FirstScreenProps> = ({}) => {
         />
       </div>
       <Button
+        onClick={handleClick}
         size="large"
         fullWidth
       >

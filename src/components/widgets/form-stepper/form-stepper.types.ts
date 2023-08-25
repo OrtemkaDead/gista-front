@@ -1,6 +1,5 @@
 interface FormStepperProps {
-  steps: number[]
-  activeStep: number
+  children?: React.ReactNode
 }
 
 export default FormStepperProps

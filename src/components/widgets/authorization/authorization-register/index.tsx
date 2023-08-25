@@ -20,14 +20,14 @@ export const AuthorizationRegister: React.FC<AuthorizationRegisterProps> = ({}) 
           variant="title-h3"
           font="ntSomic"
         >
-          Нет аккаунта?
+          Есть аккаунт?
         </Typography>
         <Button
           type="borderless"
           size="large"
-          to="/register"
+          to="/authorization"
         >
-          Зарегистрироваться
+          Войти
         </Button>
       </div>
     ),
@@ -40,11 +40,7 @@ export const AuthorizationRegister: React.FC<AuthorizationRegisterProps> = ({}) 
       buttonSide={buttons}
     >
       <div className={`${componentClassName}__content`}>
-        <FormStepper
-          activeStep={1}
-          steps={[1, 2, 3, 4]}
-        />
-        <FourthScreen />
+        <FormStepper />
       </div>
     </AuthorizationFormWrapper>
   )

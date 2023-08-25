@@ -1,6 +1,5 @@
 interface ThirdScreenProps {
-  className?: string;
-  children?: React.ReactNode;
+  setActiveScreen: React.Dispatch<React.SetStateAction<number>>
 }
 
-export default ThirdScreenProps;
+export default ThirdScreenProps

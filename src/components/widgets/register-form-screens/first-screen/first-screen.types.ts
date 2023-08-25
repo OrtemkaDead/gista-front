@@ -1,6 +1,5 @@
 interface FirstScreenProps {
-  className?: string
-  children?: React.ReactNode
+  setActiveScreen: React.Dispatch<React.SetStateAction<number>>
 }
 
 export default FirstScreenProps

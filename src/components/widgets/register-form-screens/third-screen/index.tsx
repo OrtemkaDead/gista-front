@@ -7,10 +7,14 @@ import AuthCode from 'react-auth-code-input'
 import './styles.scss'
 import ThirdScreenProps from './third-screen.types'
 
-export const ThirdScreen: React.FC<ThirdScreenProps> = ({}) => {
+export const ThirdScreen: React.FC<ThirdScreenProps> = ({ setActiveScreen }) => {
   const [code, setCode] = useState<string>('')
 
   const componentClassName = 'third-screen'
+
+  const handleClick = () => {
+    setActiveScreen(4)
+  }
 
   return (
     <form className={componentClassName}>
@@ -32,6 +36,7 @@ export const ThirdScreen: React.FC<ThirdScreenProps> = ({}) => {
         />
       </div>
       <Button
+        onClick={handleClick}
         size="large"
         fullWidth
       >

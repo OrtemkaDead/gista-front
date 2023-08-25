@@ -1,6 +1,5 @@
 interface FourthScreenProps {
-  className?: string;
-  children?: React.ReactNode;
+  setActiveScreen: React.Dispatch<React.SetStateAction<number>>
 }
 
-export default FourthScreenProps;
+export default FourthScreenProps

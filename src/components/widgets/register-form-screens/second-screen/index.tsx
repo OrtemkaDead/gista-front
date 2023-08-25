@@ -6,11 +6,15 @@ import { useState } from 'react'
 import SecondScreenProps from './second-screen.types'
 import './styles.scss'
 
-export const SecondScreen: React.FC<SecondScreenProps> = ({}) => {
+export const SecondScreen: React.FC<SecondScreenProps> = ({ setActiveScreen }) => {
   const [phone, setPhone] = useState<string>('')
   const [email, setEmail] = useState<string>('')
 
   const componentClassName = 'second-screen'
+
+  const handleClick = () => {
+    setActiveScreen(3)
+  }
 
   return (
     <form className={componentClassName}>
@@ -29,6 +33,7 @@ export const SecondScreen: React.FC<SecondScreenProps> = ({}) => {
         />
       </div>
       <Button
+        onClick={handleClick}
         size="large"
         fullWidth
       >

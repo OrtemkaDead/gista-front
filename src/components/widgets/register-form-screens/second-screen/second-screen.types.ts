@@ -1,6 +1,5 @@
 interface SecondScreenProps {
-  className?: string;
-  children?: React.ReactNode;
+  setActiveScreen: React.Dispatch<React.SetStateAction<number>>
 }
 
-export default SecondScreenProps;
+export default SecondScreenProps
