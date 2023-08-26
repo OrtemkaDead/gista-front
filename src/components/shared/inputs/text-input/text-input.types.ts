@@ -16,7 +16,7 @@ interface TextInputProps {
   hintText?: string | FieldError | Merge<FieldError, FieldErrorsImpl<FieldValues>> | null
   type: React.HTMLInputTypeAttribute
   register?: UseFormRegister<FieldValues>
-  name?: string
+  name?: 'lastName' | 'firstName' | 'surname' | 'email' | 'phone' | 'password' | 'confirmPassword'
   options?: RegisterOptions
 }
 
