@@ -1,4 +1,9 @@
-import { AccountCard, UniversityFormContainer, UniversityInfo } from '@/shared'
+import {
+  AccountCard,
+  UniversityFormContainer,
+  UniversityInfo,
+  UserInfoFormContainer,
+} from '@/shared'
 
 // пример обьектов данных, пришедших с сервера
 
@@ -15,10 +20,24 @@ const university = {
   phone: '+7 (800) 555-35-35',
 }
 
+const user = {
+  id: '1234567890',
+  name: 'Абрамова Ева Данииловна',
+  password: 'qwerty',
+  email: 'sense.nessa@gmail.com',
+  phone: '+7 (800) 555 35-35',
+}
+
 export default function UserPage(): React.ReactElement {
   return (
     <>
-      <AccountCard>[UserInfoBlock(FORM)]</AccountCard>
+      <AccountCard>
+        <UserInfoFormContainer
+          userEmail={user.email}
+          userPhone={user.phone}
+          userPassword={user.password}
+        />
+      </AccountCard>
 
       <AccountCard
         type={universityIsConnected ? 'university-card' : 'university-empty-card'}

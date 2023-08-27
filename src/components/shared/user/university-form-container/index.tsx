@@ -14,6 +14,7 @@ export const UniversityFormContainer: FC<UniversityFormContainerProps> = ({
   const [value, setValue] = useState('')
 
   // логика взаимодействия с формой
+
   const content = useMemo(() => {
     return (
       <>

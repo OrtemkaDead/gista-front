@@ -10,6 +10,7 @@ export interface TextInputProps {
   type: React.HTMLInputTypeAttribute
   register?: UseFormRegister<FieldValues>
   name?: string
+  disabled?: boolean
 }
 
 export default TextInputProps

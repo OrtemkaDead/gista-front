@@ -12,6 +12,13 @@ export const metadata: Metadata = {
 // имитация данных с сервера
 const universityIsConnected = true // переключение контента блока "Подключение к университету"
 const universityName = 'ОГУ им. И. С. Тургенева'
+const user = {
+  id: '1234567890',
+  name: 'Абрамова Ева Данииловна',
+  password: 'qwerty',
+  email: 'sense.nessa@gmail.com',
+  phone: '+7 (800) 555 35-35',
+}
 
 export default function AccountPagesLayout({
   children,
@@ -23,9 +30,11 @@ export default function AccountPagesLayout({
       <section className="account-page-layout">
         <TitleCell
           className="account-page-layout__title"
+          textSize="headline-h1"
           titleTag="h2"
+          rightSideText={`ID:${user.id}`}
         >
-          title
+          {user.name}
         </TitleCell>
 
         <div className="account-page-layout__content account-page-content">

@@ -16,6 +16,7 @@ const TextInput: React.FC<TextInputProps> = ({
   type = 'text',
   register,
   name = '',
+  disabled,
 }) => {
   //* ClassNames
   const componentClassName = 'text-input'
@@ -51,6 +52,7 @@ const TextInput: React.FC<TextInputProps> = ({
         placeholder={placeholder}
         value={value}
         type={type}
+        disabled={disabled}
       />
       {hintText && (
         <Typography

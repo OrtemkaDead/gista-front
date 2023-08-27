@@ -54,7 +54,7 @@ export const AccountCardItem: React.FC<AccountCardItemProps> = ({
     <div className={CardItemClassName}>
       {heading}
 
-      <div className={`${CardItemClassName}__content`}>{content}</div>
+      <div className={`${componentClassName}__content`}>{content}</div>
     </div>
   )
 }
