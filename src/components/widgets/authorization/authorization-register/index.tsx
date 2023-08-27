@@ -2,10 +2,6 @@ import { AuthorizationFormWrapper, Button, Typography } from '@/components/share
 import { useMemo } from 'react'
 
 import { FormStepper } from '../../form-stepper'
-import { FirstScreen } from '../../register-form-screens/first-screen'
-import { FourthScreen } from '../../register-form-screens/fourth-screen'
-import { SecondScreen } from '../../register-form-screens/second-screen'
-import { ThirdScreen } from '../../register-form-screens/third-screen'
 import AuthorizationRegisterProps from './authorization-register.types'
 import './styles.scss'
 

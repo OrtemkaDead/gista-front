@@ -1,21 +1,29 @@
 'use client'
 
-import { Button, TextInput } from '@/components/shared'
+import { Button } from '@/components/shared'
+import { RegisterInput } from '@/components/shared/inputs/register-input'
 import { useForm } from 'react-hook-form'
 
 import FirstScreenProps from './first-screen.types'
 import './styles.scss'
+
+interface FirstScreenRegisterData {
+  lastName: string
+  firstName: string
+  surname: string
+}
 
 export const FirstScreen: React.FC<FirstScreenProps> = ({ setActiveScreen }) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm()
+  } = useForm<FirstScreenRegisterData>()
 
   const componentClassName = 'first-screen'
 
   const onSubmit = handleSubmit((data) => {
+    console.log(data)
     setActiveScreen(2)
   })
 
@@ -25,7 +33,7 @@ export const FirstScreen: React.FC<FirstScreenProps> = ({ setActiveScreen }) => 
       className={componentClassName}
     >
       <div className={`${componentClassName}__inputs`}>
-        <TextInput
+        <RegisterInput
           register={register}
           name="lastName"
           type="text"
@@ -46,7 +54,7 @@ export const FirstScreen: React.FC<FirstScreenProps> = ({ setActiveScreen }) => 
           }}
           hintText={errors.lastName?.message}
         />
-        <TextInput
+        <RegisterInput
           register={register}
           type="text"
           name="firstName"
@@ -67,7 +75,7 @@ export const FirstScreen: React.FC<FirstScreenProps> = ({ setActiveScreen }) => 
           }}
           hintText={errors.firstName?.message}
         />
-        <TextInput
+        <RegisterInput
           register={register}
           type="text"
           name="surname"

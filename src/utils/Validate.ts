@@ -42,7 +42,7 @@ const Validate = {
 
   // есть хотя бы одна заглавная буква
   hasCapital(value: string) {
-    return /^[a-zа-я\d]*$/.test(value)
+    return !/^[a-zа-я\d]*$/.test(value)
   },
 
   // есть хотя бы одна цифра

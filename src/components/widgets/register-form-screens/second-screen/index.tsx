@@ -1,39 +1,75 @@
 'use client'
 
-import { Button, TextInput } from '@/components/shared'
-import { useState } from 'react'
+import { Button } from '@/components/shared'
+import { RegisterInput } from '@/components/shared/inputs/register-input'
+import { useForm } from 'react-hook-form'
 
 import SecondScreenProps from './second-screen.types'
 import './styles.scss'
 
+interface SecondScreenRegisterData {
+  phone: string
+  email: string
+}
+
 export const SecondScreen: React.FC<SecondScreenProps> = ({ setActiveScreen }) => {
-  const [phone, setPhone] = useState<string>('')
-  const [email, setEmail] = useState<string>('')
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    getValues,
+  } = useForm<SecondScreenRegisterData>()
 
   const componentClassName = 'second-screen'
 
-  const handleClick = () => {
+  const onSubmit = handleSubmit((data) => {
+    console.log(data)
     setActiveScreen(3)
-  }
+  })
 
   return (
-    <form className={componentClassName}>
+    <form
+      onSubmit={onSubmit}
+      className={componentClassName}
+    >
       <div className={`${componentClassName}__inputs`}>
-        <TextInput
-          value={phone}
-          setValue={setPhone}
+        <RegisterInput
+          register={register}
+          name="phone"
           type="tel"
           placeholder="Номер телефона"
+          options={{
+            required: {
+              value: true,
+              message: `Поле "Номер телефона" является обязательным`,
+            },
+            minLength: {
+              value: getValues('phone') && getValues('phone')[0] === '+' ? 20 : 19,
+              message: 'ошибка!',
+            },
+          }}
+          hintText={errors.phone?.message}
         />
-        <TextInput
-          value={email}
-          setValue={setEmail}
+        <RegisterInput
+          register={register}
+          name="email"
           type="text"
           placeholder="E-mail"
+          options={{
+            required: {
+              value: true,
+              message: `Поле "E-mail" является обязательным`,
+            },
+            pattern: {
+              message: 'E-mail не валиден',
+              value: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+            },
+          }}
+          hintText={errors.email?.message}
         />
       </div>
       <Button
-        onClick={handleClick}
+        as="submit"
         size="large"
         fullWidth
       >

@@ -15,16 +15,21 @@
   }
 
   &__validation-condition {
-    @include flexible($fd: row, $ai: center);
-    gap: 8px;
+    @include flexible($fd: row, $ai: center, $gap: 8px);
     color: $color-text-tertiary;
     svg {
       fill: $color-icon-tertiary;
     }
-    & .active {
-      color: $color-text-success;
-      & svg {
+    &--success {
+      @include flexible($fd: row, $ai: center, $gap: 8px);
+
+      span {
+        color: $color-text-success;
+      }
+
+      svg {
         fill: $color-text-success;
+        color: $color-text-success;
       }
     }
   }
