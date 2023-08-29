@@ -1,5 +1,6 @@
 import classnames from 'classnames'
 import { memo, useCallback } from 'react'
+import { FieldValues, UseFormRegister } from 'react-hook-form'
 
 import { Typography } from '@/shared'
 
@@ -17,6 +18,7 @@ const TextInput: React.FC<TextInputProps> = ({
   register,
   name = '',
   disabled,
+  options,
 }) => {
   //* ClassNames
   const componentClassName = 'text-input'
@@ -47,7 +49,7 @@ const TextInput: React.FC<TextInputProps> = ({
         </Typography>
       )}
       <input
-        {...(register ? register(name) : {})}
+        {...(register ? register(name, options) : {})}
         onChange={onChangeHandler}
         placeholder={placeholder}
         value={value}
@@ -60,7 +62,7 @@ const TextInput: React.FC<TextInputProps> = ({
           variant="text-14"
           font="lato"
         >
-          {hintText}
+          {hintText.toString()}
         </Typography>
       )}
     </div>

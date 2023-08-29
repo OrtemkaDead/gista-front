@@ -11,6 +11,7 @@ const Button: React.FC<ButtonProps> = ({
   className = '',
   children = '',
 
+  as = 'button',
   type = 'primary',
   size = 'medium',
 
@@ -75,7 +76,7 @@ const Button: React.FC<ButtonProps> = ({
 
   return (
     <WrapperComponent
-      type="button"
+      type={as}
       className={ButtonClassName}
       disabled={disabled}
       onClick={onClick}
