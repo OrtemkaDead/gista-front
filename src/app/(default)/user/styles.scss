@@ -8,8 +8,11 @@
   @include flexible($fd: column);
   width: 100%;
 
-  &__title {
+  &__head {
     margin-bottom: 32px;
+    display: flex;
+    align-items: self-end;
+    justify-content: space-between;
     width: 100%;
   }
 

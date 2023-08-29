@@ -1,6 +1,6 @@
 'use client'
 
-import { FC, memo, useMemo, useState } from 'react'
+import { FC, MouseEventHandler, memo, useMemo, useState } from 'react'
 
 import { Button, UniversityForm } from '@/shared'
 
@@ -15,6 +15,20 @@ export const UniversityFormContainer: FC<UniversityFormContainerProps> = ({
 
   // логика взаимодействия с формой
 
+  // cобытие на клик по кнопке 'Отменить подключение'
+  const handleCancel: MouseEventHandler<HTMLButtonElement> = () => {
+    console.log('Отменить подключение')
+  }
+
+  // события submit при клики по кнопкам в форме UniversityForm (передается ей как пропсы)
+  const connectUniversity = () => {
+    console.log('Подключиться к университету')
+  }
+
+  const sendRequest = () => {
+    console.log('Подключиться к университету')
+  }
+
   const content = useMemo(() => {
     return (
       <>
@@ -23,6 +37,7 @@ export const UniversityFormContainer: FC<UniversityFormContainerProps> = ({
             size="large"
             type="secondary"
             className="account-card__button--unsubscribe"
+            onClick={handleCancel}
           >
             Отменить подключение
           </Button>
@@ -31,6 +46,8 @@ export const UniversityFormContainer: FC<UniversityFormContainerProps> = ({
             formType={formType}
             value={value}
             setValue={setValue}
+            sendRequest={sendRequest}
+            connectUniversity={connectUniversity}
           />
         )}
       </>

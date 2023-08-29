@@ -13,15 +13,16 @@ export const UserInfoForm: FC<UserInfoFormProps> = ({
   setPhoneValue,
   setEmailValue,
   setPasswordValue,
-  isEditAccount,
+  isEditUserInfo,
+  manageSubscription,
 }) => {
   const componentClassName = 'user-info-form'
 
   const FormItemClassName = classnames({
-    [`${componentClassName}__item`]: !isEditAccount,
-    [`${componentClassName}__item--edit`]: isEditAccount,
+    [`${componentClassName}__item`]: !isEditUserInfo,
+    [`${componentClassName}__item--edit`]: isEditUserInfo,
   })
-
+  // !!! TextInput необходима взможность передовать событие onChange!!!
   return (
     <form className={componentClassName}>
       <TextInput
@@ -30,7 +31,7 @@ export const UserInfoForm: FC<UserInfoFormProps> = ({
         label="Номер телефона"
         value={phoneValue}
         setValue={setPhoneValue}
-        disabled={!isEditAccount}
+        disabled={!isEditUserInfo}
       />
 
       <TextInput
@@ -39,7 +40,7 @@ export const UserInfoForm: FC<UserInfoFormProps> = ({
         label="E-mail"
         value={emailValue}
         setValue={setEmailValue}
-        disabled={!isEditAccount}
+        disabled={!isEditUserInfo}
       />
 
       <AccountCardItem
@@ -57,6 +58,7 @@ export const UserInfoForm: FC<UserInfoFormProps> = ({
         <Button
           size="medium"
           type="secondary"
+          onClick={manageSubscription}
         >
           Управление подпиской
         </Button>
@@ -68,7 +70,7 @@ export const UserInfoForm: FC<UserInfoFormProps> = ({
         label="Пароль"
         value={passwordValue}
         setValue={setPasswordValue}
-        disabled={!isEditAccount}
+        disabled={!isEditUserInfo}
       />
     </form>
   )

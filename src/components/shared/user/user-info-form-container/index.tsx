@@ -11,14 +11,24 @@ export const UserInfoFormContainer: FC<UserInfoFormContainerProps> = ({
   userEmail,
   userPassword,
 }) => {
+  // пропсы - это данные user полученные с сервера и мы передаем их в поля формы UserInfoForm
   const [phoneValue, setPhoneValue] = useState(userPhone)
   const [emailValue, setEmailValue] = useState(userEmail)
   const [passwordValue, setPasswordValue] = useState(userPassword)
 
   // получение значение переменной из store (меняется по нажатию на кнопку редактировать/cохранить)
-  const isEditAccount = false
+  // определяет активацию/дезактивацию инпутов в форме редактиования пользователя
+  const isEditUser = false
 
   // логика взаимодействия с формой
+  // в TextInput нельзя передать событие onChange -
+  // !!!оно необходимо для диспатча например данных в store по событию onChange!!!
+  // так как форма UserInfoForm не имеет кнопки submit
+
+  // cобытие на клик по кнопке 'Управление подпиской' в форме UserInfoForm
+  const manageSubscription = () => {
+    console.log('Управление подпиской')
+  }
 
   return (
     <UserInfoForm
@@ -28,7 +38,8 @@ export const UserInfoFormContainer: FC<UserInfoFormContainerProps> = ({
       setPhoneValue={setPhoneValue}
       setEmailValue={setEmailValue}
       setPasswordValue={setPasswordValue}
-      isEditAccount={isEditAccount}
+      isEditUserInfo={isEditUser}
+      manageSubscription={manageSubscription}
     />
   )
 }

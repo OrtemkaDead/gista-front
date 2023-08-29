@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from 'react'
+import { Dispatch, MouseEventHandler, SetStateAction } from 'react'
 
 import TextInputProps from '../../inputs/text-input/text-input.types'
 
@@ -9,5 +9,6 @@ export interface UserInfoFormProps extends Omit<TextInputProps, 'type' | 'value'
   setPhoneValue: Dispatch<SetStateAction<string>>
   setEmailValue: Dispatch<SetStateAction<string>>
   setPasswordValue: Dispatch<SetStateAction<string>>
-  isEditAccount: boolean
+  isEditUserInfo: boolean
+  manageSubscription: MouseEventHandler<HTMLButtonElement>
 }

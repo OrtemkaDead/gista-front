@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 
-import { AccountCard, TitleCell, UniversityFormContainer } from '@/shared'
+import { AccountCard, EditUserButtonContainer, TitleCell, UniversityFormContainer } from '@/shared'
 
 import './styles.scss'
 
@@ -28,14 +28,18 @@ export default function AccountPagesLayout({
   return (
     <main className="account-page">
       <section className="account-page-layout">
-        <TitleCell
-          className="account-page-layout__title"
-          textSize="headline-h1"
-          titleTag="h2"
-          rightSideText={`ID:${user.id}`}
-        >
-          {user.name}
-        </TitleCell>
+        <div className="account-page-layout__head account-page-head">
+          <TitleCell
+            className="account-page-head__title"
+            textSize="headline-h1"
+            titleTag="h2"
+            rightSideText={`ID:${user.id}`}
+          >
+            {user.name}
+          </TitleCell>
+
+          <EditUserButtonContainer />
+        </div>
 
         <div className="account-page-layout__content account-page-content">
           <div className="account-page-content__info">{children}</div>

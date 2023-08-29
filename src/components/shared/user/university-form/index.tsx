@@ -10,6 +10,8 @@ export const UniversityForm: FC<UniversityFormProps> = ({
   formType = 'connection',
   setValue,
   value,
+  sendRequest,
+  connectUniversity,
 }) => {
   const requestForm = formType === 'request'
 
@@ -27,7 +29,10 @@ export const UniversityForm: FC<UniversityFormProps> = ({
 
   const form = useMemo(() => {
     return (
-      <form className={FormClassName}>
+      <form
+        className={FormClassName}
+        onSubmit={requestForm ? sendRequest : connectUniversity}
+      >
         {/* для семантики лучше чтобы инпут был в теге label, сейчас он просто в диве + 
         опять нет возможности задать вариант тега для заголовка инпута */}
         {/* необходимо ввести 10 значный код - только циры? или это любые символы? (тип инпута?) */}
@@ -38,7 +43,6 @@ export const UniversityForm: FC<UniversityFormProps> = ({
           placeholder={requestForm ? 'Введите название учреждения' : 'Введите 10-значный код'}
         />
 
-        {/* нет возможности установить тип кнопки submit в компоненте Button */}
         <Button
           size="large"
           className={ButtonClassName}
@@ -48,7 +52,7 @@ export const UniversityForm: FC<UniversityFormProps> = ({
         </Button>
       </form>
     )
-  }, [ButtonClassName, FormClassName, requestForm, setValue, value])
+  }, [ButtonClassName, FormClassName, connectUniversity, requestForm, sendRequest, setValue, value])
 
   return <>{form}</>
 }
