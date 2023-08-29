@@ -44,6 +44,7 @@ export const UniversityForm: FC<UniversityFormProps> = ({
         />
 
         <Button
+          as="submit"
           size="large"
           className={ButtonClassName}
           type={requestForm ? 'secondary' : 'primary'}
