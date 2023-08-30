@@ -1,18 +1,12 @@
 import classnames from 'classnames'
 import { memo, useCallback } from 'react'
 
-import { Icon, Typography } from '@/shared'
+import { Icon } from '@/shared'
 
 import CheckboxProps from './checkbox.types'
 import './styles.scss'
 
-const Checkbox: React.FC<CheckboxProps> = ({
-  className = '',
-  value = false,
-  setValue,
-  labelText = '',
-  labelName = '',
-}) => {
+const Checkbox: React.FC<CheckboxProps> = ({ className = '', value = false, setValue }) => {
   //* ClassNames
   const componentClassName = 'checkbox'
   const CheckboxClassName = classnames(
@@ -40,21 +34,11 @@ const Checkbox: React.FC<CheckboxProps> = ({
         checked={value}
         onChange={onChangeHandler}
         hidden
-        name={labelName}
       />
       <Icon
         iconName="done"
         viewBox={35}
       />
-
-      <Typography
-        className={`${componentClassName}__label`}
-        font="lato400"
-        variant="text-16"
-        tag="span"
-      >
-        {labelText}
-      </Typography>
     </label>
   )
 }

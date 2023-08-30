@@ -21,10 +21,10 @@ export const GistaSettings: React.FC<GistaSettingsProps> = ({ className = '' }) 
 
   return (
     <div className={GistaSettingsClassName}>
-      <div className={`${GistaSettingsClassName}__checkbox`}>
+      <label className={`${GistaSettingsClassName}__checkbox`}>
         <Checkbox
-          onClick={(): void => setChecked(!checked)}
-          state={checked}
+          value={checked}
+          setValue={setChecked}
         />
         <Typography
           className={`${GistaSettingsClassName}__title`}
@@ -33,7 +33,7 @@ export const GistaSettings: React.FC<GistaSettingsProps> = ({ className = '' }) 
         >
           Показывать в 4K
         </Typography>
-      </div>
+      </label>
       <Icon
         className={`${GistaSettingsClassName}__favorite`}
         iconName="star"
