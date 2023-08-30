@@ -14,6 +14,7 @@ export const TitleCell: React.FC<TitleCellProps> = ({
   children = '',
 
   textSize = 'headline-h2',
+  titleTag,
 
   leftSideIconName,
   leftSideIsBackButton = false,
@@ -60,6 +61,7 @@ export const TitleCell: React.FC<TitleCellProps> = ({
       <Typography
         font="ntSomic"
         variant={textSize}
+        tag={titleTag}
       >
         {children}
       </Typography>

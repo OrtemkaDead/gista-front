@@ -7,7 +7,7 @@ import {
   UseFormRegister,
 } from 'react-hook-form'
 
-interface TextInputProps {
+export interface TextInputProps {
   placeholder?: string
   value?: string
   className?: string
@@ -18,6 +18,7 @@ interface TextInputProps {
   register?: UseFormRegister<FieldValues>
   name?: 'lastName' | 'firstName' | 'surname' | 'email' | 'phone' | 'password' | 'confirmPassword'
   options?: RegisterOptions
+  disabled?: boolean
 }
 
 export default TextInputProps

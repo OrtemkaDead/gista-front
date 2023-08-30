@@ -21,3 +21,13 @@ export { default as Sidebar } from './layouts/sidebar'
 
 //? Authorization
 export { default as AuthorizationFormWrapper } from './authorization/authorization-form-wrapper'
+
+//? User
+export { default as AccountCard } from './user/account-card'
+export { default as AccountCardItem } from './user/account-card-item'
+export { default as UniversityInfo } from './user/university-info'
+export { default as UniversityForm } from './user/university-form'
+export { default as UniversityFormContainer } from './user/university-form-container'
+export { default as UserInfoForm } from './user/user-info-form'
+export { default as UserInfoFormContainer } from './user/user-info-form-container'
+export { default as EditUserButtonContainer } from './user/edit-user-button-container'
