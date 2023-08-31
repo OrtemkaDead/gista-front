@@ -1,0 +1,53 @@
+.steps-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.steps-content {
+  @include flexible($fd: column, $ai: center, $gap: 24px);
+}
+
+.step {
+  @include flexible($fd: row, $ai: center, $jc: space-between);
+  text-align: center;
+}
+
+.step .line {
+  height: 0px;
+  width: 70px;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.step .circle {
+  padding: 4px 12px 4px 12px;
+  display: inline-block;
+  border-radius: 50%;
+}
+
+.step-active .circle {
+  background: $color-primary;
+  color: $color-text-invert-primary;
+}
+
+.step-done .circle {
+  background: $color-primary;
+  color: $color-text-invert-primary;
+}
+
+.step-inactive .circle {
+  background: $color-background-secondary;
+  color: $color-text-secondary;
+}
+
+.step-done .line {
+  border-color: $color-primary;
+}
+
+.step-inactive .line,
+.step-active .line {
+  border-color: $color-border-primary;
+}

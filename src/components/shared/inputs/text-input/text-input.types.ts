@@ -13,7 +13,7 @@ export interface TextInputProps {
   className?: string
   setValue?: React.Dispatch<React.SetStateAction<string>>
   label?: string
-  hintText?: string | FieldError | Merge<FieldError, FieldErrorsImpl<FieldValues>> | null
+  hintText?: string
   type: React.HTMLInputTypeAttribute
   register?: UseFormRegister<FieldValues>
   name?: 'lastName' | 'firstName' | 'surname' | 'email' | 'phone' | 'password' | 'confirmPassword'

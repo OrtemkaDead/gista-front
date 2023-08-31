@@ -1,6 +1,6 @@
+import Validate from '@/utils/Validate'
 import classnames from 'classnames'
 import { memo, useCallback } from 'react'
-import { FieldValues, UseFormRegister } from 'react-hook-form'
 
 import { Typography } from '@/shared'
 
@@ -33,8 +33,12 @@ const TextInput: React.FC<TextInputProps> = ({
       if (setValue) {
         setValue(event.target.value)
       }
+      if (type === 'tel') {
+        const currentPhoneValue = event.target.value.replaceAll(/[ \-()]/g, '')
+        event.target.value = Validate.phone(currentPhoneValue)
+      }
     },
-    [setValue],
+    [setValue, type],
   )
 
   return (
@@ -49,7 +53,6 @@ const TextInput: React.FC<TextInputProps> = ({
         </Typography>
       )}
       <input
-        {...(register ? register(name, options) : {})}
         onChange={onChangeHandler}
         placeholder={placeholder}
         value={value}
