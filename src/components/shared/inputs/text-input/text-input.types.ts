@@ -1,4 +1,13 @@
-interface TextInputProps {
+import {
+  FieldError,
+  FieldErrorsImpl,
+  FieldValues,
+  Merge,
+  RegisterOptions,
+  UseFormRegister,
+} from 'react-hook-form'
+
+export interface TextInputProps {
   placeholder?: string
   value?: string
   className?: string
@@ -6,7 +15,10 @@ interface TextInputProps {
   label?: string
   hintText?: string
   type: React.HTMLInputTypeAttribute
-  name?: string
+  register?: UseFormRegister<FieldValues>
+  name?: 'lastName' | 'firstName' | 'surname' | 'email' | 'phone' | 'password' | 'confirmPassword'
+  options?: RegisterOptions
+  disabled?: boolean
 }
 
 export default TextInputProps

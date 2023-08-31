@@ -1,36 +1,45 @@
 import classnames from 'classnames'
-import { memo } from 'react'
+import { memo, useCallback } from 'react'
 
 import { Icon } from '@/shared'
 
 import CheckboxProps from './checkbox.types'
 import './styles.scss'
 
-const Checkbox: React.FC<CheckboxProps> = ({ className = '', state = false, onClick }) => {
+const Checkbox: React.FC<CheckboxProps> = ({ className = '', value = false, setValue }) => {
   //* ClassNames
   const componentClassName = 'checkbox'
   const CheckboxClassName = classnames(
     componentClassName,
     {
-      [`${componentClassName}--checked`]: state,
+      [`${componentClassName}--checked`]: value,
     },
 
     className,
   )
 
+  const onChangeHandler = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      if (setValue) {
+        setValue(event.target.checked)
+      }
+    },
+    [setValue],
+  )
+
   return (
-    <div
-      onClick={onClick}
-      className={CheckboxClassName}
-    >
-      {state && (
-        <Icon
-          iconName="done"
-          viewBox={35}
-          color="#fff"
-        />
-      )}
-    </div>
+    <label className={CheckboxClassName}>
+      <input
+        type="checkbox"
+        checked={value}
+        onChange={onChangeHandler}
+        hidden
+      />
+      <Icon
+        iconName="done"
+        viewBox={35}
+      />
+    </label>
   )
 }
 

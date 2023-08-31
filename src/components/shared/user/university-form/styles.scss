@@ -1,0 +1,30 @@
+.university-form {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+
+  &--connection {
+    flex-direction: column;
+  }
+
+  &__button--connect {
+    width: 100%;
+  }
+
+  &--request {
+    flex-direction: row;
+  }
+
+  &__button--request {
+    width: 20%;
+  }
+
+  // стили в компоненте TextInput не полные, нет стилей для текста ввода и для плейсхолдера - одинаковые ли они во всех формах?
+  // если вроде бы судить по ui-kit в макете то везде одинаковые
+  // нет возможности задать класс TextInput чтобы обращаться к нему в стилях через класс
+  // вариант обращаться через тег в стилях (как здесь) либо делать стили в самом компоненте TextInput (если все стили одинаковые)
+  input {
+    font-family: 'Lato';
+    @include text-16;
+  }
+}

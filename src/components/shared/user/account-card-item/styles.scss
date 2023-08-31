@@ -6,6 +6,6 @@
   }
 
   &__content {
-    @include flexible($fd: row, $ai: center, $gap: 16px);
+    @include flexible($fd: row, $ai: center, $fw: wrap, $gap: 16px);
   }
 }
