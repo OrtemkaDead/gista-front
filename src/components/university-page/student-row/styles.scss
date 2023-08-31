@@ -1,0 +1,9 @@
+.student-row {
+  td {
+    text-align: center;
+  }
+
+  &__name {
+    @include flexible($fd: row, $ai: center, $gap: 16px);
+  }
+}
