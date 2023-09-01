@@ -1,7 +1,0 @@
-export * from './button'
-export * from './checkbox'
-export * from './icon'
-export * from './typography'
-export * from './inputs/text-input'
-export * from './inputs/number-input'
-export * from './select'

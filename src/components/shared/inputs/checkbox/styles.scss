@@ -1,0 +1,17 @@
+.checkbox {
+  @include flexible($fd: row, $ai: center, $gap: 8px);
+  @include button(24px, $color-button-invert-default);
+  @include border(solid, #d2d2d2, 7px, 1px);
+  svg {
+    color: $color-icon-invert-primary;
+  }
+  height: 24px;
+  cursor: pointer;
+
+  &--checked {
+    background-color: $color-primary;
+  }
+  &__label {
+    white-space: nowrap;
+  }
+}

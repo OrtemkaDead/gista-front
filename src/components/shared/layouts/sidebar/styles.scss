@@ -1,0 +1,14 @@
+.sidebar {
+  @include flexible($fd: column, $jc: space-between);
+  padding: 24px 0px 24px 12px;
+  width: 224px;
+  height: 100%;
+
+  background-color: $color-background-primary;
+  border-right: 1px solid $color-border-primary;
+
+  &__links {
+    width: 100%;
+    @include flexible($fd: column, $gap: 16px);
+  }
+}

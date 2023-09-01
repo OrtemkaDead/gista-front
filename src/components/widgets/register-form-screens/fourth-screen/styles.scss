@@ -1,0 +1,36 @@
+.fourth-screen {
+  @include flexible($fd: column, $gap: 32px);
+  &__inputs {
+    @include flexible($fd: column, $gap: 16px);
+  }
+
+  &__validation-container {
+    @include flexible($fd: row, $ai: center, $jc: space-between);
+    gap: 26px;
+  }
+
+  &__validation-conditions {
+    @include flexible($fd: column);
+    gap: 8px;
+  }
+
+  &__validation-condition {
+    @include flexible($fd: row, $ai: center, $gap: 8px);
+    color: $color-text-tertiary;
+    svg {
+      fill: $color-icon-tertiary;
+    }
+    &--success {
+      @include flexible($fd: row, $ai: center, $gap: 8px);
+
+      span {
+        color: $color-text-success;
+      }
+
+      svg {
+        fill: $color-text-success;
+        color: $color-text-success;
+      }
+    }
+  }
+}

@@ -1,0 +1,183 @@
+.button {
+  $parent: &;
+
+  width: max-content;
+  @include flexible(center, center, $gap: 4px);
+  padding: 8px 16px;
+
+  transition: background-color .2s ease-out;
+
+  &__text, &__icon {
+    transition: color .2s ease-out;
+  }
+
+  &--only-icon {
+    padding: 6px;
+
+    @include gap(0);
+  }
+
+  // Button Sizes
+  &--small {
+    height: 29px;
+  }
+
+  &--medium {
+    height: 32px;
+  }
+
+  &--large {
+    height: 40px;
+  }
+
+  &-full-width {
+    @include fixedWidth(100%, $min-size: 0);
+    padding: 0;
+  }
+
+  // Button Types
+  &--primary {
+    background-color: $color-button-primary-default;
+    @include border($border-radius: 8px);
+
+    #{$parent}__text {
+      color: $color-text-invert-primary;
+    }
+
+    #{$parent}__icon {
+      color: $color-icon-invert-primary;
+    }
+  }
+
+  &--secondary {
+    background-color: $color-button-secondary-default;
+    @include border($border-radius: 8px);
+
+    #{$parent}__text {
+      color: $color-primary;
+    }
+
+    #{$parent}__icon {
+      color: $color-primary;
+    }
+  }
+
+  &--borderless {
+    background-color: transparent;
+    @include border($border-radius: 8px);
+
+    #{$parent}__text {
+      color: $color-primary;
+    }
+
+    #{$parent}__icon {
+      color: $color-primary;
+    }
+  }
+
+  &--invert {
+    background-color: $color-button-invert-default;
+    @include border($border-radius: 8px);
+
+    #{$parent}__text {
+      color: $color-primary;
+    }
+
+    #{$parent}__icon {
+      color: $color-primary;
+    }
+  }
+
+  // Button Hover
+  &--primary:hover {
+    background-color: $color-button-primary-hover;
+  }
+
+  &--secondary:hover {
+    background-color: $color-button-secondary-hover;
+  }
+
+  &--invert:hover {
+    background-color: $color-button-invert-hover;
+  }
+
+  // button Active
+  &--primary:active {
+    background-color: $color-button-primary-focus;
+  }
+
+  &--secondary:active {
+    background-color: $color-button-secondary-focus;
+
+    #{$parent}__text {
+      color: $color-text-invert-primary;
+    }
+
+    #{$parent}__icon {
+      color: $color-text-invert-primary;
+    }
+  }
+
+  &--invert:active {
+    background-color: $color-button-invert-focus;
+
+    #{$parent}__text {
+      color: $color-primary;
+    }
+
+    #{$parent}__icon {
+      color: $color-primary;
+    }
+  }
+
+  // Button Disabled
+  &--primary:disabled {
+    background-color: $color-button-primary-disable;
+
+    #{$parent}__text {
+      color: $color-text-tertiary;
+    }
+
+    #{$parent}__icon {
+      color: $color-text-tertiary;
+    }
+  }
+
+  &:disabled {
+    cursor: default;
+  }
+
+  &--secondary:disabled {
+    background-color: $color-button-primary-disable;
+
+    #{$parent}__text {
+      color: $color-text-tertiary;
+    }
+
+    #{$parent}__icon {
+      color: $color-text-tertiary;
+    }
+  }
+
+  &--borderless:disabled {
+    #{$parent}__text {
+      color: $color-text-tertiary;
+    }
+
+    #{$parent}__icon {
+      color: $color-text-tertiary;
+    }
+  }
+
+  &--invert:disabled {
+    background-color: $color-button-primary-disable;
+
+    #{$parent}__text {
+      color: $color-text-tertiary;
+    }
+
+    #{$parent}__icon {
+      color: $color-text-tertiary;
+    }
+  }
+}

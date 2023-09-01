@@ -1,11 +1,6 @@
 import type { Metadata } from 'next'
 
-import { Header, Sidebar } from '@/components'
-
-import { Button } from '@/ui-kit'
-
 import './globals.scss'
-import './styles.scss'
 
 export const metadata: Metadata = {
   title: 'Сдать гисту',
@@ -30,7 +25,6 @@ export default function RootLayout({
 
           {children}
         </div>
-        <div id='modal_root'></div>
       </body>
     </html>
   )

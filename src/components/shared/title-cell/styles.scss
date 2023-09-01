@@ -1,0 +1,11 @@
+.title-cell {
+  @include flexible($fd: row, $ai: baseline, $gap: 12px);
+
+  &__left-icon {
+    color: $color-primary;
+  }
+
+  &__right-text {
+    color: $color-text-secondary;
+  }
+}
