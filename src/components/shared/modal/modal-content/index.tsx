@@ -1,12 +1,12 @@
 import classnames from 'classnames'
-import { FC } from 'react'
+import { FC, memo } from 'react'
 
-import { Button, Icon, Typography } from '@/ui-kit'
+import { Button, Icon, Typography } from '@/shared'
 
 import { IModalContentProps } from './modal-content.types'
 import './styles.scss'
 
-export const ModalContent: FC<IModalContentProps> = ({
+const ModalContent: FC<IModalContentProps> = ({
   title,
   content,
   description,
@@ -14,16 +14,13 @@ export const ModalContent: FC<IModalContentProps> = ({
   handleConfirm,
   handleCancel,
   attentionIcon,
-  reverseButtonDirection
+  reverseButtonDirection,
 }) => {
   const componentClassName = 'modal-content'
 
-  const ButtonWrapperClassName = classnames(
-    `${componentClassName}__button-wrapper`,
-    {
-      [`${componentClassName}__button-wrapper--attention`]: attentionIcon,
-    },
-  )
+  const ButtonWrapperClassName = classnames(`${componentClassName}__button-wrapper`, {
+    [`${componentClassName}__button-wrapper--attention`]: attentionIcon,
+  })
 
   return (
     <div className={componentClassName}>
@@ -39,7 +36,7 @@ export const ModalContent: FC<IModalContentProps> = ({
       )}
 
       <Typography
-        font="ntSomic400"
+        font="ntSomic"
         variant="headline-h2"
         className={`${componentClassName}__title`}
       >
@@ -50,7 +47,7 @@ export const ModalContent: FC<IModalContentProps> = ({
 
       {description && (
         <Typography
-          font="lato400"
+          font="lato"
           variant="text-14"
           className={`${componentClassName}__description`}
         >
@@ -80,3 +77,5 @@ export const ModalContent: FC<IModalContentProps> = ({
     </div>
   )
 }
+
+export default memo(ModalContent)

@@ -31,3 +31,7 @@ export { default as UniversityFormContainer } from './user/university-form-conta
 export { default as UserInfoForm } from './user/user-info-form'
 export { default as UserInfoFormContainer } from './user/user-info-form-container'
 export { default as EditUserButtonContainer } from './user/edit-user-button-container'
+
+//? modal
+export { default as ModalLayout } from './modal/modal-layout'
+export { default as ModalContent } from './modal/modal-content'

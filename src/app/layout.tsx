@@ -15,16 +15,8 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body className="app-layout">
-        <Header>
-          <Button>Auth</Button>
-          <Button>Register</Button>
-        </Header>
-
-        <div className="app-layout__content">
-          <Sidebar />
-
-          {children}
-        </div>
+        {children}
+        <div id="modal-root"></div>
       </body>
     </html>
   )

@@ -1,7 +1,21 @@
-import { Section, SubSection } from '@/store/reducers/sections-reducer/initial-state'
-import React from 'react'
+'use client'
 
-import { Collapse } from '@/shared'
+import { Section, SubSection } from '@/store/reducers/sections-reducer/initial-state'
+import Image from 'next/image'
+import React, { MouseEventHandler, useState } from 'react'
+
+import { Collapse, ModalContent, ModalLayout } from '@/shared'
+
+const buttonModalExamplestyles = {
+  padding: '10px',
+  maxWidth: 300,
+  width: '100%',
+  fontSize: 16,
+  lineHeight: '25px',
+  color: 'rgb(255, 255, 255)',
+  backgroundColor: 'rgb(123, 123, 250)',
+  borderRadius: 10,
+}
 
 const sections: Section[] = [
   {
@@ -33,6 +47,12 @@ const subsections: SubSection[] = [
 ]
 
 export default function MainPage(): React.ReactElement {
+  const [openModal, setOpenModal] = useState(false)
+
+  const handleClick: MouseEventHandler<HTMLButtonElement> = (event) => {
+    setOpenModal(true)
+  }
+
   const componentClassName = 'main-page'
 
   return (
@@ -63,6 +83,40 @@ export default function MainPage(): React.ReactElement {
           )}
         </Collapse>
       ))}
+
+      <button
+        style={buttonModalExamplestyles}
+        onClick={handleClick}
+        name="type_2"
+      >
+        Открыть модальное окно с картинкой в качестве основного контента
+      </button>
+
+      {openModal && (
+        <ModalLayout
+          onClose={() => setOpenModal(false)}
+          exitIcon
+          actionsOnClose={() => alert('Выполнить действия при закрытии модального окна')}
+        >
+          <ModalContent
+            title="Смена тарифа"
+            content={
+              <Image
+                src={'/cat-example.png'}
+                alt="cat"
+                width={217}
+                height={245}
+              />
+            }
+            description="При смене тарифа текущий будет аннулирован!"
+            confirmBtnText="Продлить"
+            handleConfirm={() => {
+              alert('Тариф продлен'), setOpenModal(false)
+            }}
+            handleCancel={() => setOpenModal(false)}
+          />
+        </ModalLayout>
+      )}
     </main>
   )
 }
