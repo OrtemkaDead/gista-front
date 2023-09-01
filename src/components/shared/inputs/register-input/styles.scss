@@ -15,7 +15,7 @@
   }
 
   &__hint-text {
-    @include flexible($fd: row, $ai: center, $gap: 4px);
+    @include flexible($fd: row, $gap: 4px);
     color: #e32727;
   }
 }

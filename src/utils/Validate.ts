@@ -52,7 +52,7 @@ const Validate = {
 
   // не менее 8 символов
   minLength(value: string) {
-    return /[0-9a-zA-Z!@#$%^&*]{8,}/.test(value)
+    return /[0-9a-zA-Zа-яА-Я!@#$%^&*]{8,}/.test(value)
   },
 }
 

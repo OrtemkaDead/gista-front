@@ -32,5 +32,18 @@
         color: $color-text-success;
       }
     }
+
+    &--error {
+      @include flexible($fd: row, $ai: center, $gap: 8px);
+
+      span {
+        color: $color-text-error;
+      }
+
+      svg {
+        fill: $color-text-error;
+        color: $color-text-error;
+      }
+    }
   }
 }

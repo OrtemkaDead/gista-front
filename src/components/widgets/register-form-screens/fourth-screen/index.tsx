@@ -55,8 +55,10 @@ export const FourthScreen: React.FC<FourthScreenProps> = ({}) => {
           <div className={`${componentClassName}__validation-conditions`}>
             <div
               className={
-                !Validate.minLength(pass)
+                !pass
                   ? `${componentClassName}__validation-condition`
+                  : !Validate.minLength(pass)
+                  ? `${componentClassName}__validation-condition--error`
                   : `${componentClassName}__validation-condition--success`
               }
             >
@@ -76,8 +78,10 @@ export const FourthScreen: React.FC<FourthScreenProps> = ({}) => {
             </div>
             <div
               className={
-                !Validate.hasCapital(pass)
+                !pass
                   ? `${componentClassName}__validation-condition`
+                  : !Validate.hasCapital(pass)
+                  ? `${componentClassName}__validation-condition--error`
                   : `${componentClassName}__validation-condition--success`
               }
             >
@@ -99,8 +103,10 @@ export const FourthScreen: React.FC<FourthScreenProps> = ({}) => {
           <div className={`${componentClassName}__validation-conditions`}>
             <div
               className={
-                !Validate.hasOneNumber(pass)
+                !pass
                   ? `${componentClassName}__validation-condition`
+                  : !Validate.hasOneNumber(pass)
+                  ? `${componentClassName}__validation-condition--error`
                   : `${componentClassName}__validation-condition--success`
               }
             >
@@ -120,8 +126,10 @@ export const FourthScreen: React.FC<FourthScreenProps> = ({}) => {
             </div>
             <div
               className={
-                !Validate.specialSymbol(pass)
+                !pass
                   ? `${componentClassName}__validation-condition`
+                  : !Validate.specialSymbol(pass)
+                  ? `${componentClassName}__validation-condition--error`
                   : `${componentClassName}__validation-condition--success`
               }
             >
