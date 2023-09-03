@@ -14,7 +14,10 @@ export default function RootLayout({
 }): React.ReactElement {
   return (
     <html lang="ru">
-      <body className="app-layout">{children}</body>
+      <body className="app-layout">
+        {children}
+        <div id="modal-root"></div>
+      </body>
     </html>
   )
 }

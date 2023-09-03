@@ -253,6 +253,16 @@ const iconsPaths = {
       strokeLinecap="round"
     />
   ),
+  attention: (
+    <path
+      id="attention"
+      d="M32 21.333V34.6663M32 58.6663C46.6667 58.6663 58.6667 46.6663 58.6667 31.9997C58.6667 17.333 46.6667 5.33301 32 5.33301C17.3334 5.33301 5.33337 17.333 5.33337 31.9997C5.33337 46.6663 17.3334 58.6663 32 58.6663Z M31.9867 42.667H32.0107"
+      stroke="currentColor"
+      strokeWidth="4"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  ),
   searchzoomin: (
     <path
       id="searchzoomin"
