@@ -8,9 +8,7 @@ import { TextInput } from '@/shared'
 import EmailInputProps from './email-input.types'
 import './styles.scss'
 
-const EmailInput: React.FC<EmailInputProps> = ({ className = '' }) => {
-  const [emailValue, setEmailValue] = useState<string>('')
-
+const EmailInput: React.FC<EmailInputProps> = ({ className = '', value, onChange }) => {
   //* ClassNames
   const componentClassName = 'email-input'
   const EmailInputClassName = classnames(
@@ -24,8 +22,8 @@ const EmailInput: React.FC<EmailInputProps> = ({ className = '' }) => {
       className={EmailInputClassName}
       type="email"
       placeholder="E-mail"
-      value={emailValue}
-      setValue={setEmailValue}
+      value={value}
+      setValue={onChange || (() => null)}
     />
   )
 }
