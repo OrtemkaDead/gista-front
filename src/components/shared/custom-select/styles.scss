@@ -1,0 +1,115 @@
+.custom-select {
+  &__control {
+    min-height: 40px !important;
+    cursor: pointer !important;
+    border-radius: 8px !important;
+    border: 1px solid $color-border-primary;
+    background: $color-background-primary;
+  }
+
+  &__indicators {
+    z-index: 100;
+  }
+
+  &__value-container {
+    position: unset !important;
+    padding-left: 16px !important;
+  }
+
+  &__indicator-separator {
+    display: none !important;
+  }
+
+  &__placeholder {
+    color: $color-text-tertiary !important;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
+  &__single-value {
+    margin: 0 !important;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    left: 0;
+    height: 100%;
+    color: $color-text-tertiary !important;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    padding-left: 16px;
+    background: $color-background-secondary;
+    border-radius: 8px;
+  }
+
+  &__menu {
+    overflow: hidden;
+    border-radius: 8px !important;
+    background: $color-background-primary !important;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) !important;
+    animation: appearence 0.3s ease-in-out;
+  }
+
+  &__menu-list {
+    padding: 0 !important;
+  }
+
+  &__option {
+    padding: 8px 16px !important;
+    color: $color-text-primary !important;
+    cursor: pointer !important;
+    // font-family: 'Lato';
+
+    // font-size: 18px !important;
+    // font-weight: 600;
+    // line-height: 27px;
+
+    // если сгруппированные опции
+    font-size: 16px !important;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
+  &__option-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__section {
+    color: $color-text-primary !important;
+    font-size: 18px !important;
+    font-weight: 600;
+    line-height: 27px; /* 150% */
+  }
+
+  &__subsection-count {
+    background-color: #ebecf0;
+    border-radius: 2em;
+    color: #172b4d;
+    display: inline-block;
+    font-family: 'Lato';
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 1em;
+    min-width: 1px;
+    padding: 0.16666666666667em 0.5em;
+    text-align: center;
+  }
+}
+
+@keyframes appearence {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

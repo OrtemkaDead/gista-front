@@ -1,7 +1,46 @@
+import CustomSelect from '@/components/shared/custom-select'
+import { GroupedOption, ISelectOption } from '@/components/shared/custom-select/custom-select.types'
 import { Section, SubSection } from '@/store/reducers/sections-reducer/initial-state'
 import React from 'react'
 
 import { Collapse } from '@/shared'
+
+// имитация БД
+const SECTIONS = [
+  {
+    name: 'Общая гистология',
+    subsections: [
+      { value: '1', label: 'Кровь, мезенхима' },
+      { value: '2', label: 'Мышечные ткани' },
+    ],
+  },
+  {
+    name: 'Частная гистология',
+    subsections: [
+      { value: '3', label: 'Органы кровотворения и иммуногенеза' },
+      { value: '4', label: 'Органы пищеварения' },
+      { value: '5', label: 'Органы эндокринной системы' },
+    ],
+  },
+  {
+    name: 'Патогистология',
+    subsections: [],
+  },
+]
+
+// функция преобразования массива SECTIONS с сервера в массив соответсвующий пропсу CustomSelect
+function getCustomSelectList() {
+  const result: GroupedOption[] = []
+  for (const section of SECTIONS) {
+    const initialSection: GroupedOption = { label: '', options: [] }
+    initialSection.label = section.name
+    initialSection.options = section.subsections
+    result.push(initialSection)
+  }
+  return result
+}
+
+const MODIFIED_SECTIONS = getCustomSelectList()
 
 const sections: Section[] = [
   {
@@ -63,6 +102,11 @@ export default function MainPage(): React.ReactElement {
           )}
         </Collapse>
       ))}
+
+      <CustomSelect
+        options={MODIFIED_SECTIONS}
+        placeholder="Раздел"
+      />
     </main>
   )
 }
