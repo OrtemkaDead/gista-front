@@ -4,10 +4,20 @@ import { Section, SubSection } from '@/store/reducers/sections-reducer/initial-s
 import Image from 'next/image'
 import React, { MouseEventHandler, useState } from 'react'
 
-import { Collapse, ModalContent, ModalLayout } from '@/shared'
+import { Button, Collapse, ModalContent, ModalLayout, MultiLevelSelect } from '@/shared'
+
+// пример данных с сервера по разделам/подразделам
+const SECTIONS = [
+  { name: 'Общая гистология', subsections: ['Мышечная ткань', 'Костная ткань'] },
+  {
+    name: 'Частная гистология',
+    subsections: ['Органы кровотворения и иммуногенеза', 'Органы дыхания'],
+  },
+]
 
 const buttonModalExamplestyles = {
   padding: '10px',
+  marginBottom: 50,
   maxWidth: 300,
   width: '100%',
   fontSize: 16,
@@ -117,6 +127,19 @@ export default function MainPage(): React.ReactElement {
           />
         </ModalLayout>
       )}
+
+      <MultiLevelSelect
+        list={SECTIONS}
+        extraButton={
+          <Button
+            iconName="add"
+            size="large"
+            type="borderless"
+          >
+            Добавить подраздел
+          </Button>
+        }
+      />
     </main>
   )
 }
