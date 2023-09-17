@@ -2,6 +2,8 @@
 
 import { Button } from '@/components/shared'
 import { RegisterInput } from '@/components/shared/inputs/register-input'
+import { UserDataContext } from '@/store/providers/user-register-data-provider'
+import { useContext } from 'react'
 import { useForm } from 'react-hook-form'
 
 import FirstScreenProps from './first-screen.types'
@@ -20,10 +22,17 @@ export const FirstScreen: React.FC<FirstScreenProps> = ({ setActiveScreen }) => 
     formState: { errors },
   } = useForm<FirstScreenRegisterData>()
 
+  const { setFirstName, setSurname, setLastName } = useContext(UserDataContext)
+
   const componentClassName = 'first-screen'
 
   const onSubmit = handleSubmit((data) => {
     console.log(data)
+
+    setFirstName(data.firstName)
+    setSurname(data.surname)
+    setLastName(data.lastName)
+
     setActiveScreen(2)
   })
 

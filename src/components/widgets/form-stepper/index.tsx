@@ -1,6 +1,7 @@
 'use client'
 
 import Typography from '@/components/shared/typography'
+import UserDataProvider from '@/store/providers/user-register-data-provider'
 import { useMemo, useState } from 'react'
 
 import { FirstScreen } from '../register-form-screens/first-screen'
@@ -49,29 +50,31 @@ export const FormStepper: React.FC<FormStepperProps> = ({}) => {
   }
 
   return (
-    <div className="steps-content">
-      <div className="steps-container">
-        {screens.map((screen, index) => (
-          <div
-            className={getStepClass(screen)}
-            key={index}
-          >
-            <div>
-              <div className="circle">
-                <Typography
-                  variant="title-h3"
-                  font="ntSomic"
-                  tag="span"
-                >
-                  {screen}
-                </Typography>
+    <UserDataProvider>
+      <div className="steps-content">
+        <div className="steps-container">
+          {screens.map((screen, index) => (
+            <div
+              className={getStepClass(screen)}
+              key={index}
+            >
+              <div>
+                <div className="circle">
+                  <Typography
+                    variant="title-h3"
+                    font="ntSomic"
+                    tag="span"
+                  >
+                    {screen}
+                  </Typography>
+                </div>
               </div>
+              {screen < screens.length && <div className="line"></div>}
             </div>
-            {screen < screens.length && <div className="line"></div>}
-          </div>
-        ))}
+          ))}
+        </div>
+        {content}
       </div>
-      {content}
-    </div>
+    </UserDataProvider>
   )
 }
