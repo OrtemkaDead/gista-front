@@ -1,3 +1,3 @@
 //? Authorization
 export { default as AuthorizationLogin } from './authorization/authorization-login'
-export { AddSectionButton } from './section-menu/add-section-button'
+export { CurriculumMenuButton } from './curriculum-menu/curriculum-menu-button'

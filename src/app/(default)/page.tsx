@@ -1,11 +1,11 @@
 'use client'
 
-import { AddSectionButton } from '@/components/widgets'
+import { CurriculumMenuButton } from '@/components/widgets'
 import { Section, SubSection } from '@/store/reducers/sections-reducer/initial-state'
 import Image from 'next/image'
 import React, { MouseEventHandler, useState } from 'react'
 
-import { Button, Collapse, ModalContent, ModalLayout } from '@/shared'
+import { Collapse, ModalContent, ModalLayout } from '@/shared'
 
 const buttonModalExamplestyles = {
   padding: '10px',
@@ -18,6 +18,24 @@ const buttonModalExamplestyles = {
   borderRadius: 10,
 }
 
+// пример данных с сервера по разделам/подразделам
+const SECTIONS = [
+  { name: 'Общая гистология', subsections: ['Мышечная ткань', 'Костная ткань'] },
+  {
+    name: 'Частная гистология',
+    subsections: ['Органы кровотворения и иммуногенеза', 'Органы дыхания'],
+  },
+]
+
+// функция получения только списка разделов из серверных данных для одноуровнего SelectList
+const getSectionList = () => {
+  return SECTIONS.map((section) => {
+    const { subsections, ...rest } = section
+    return rest
+  })
+}
+
+console.log(getSectionList())
 const sections: Section[] = [
   {
     id: '1',
@@ -119,7 +137,17 @@ export default function MainPage(): React.ReactElement {
         </ModalLayout>
       )}
 
-      <AddSectionButton />
+      <CurriculumMenuButton buttonFor="add-section" />
+
+      <CurriculumMenuButton
+        buttonFor="add-subsection"
+        selectList={getSectionList()}
+      />
+
+      <CurriculumMenuButton
+        buttonFor="add-specimen"
+        selectList={SECTIONS}
+      />
     </main>
   )
 }

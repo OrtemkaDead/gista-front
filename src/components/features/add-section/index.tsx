@@ -1,18 +1,22 @@
-import { AddSectionForm } from '@/components/shared/modal-forms/add-section-form'
+import { CurriculumForm } from '@/components/shared/modal-forms/curriculum-form'
 import { FC, FormEventHandler } from 'react'
 
-import { AddSectionProps } from './add-section.types'
+import { EditCurriculumProps } from './add-section.types'
 
-export const AddSection: FC<AddSectionProps> = ({ cancel }) => {
-  const addSection: FormEventHandler = (event) => {
+export const EditCurriculum: FC<EditCurriculumProps> = ({ cancel, formFor, selectList }) => {
+  const editCurriculum: FormEventHandler = (event) => {
     event.preventDefault()
-    console.log('Add Section')
+    formFor === 'add-section' && console.log('Add section')
+    formFor === 'add-subsection' && console.log('Add subsection')
+    formFor === 'add-specimen' && console.log('Add specimen')
   }
 
   return (
-    <AddSectionForm
-      addSection={addSection}
+    <CurriculumForm
+      formFor={formFor}
+      action={editCurriculum}
       cancel={cancel}
+      selectList={selectList}
     />
   )
 }

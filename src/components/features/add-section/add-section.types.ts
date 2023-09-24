@@ -1,5 +1,4 @@
-import { MouseEventHandler } from 'react'
+/* eslint-disable max-len */
+import { CurriculumFormProps } from '@/components/shared/modal-forms/curriculum-form/curriculum-form.types'
 
-export interface AddSectionProps {
-  cancel: MouseEventHandler<HTMLButtonElement>
-}
+export type EditCurriculumProps = Pick<CurriculumFormProps, 'cancel' | 'formFor' | 'selectList'>
