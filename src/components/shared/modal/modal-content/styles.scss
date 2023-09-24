@@ -1,9 +1,17 @@
 .modal-content {
   padding: 20px;
   @include flexible($fd: column, $ai: center);
-  width: 327px;
   border-radius: 8px;
   background-color: $color-text-invert-primary;
+
+  &--without-buttons {
+    padding-top: 48px;
+    gap: 16px;
+
+    .modal-content__content {
+      margin: 0;
+    }
+  }
 
   &__title {
     color: $color-text-primary;
@@ -36,6 +44,6 @@
     margin-top: 20px;
     margin-bottom: 8px;
     @include flexible($fd: column, $ai: center, $jc: center);
-    width: fit-content;
+    width: 100%;
   }
 }

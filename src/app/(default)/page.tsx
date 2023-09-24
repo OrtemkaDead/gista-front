@@ -1,10 +1,11 @@
 'use client'
 
+import { AddSectionButton } from '@/components/widgets'
 import { Section, SubSection } from '@/store/reducers/sections-reducer/initial-state'
 import Image from 'next/image'
 import React, { MouseEventHandler, useState } from 'react'
 
-import { Collapse, ModalContent, ModalLayout } from '@/shared'
+import { Button, Collapse, ModalContent, ModalLayout } from '@/shared'
 
 const buttonModalExamplestyles = {
   padding: '10px',
@@ -117,6 +118,8 @@ export default function MainPage(): React.ReactElement {
           />
         </ModalLayout>
       )}
+
+      <AddSectionButton />
     </main>
   )
 }

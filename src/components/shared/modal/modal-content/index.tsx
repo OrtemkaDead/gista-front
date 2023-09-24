@@ -18,12 +18,17 @@ const ModalContent: FC<IModalContentProps> = ({
 }) => {
   const componentClassName = 'modal-content'
 
+  const ModalContentClassNames = classnames(componentClassName, {
+    [`${componentClassName}--without-buttons`]: !confirmBtnText,
+  })
+
   const ButtonWrapperClassName = classnames(`${componentClassName}__button-wrapper`, {
+    [`${componentClassName}__button-wrapper--attention`]: attentionIcon,
     [`${componentClassName}__button-wrapper--attention`]: attentionIcon,
   })
 
   return (
-    <div className={componentClassName}>
+    <div className={ModalContentClassNames}>
       {attentionIcon && (
         <div className={`${componentClassName}__attention-icon`}>
           <Icon
