@@ -64,7 +64,7 @@ const ModalContent: FC<IModalContentProps> = ({
         <div className={ButtonWrapperClassName}>
           <Button
             size="large"
-            type={'primary'}
+            type={'borderless'}
             onClick={reverseButtonDirection ? handleCancel : handleConfirm}
           >
             {reverseButtonDirection ? 'Отмена' : confirmBtnText}
@@ -72,7 +72,7 @@ const ModalContent: FC<IModalContentProps> = ({
 
           <Button
             size="large"
-            type={'borderless'}
+            type={'primary'}
             onClick={reverseButtonDirection ? handleConfirm : handleCancel}
           >
             {reverseButtonDirection ? confirmBtnText : 'Отмена'}

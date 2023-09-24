@@ -1,7 +1,16 @@
 'use client'
 
 import classnames from 'classnames'
-import { FC, KeyboardEvent, MouseEvent, memo, useCallback, useEffect, useState } from 'react'
+import {
+  FC,
+  FocusEvent,
+  KeyboardEvent,
+  MouseEvent,
+  memo,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react'
 
 import { Icon, TextInput } from '..'
 import { Typography } from '../typography'
@@ -13,17 +22,20 @@ const MultiLevelSelect: FC<MultiLevelSelectProps> = ({
   selectList,
   placeholder,
   extraButton,
+  defaultValue = '',
+  disabled = false,
 }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(isOpen)
-  const [value, setValue] = useState('')
+  const [value, setValue] = useState(defaultValue)
   const [isActive, setIsActive] = useState(false)
   const [isFocused, setIsFocused] = useState(false)
 
   useEffect(() => setIsDropdownOpen(isOpen), [isOpen])
 
   const handleOpen = useCallback(() => {
+    if (disabled) return
     setIsDropdownOpen(!isDropdownOpen)
-  }, [isDropdownOpen])
+  }, [disabled, isDropdownOpen])
 
   const handleChoose = useCallback((event: MouseEvent<HTMLElement>) => {
     setValue(event.currentTarget.innerText)
@@ -34,6 +46,22 @@ const MultiLevelSelect: FC<MultiLevelSelectProps> = ({
     event.code === 'Enter' && (setValue(event.currentTarget.innerText), setIsActive(true))
   }, [])
 
+  const handleFocus = useCallback(
+    (event: FocusEvent<HTMLDivElement>) => {
+      if (disabled) return
+      setIsFocused(true)
+    },
+    [disabled],
+  )
+
+  const handleBlur = useCallback(
+    (event: FocusEvent<HTMLDivElement>) => {
+      if (disabled) return
+      setIsFocused(false)
+    },
+    [disabled],
+  )
+
   const componentClassName = 'dropdown'
 
   const DropdownListClassName = 'dropdown-list'
@@ -41,6 +69,7 @@ const MultiLevelSelect: FC<MultiLevelSelectProps> = ({
   const ButtonClassName = classnames(`${componentClassName}__button`, {
     [`${componentClassName}__button--active`]: isActive,
     [`${componentClassName}__button--focus`]: isFocused,
+    [`${componentClassName}__button--disabled`]: disabled,
   })
 
   return (
@@ -49,8 +78,8 @@ const MultiLevelSelect: FC<MultiLevelSelectProps> = ({
         onClick={handleOpen}
         className={ButtonClassName}
         tabIndex={0}
-        onFocus={() => setIsFocused(true)}
-        onBlur={() => setIsFocused(false)}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
         onKeyUp={(event: KeyboardEvent) => {
           event.code === 'Enter' && setIsDropdownOpen(!isDropdownOpen)
         }}

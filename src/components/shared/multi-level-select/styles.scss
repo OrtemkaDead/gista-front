@@ -26,6 +26,10 @@
     }
   }
 
+  &__button--disabled {
+    opacity: 0.6;
+  }
+
   &__icon {
     position: absolute;
     right: 16px;

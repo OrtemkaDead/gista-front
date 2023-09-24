@@ -1,37 +1,92 @@
-// import { Button } from '@/components/shared'
-// import { FC, useState } from 'react'
+import { EditCurriculum } from '@/components/features/edit-curriculum'
+import { EditSubsection } from '@/components/features/edit-subsection'
+import { Button, ModalContent, ModalLayout, Typography } from '@/components/shared'
+import { IconNameTypes } from '@/components/shared/icon/icon-paths'
+import { EditSubsectionForm } from '@/components/shared/modal-forms/edit-subsection-form'
+import { FC, MouseEventHandler, useCallback, useMemo, useState } from 'react'
 
-// import { ISubsectionMenuButton } from './subsection-menu-button.types'
+import { SubsectionMenuButtonProps } from './subsection-menu-button.types'
 
-// export const SubsectionMenuButton: FC<ISubsectionMenuButton> = ({}) => {
-//   const [isModalOpened, setIsModalOpened] = useState(false)
+export const SubsectionMenuButton: FC<SubsectionMenuButtonProps> = ({
+  action,
+  subsectionName = '',
+  sectionName = '',
+  selectList = [],
+}) => {
+  const [isModalOpened, setIsModalOpened] = useState(false)
 
-//   return (
-//     <>
-//       <Button
-//         iconName={iconName}
-//         iconSide="left"
-//         type="borderless"
-//         onClick={openModal}
-//       ></Button>
+  const deleteAction = action === 'delete'
+  const editAction = action === 'edit'
 
-//       {isModalOpened && (
-//         <ModalLayout
-//           onClose={closeModal}
-//           exitIcon
-//         >
-//           <ModalContent
-//             title={textButton}
-//             content={
-//               <EditCurriculum
-//                 formFor={buttonFor}
-//                 cancel={closeModal}
-//                 selectList={selectList}
-//               />
-//             }
-//           />
-//         </ModalLayout>
-//       )}
-//     </>
-//   )
-// }
+  const deleteSubsection: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
+    console.log('Удалить подраздел')
+  }, [])
+
+  const openModal = useCallback(() => {
+    setIsModalOpened(true)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isModalOpened])
+
+  const closeModal = useCallback(() => {
+    setIsModalOpened(false)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isModalOpened])
+
+  const iconName: IconNameTypes = useMemo(() => {
+    return deleteAction ? 'delete' : 'edit'
+  }, [deleteAction])
+
+  const modalContent = useMemo(() => {
+    return editAction ? (
+      <ModalContent
+        title={'Редактирование подраздела'}
+        handleCancel={closeModal}
+        content={
+          <EditSubsection
+            sectionName={sectionName}
+            selectList={selectList}
+            subsectionName={subsectionName}
+            cancel={closeModal}
+          />
+        }
+      />
+    ) : deleteAction ? (
+      <ModalContent
+        title={'Удаление подраздела'}
+        attentionIcon
+        confirmBtnText="Удалить"
+        description={`Вы уверены, что хотите удалить подраздел “${subsectionName}” ?`}
+        handleConfirm={deleteSubsection}
+        handleCancel={closeModal}
+      />
+    ) : null
+  }, [
+    closeModal,
+    deleteAction,
+    deleteSubsection,
+    editAction,
+    sectionName,
+    selectList,
+    subsectionName,
+  ])
+
+  return (
+    <>
+      <Button
+        iconName={iconName}
+        iconSide="left"
+        type="borderless"
+        onClick={openModal}
+      ></Button>
+
+      {isModalOpened && (
+        <ModalLayout
+          onClose={closeModal}
+          exitIcon
+        >
+          {modalContent}
+        </ModalLayout>
+      )}
+    </>
+  )
+}

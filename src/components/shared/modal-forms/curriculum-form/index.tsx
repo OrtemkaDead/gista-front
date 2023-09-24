@@ -58,7 +58,10 @@ export const CurriculumForm: FC<CurriculumFormProps> = ({
   }, [addSectionForm, addSpecimenForm, addSubsectionForm, selectList])
 
   return (
-    <form className={componentClassName}>
+    <form
+      className={componentClassName}
+      onSubmit={action}
+    >
       {form}
 
       <div className={`${componentClassName}__button-wrapper`}>
@@ -75,7 +78,6 @@ export const CurriculumForm: FC<CurriculumFormProps> = ({
           as="submit"
           size="large"
           type="primary"
-          onClick={action}
           className={`${componentClassName}__button`}
         >
           Добавить

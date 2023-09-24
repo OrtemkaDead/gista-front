@@ -1,6 +1,7 @@
 'use client'
 
 import { CurriculumMenuButton } from '@/components/widgets'
+import { SubsectionMenuButton } from '@/components/widgets/subsection-menu/subsection-menu-button'
 import { Section, SubSection } from '@/store/reducers/sections-reducer/initial-state'
 import Image from 'next/image'
 import React, { MouseEventHandler, useState } from 'react'
@@ -35,7 +36,6 @@ const getSectionList = () => {
   })
 }
 
-console.log(getSectionList())
 const sections: Section[] = [
   {
     id: '1',
@@ -147,6 +147,18 @@ export default function MainPage(): React.ReactElement {
       <CurriculumMenuButton
         buttonFor="add-specimen"
         selectList={SECTIONS}
+      />
+
+      <SubsectionMenuButton
+        action="delete"
+        subsectionName="Органы кроветворения и иммуногенеза"
+      />
+
+      <SubsectionMenuButton
+        action="edit"
+        sectionName="Частная гистология"
+        subsectionName="Органы кроветворения и иммуногенеза"
+        selectList={getSectionList()}
       />
     </main>
   )

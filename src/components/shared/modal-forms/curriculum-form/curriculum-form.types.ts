@@ -6,6 +6,6 @@ export type ModalFormTypes = 'add-section' | 'add-subsection' | 'add-specimen'
 
 export interface CurriculumFormProps extends Partial<Pick<MultiLevelSelectProps, 'selectList'>> {
   cancel: MouseEventHandler<HTMLButtonElement>
-  action: FormEventHandler
+  action: FormEventHandler<HTMLFormElement>
   formFor: ModalFormTypes
 }

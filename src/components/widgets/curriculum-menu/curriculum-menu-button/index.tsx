@@ -1,6 +1,6 @@
 'use client'
 
-import { EditCurriculum } from '@/components/features/add-section'
+import { EditCurriculum } from '@/components/features/edit-curriculum'
 import { Button, ModalContent, ModalLayout } from '@/components/shared'
 import { IconNameTypes } from '@/components/shared/icon/icon-paths'
 import { FC, useCallback, useMemo, useState } from 'react'
