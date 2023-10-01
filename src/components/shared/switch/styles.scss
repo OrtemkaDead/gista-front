@@ -1,0 +1,43 @@
+.switch__checkbox {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+.switch__label {
+  @include flexible($fd: row, $ai: center, $jc: space-between);
+  cursor: pointer;
+  width: 32px;
+  height: 20px;
+  background: $color-control-default;
+  border-radius: 100px;
+  position: relative;
+  transition: background-color 0.2s;
+}
+
+.switch__label .switch__button {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 45px;
+  transition: 0.2s;
+  background: $color-icon-invert-primary;
+  box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
+}
+
+.switch__checkbox:checked + .switch__label .switch__button {
+  left: calc(100% - 2px);
+  transform: translateX(-100%);
+}
+.switch__label {
+  &.active {
+    background-color: $color-primary;
+  }
+}
+
+.switch__label:active .switch__button {
+  width: 15px;
+}
