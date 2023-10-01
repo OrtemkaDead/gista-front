@@ -1,13 +1,22 @@
-import { memo, useMemo } from 'react'
+'use client'
+
+import { memo, useCallback, useMemo, useState } from 'react'
 
 import { AuthorizationFormWrapper, Button, EmailInput, PasswordInput, Typography } from '@/shared'
 
 import AuthorizationLoginProps from './authorization-login.types'
 import './styles.scss'
 
-export const AuthorizationLogin: React.FC<AuthorizationLoginProps> = ({}) => {
+export const AuthorizationLogin: React.FC<AuthorizationLoginProps> = ({ authFunc }) => {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
   //* ClassNames
   const componentClassName = 'authorization-login'
+
+  const handleAuthSubmited = useCallback(() => {
+    authFunc(email, password)
+  }, [authFunc, email, password])
 
   const buttons = useMemo(
     () => (
@@ -15,7 +24,7 @@ export const AuthorizationLogin: React.FC<AuthorizationLoginProps> = ({}) => {
         <Button
           size="large"
           fullWidth
-          to="/"
+          onClick={handleAuthSubmited}
         >
           Войти
         </Button>
@@ -37,7 +46,7 @@ export const AuthorizationLogin: React.FC<AuthorizationLoginProps> = ({}) => {
         </div>
       </>
     ),
-    [],
+    [handleAuthSubmited],
   )
 
   return (
@@ -46,8 +55,14 @@ export const AuthorizationLogin: React.FC<AuthorizationLoginProps> = ({}) => {
       buttonSide={buttons}
     >
       <div className={`${componentClassName}__content`}>
-        <EmailInput />
-        <PasswordInput />
+        <EmailInput
+          value={email}
+          onChange={setEmail}
+        />
+        <PasswordInput
+          value={password}
+          onChange={setPassword}
+        />
       </div>
     </AuthorizationFormWrapper>
   )

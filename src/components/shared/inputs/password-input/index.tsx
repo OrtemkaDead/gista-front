@@ -1,16 +1,14 @@
 'use client'
 
 import classnames from 'classnames'
-import { memo, useState } from 'react'
+import { memo } from 'react'
 
 import { TextInput } from '@/shared'
 
 import PasswordInputProps from './password-input.types'
 import './styles.scss'
 
-const PasswordInput: React.FC<PasswordInputProps> = ({ className = '' }) => {
-  const [passwordValue, setPasswordValue] = useState<string>('')
-
+const PasswordInput: React.FC<PasswordInputProps> = ({ className = '', value, onChange }) => {
   //* ClassNames
   const componentClassName = 'password-input'
   const PasswordInputClassName = classnames(
@@ -24,8 +22,8 @@ const PasswordInput: React.FC<PasswordInputProps> = ({ className = '' }) => {
       className={PasswordInputClassName}
       type="password"
       placeholder="Пароль"
-      value={passwordValue}
-      setValue={setPasswordValue}
+      value={value}
+      setValue={onChange || (() => null)}
     />
   )
 }
