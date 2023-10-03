@@ -1,11 +1,20 @@
 .modal-content {
   padding: 20px;
   @include flexible($fd: column, $ai: center);
-  width: 327px;
   border-radius: 8px;
   background-color: $color-text-invert-primary;
 
+  &--without-buttons {
+    padding-top: 48px;
+    gap: 16px;
+
+    .modal-content__content {
+      margin: 0;
+    }
+  }
+
   &__title {
+    text-align: center;
     color: $color-text-primary;
     font-weight: 600;
   }
@@ -14,12 +23,18 @@
     margin-top: 8px;
     color: $color-text-secondary;
     text-align: center;
+    max-width: 290px;
   }
 
   &__button-wrapper {
     margin-top: 20px;
     @include flexible($ai: center, $gap: 8px);
     align-self: flex-start;
+    width: 100%;
+
+    > button {
+      width: 100%;
+    }
 
     &--attention {
       margin-top: 16px;
@@ -36,6 +51,6 @@
     margin-top: 20px;
     margin-bottom: 8px;
     @include flexible($fd: column, $ai: center, $jc: center);
-    width: fit-content;
+    width: 100%;
   }
 }

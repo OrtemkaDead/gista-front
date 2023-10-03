@@ -1,0 +1,15 @@
+.edit-specimen-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 340px;
+
+  &__button-wrapper {
+    display: flex;
+    gap: 8px;
+  }
+
+  &__button {
+    width: 100%;
+  }
+}

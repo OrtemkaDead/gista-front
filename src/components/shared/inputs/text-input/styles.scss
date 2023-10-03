@@ -2,19 +2,20 @@
   @include flexible($fd: column);
   width: 100%;
   input {
+    line-height: 24px;
     width: 100%;
     padding: 8px 16px;
-    border: 1px solid #DEDEDE;
+    border: 1px solid #dedede;
     border-radius: 8px;
-    &::placeholder{
-      color: #A1A1A1;
+    &::placeholder {
+      color: #a1a1a1;
     }
     &:focus {
-      border: 1px solid #007FFF;
+      border: 1px solid #007fff;
     }
   }
 
   &__hint-text {
-    color: #E32727;
+    color: #e32727;
   }
 }

@@ -18,12 +18,17 @@ const ModalContent: FC<IModalContentProps> = ({
 }) => {
   const componentClassName = 'modal-content'
 
+  const ModalContentClassNames = classnames(componentClassName, {
+    [`${componentClassName}--without-buttons`]: !confirmBtnText,
+  })
+
   const ButtonWrapperClassName = classnames(`${componentClassName}__button-wrapper`, {
+    [`${componentClassName}__button-wrapper--attention`]: attentionIcon,
     [`${componentClassName}__button-wrapper--attention`]: attentionIcon,
   })
 
   return (
-    <div className={componentClassName}>
+    <div className={ModalContentClassNames}>
       {attentionIcon && (
         <div className={`${componentClassName}__attention-icon`}>
           <Icon
@@ -59,7 +64,7 @@ const ModalContent: FC<IModalContentProps> = ({
         <div className={ButtonWrapperClassName}>
           <Button
             size="large"
-            type={'primary'}
+            type={'borderless'}
             onClick={reverseButtonDirection ? handleCancel : handleConfirm}
           >
             {reverseButtonDirection ? 'Отмена' : confirmBtnText}
@@ -67,7 +72,7 @@ const ModalContent: FC<IModalContentProps> = ({
 
           <Button
             size="large"
-            type={'borderless'}
+            type={'primary'}
             onClick={reverseButtonDirection ? handleConfirm : handleCancel}
           >
             {reverseButtonDirection ? confirmBtnText : 'Отмена'}
