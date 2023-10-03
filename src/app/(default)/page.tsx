@@ -1,12 +1,13 @@
 'use client'
 
 import { CurriculumMenuButton } from '@/components/widgets'
+import { SpecimenMenuButton } from '@/components/widgets/specimen-menu/specimen-menu-button'
 import { SubsectionMenuButton } from '@/components/widgets/subsection-menu/subsection-menu-button'
 import { Section, SubSection } from '@/store/reducers/sections-reducer/initial-state'
 import Image from 'next/image'
 import React, { MouseEventHandler, useState } from 'react'
 
-import { Collapse, ModalContent, ModalLayout } from '@/shared'
+import { Button, Collapse, ModalContent, ModalLayout } from '@/shared'
 
 const buttonModalExamplestyles = {
   padding: '10px',
@@ -102,7 +103,6 @@ export default function MainPage(): React.ReactElement {
           )}
         </Collapse>
       ))}
-
       <button
         style={buttonModalExamplestyles}
         onClick={handleClick}
@@ -110,7 +110,6 @@ export default function MainPage(): React.ReactElement {
       >
         Открыть модальное окно с картинкой в качестве основного контента
       </button>
-
       {openModal && (
         <ModalLayout
           onClose={() => setOpenModal(false)}
@@ -136,29 +135,44 @@ export default function MainPage(): React.ReactElement {
           />
         </ModalLayout>
       )}
-
+      <div>Меню учебного плана</div>
       <CurriculumMenuButton buttonFor="add-section" />
-
       <CurriculumMenuButton
         buttonFor="add-subsection"
         selectList={getSectionList()}
       />
-
       <CurriculumMenuButton
         buttonFor="add-specimen"
         selectList={SECTIONS}
       />
-
+      <div> Меню подраздела</div>
       <SubsectionMenuButton
         action="delete"
         subsectionName="Органы кроветворения и иммуногенеза"
       />
-
       <SubsectionMenuButton
         action="edit"
         sectionName="Частная гистология"
         subsectionName="Органы кроветворения и иммуногенеза"
         selectList={getSectionList()}
+      />
+      <div> Меню карточки препарата</div>
+      <SpecimenMenuButton action="edit" />
+      <SpecimenMenuButton action="delete" />
+
+      <div> Меню самого препарата</div>
+
+      <SpecimenMenuButton
+        action="delete"
+        textButton="Удалить фото"
+      />
+      <SpecimenMenuButton
+        action="clear"
+        textButton="Очистить разметку"
+      />
+      <SpecimenMenuButton
+        action="edit"
+        textButton="Редактировать препарат"
       />
     </main>
   )

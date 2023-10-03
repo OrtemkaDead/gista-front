@@ -21,7 +21,7 @@ export const EditCurriculum: FC<EditCurriculumProps> = ({ cancel, formFor, selec
   return (
     <CurriculumForm
       formFor={formFor}
-      action={editCurriculum}
+      onSubmit={editCurriculum}
       cancel={cancel}
       selectList={selectList}
     />

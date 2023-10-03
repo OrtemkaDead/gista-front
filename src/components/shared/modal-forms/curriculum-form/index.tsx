@@ -10,9 +10,9 @@ export const CurriculumForm: FC<CurriculumFormProps> = ({
   formFor,
   selectList = [],
   cancel,
-  action,
+  onSubmit,
 }) => {
-  const componentClassName = 'add-section-form'
+  const componentClassName = 'curriculum-form'
 
   const addSectionForm = formFor === 'add-section'
   const addSubsectionForm = formFor === 'add-subsection'
@@ -60,7 +60,7 @@ export const CurriculumForm: FC<CurriculumFormProps> = ({
   return (
     <form
       className={componentClassName}
-      onSubmit={action}
+      onSubmit={onSubmit}
     >
       {form}
 

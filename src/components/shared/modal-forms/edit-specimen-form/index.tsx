@@ -1,36 +1,42 @@
-import { FC } from 'react'
+import React, { FC } from 'react'
 
 import { Button, TextInput } from '../..'
+import { FileInput } from '../../inputs/file-input'
 import MultiLevelSelect from '../../multi-level-select'
-import { EditSubsectionFormProps } from './edit-subsection.types'
+import { EditSpecimenFormProps } from './edit-specimen-form.types'
 import './styles.scss'
 
-export const EditSubsectionForm: FC<EditSubsectionFormProps> = ({
-  selectList,
-  sectionName,
-  subsectionName,
+export const EditSpecimenForm: FC<EditSpecimenFormProps> = ({
   onSubmit,
-  setValue,
+  specimenName,
+  selectList = [],
+  sectionName,
   cancel,
+  uploadImage,
+  previewImage,
 }) => {
-  const componentClassName = 'subsection-form'
+  const componentClassName = 'edit-specimen-form'
 
   return (
     <form
       className={componentClassName}
       onSubmit={onSubmit}
     >
+      <TextInput
+        type="text"
+        placeholder="Введите название препарата"
+        value={specimenName}
+      />
+
       <MultiLevelSelect
         selectList={selectList}
         defaultValue={sectionName}
-        placeholder="Раздел"
         disabled
       />
-      <TextInput
-        type="text"
-        placeholder="Название препарата"
-        value={subsectionName}
-        setValue={setValue}
+
+      <FileInput
+        onChange={uploadImage}
+        previewImage={previewImage}
       />
 
       <div className={`${componentClassName}__button-wrapper`}>

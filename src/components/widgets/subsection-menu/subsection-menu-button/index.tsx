@@ -40,7 +40,6 @@ export const SubsectionMenuButton: FC<SubsectionMenuButtonProps> = ({
     return editAction ? (
       <ModalContent
         title={'Редактирование подраздела'}
-        handleCancel={closeModal}
         content={
           <EditSubsection
             sectionName={sectionName}
