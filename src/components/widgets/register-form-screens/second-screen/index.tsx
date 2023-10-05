@@ -2,6 +2,9 @@
 
 import { Button } from '@/components/shared'
 import { RegisterInput } from '@/components/shared/inputs/register-input'
+import { USER_SERVICE } from '@/services/user-service/user.service'
+import { UserDataContext } from '@/store/providers/user-register-data-provider'
+import { useContext } from 'react'
 import { useForm } from 'react-hook-form'
 
 import SecondScreenProps from './second-screen.types'
@@ -20,10 +23,19 @@ export const SecondScreen: React.FC<SecondScreenProps> = ({ setActiveScreen }) =
     getValues,
   } = useForm<SecondScreenRegisterData>()
 
+  const { setPhone, setEmail } = useContext(UserDataContext)
+
   const componentClassName = 'second-screen'
 
-  const onSubmit = handleSubmit((data) => {
+  const onSubmit = handleSubmit(async (data) => {
     console.log(data)
+
+    setPhone(data.phone)
+    setEmail(data.email)
+
+    const response = await USER_SERVICE.sendCode(data.email)
+    console.log(response)
+
     setActiveScreen(3)
   })
 

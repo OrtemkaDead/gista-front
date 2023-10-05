@@ -2,8 +2,10 @@
 
 import { Button, Icon, Typography } from '@/components/shared'
 import { RegisterInput } from '@/components/shared/inputs/register-input'
+import { USER_SERVICE } from '@/services/user-service/user.service'
+import { UserDataContext } from '@/store/providers/user-register-data-provider'
 import Validate from '@/utils/Validate'
-import { useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 import FourthScreenProps from './fourth-screen.types'
@@ -26,8 +28,25 @@ export const FourthScreen: React.FC<FourthScreenProps> = ({}) => {
     formState: { errors },
   } = useForm<FourthScreenRegisterData>()
 
-  const onSubmit = handleSubmit((data) => {
+  const { first_name, last_name, surname, email, phone } = useContext(UserDataContext)
+
+  const onSubmit = handleSubmit(async (data) => {
     console.log(data)
+
+    const userData = {
+      email: email,
+      phone: phone,
+      password: data.password,
+      first_name: first_name,
+      last_name: last_name,
+      surname: surname,
+    }
+
+    const response = await USER_SERVICE.register(userData)
+
+    console.log(response)
+
+    // дальнейшие действия - переалресация на страницу главная?
   })
 
   return (
